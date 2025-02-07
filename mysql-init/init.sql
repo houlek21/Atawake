@@ -10,7 +10,8 @@ FLUSH PRIVILEGES;
 -- Create the users table
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     phone VARCHAR(20),
     address TEXT,
@@ -18,9 +19,9 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 -- Insert some sample users
-INSERT INTO users (name, email, phone, address) VALUES
-('Alice Johnson', 'alice@example.com', '123-456-7890', '123 Main St, Springfield'),
-('Bob Smith', 'bob@example.com', '987-654-3210', '456 Elm St, Metropolis'),
-('Charlie Brown', 'charlie@example.com', '555-123-4567', '789 Oak St, Gotham'),
-('David White', 'david@example.com', '111-222-3333', '321 Maple St, Star City'),
-('Eve Black', 'eve@example.com', '999-888-7777', '654 Birch St, Central City');
+INSERT INTO users (first_name, last_name, email, phone, address) VALUES
+('Alice', 'Johnson', 'alice@example.com', '123-456-7890', '123 Main St, Springfield'),
+('Bob', 'Smith', 'bob@example.com', '987-654-3210', '456 Elm St, Metropolis'),
+('Charlie', 'Brown', 'charlie@example.com', '555-123-4567', '789 Oak St, Gotham'),
+('David', 'White', 'david@example.com', '111-222-3333', '321 Maple St, Star City'),
+('Eve', 'Black', 'eve@example.com', '999-888-7777', '654 Birch St, Central City');
