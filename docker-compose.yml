@@ -6,14 +6,13 @@ services:
     container_name: mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: mydatabase
-      MYSQL_USER: myuser
-      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: ecommerce_db
+      MYSQL_USER: ecommerce_admin
+      MYSQL_PASSWORD: password123
     ports:
       - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
-      - ./mysql-init:/docker-entrypoint-initdb.d  # Ensure database setup
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -26,9 +25,9 @@ services:
       - "5000:5000"
     environment:
       - DB_HOST=mysql
-      - DB_USER=myuser
-      - DB_PASSWORD=mypassword
-      - DB_NAME=mydatabase
+      - DB_NAME=ecommerce_db
+      - DB_USER=ecommerce_admin
+      - DB_PASSWORD=password123
     volumes:
       - ./backend:/app  # Sync backend files with container
       - /app/node_modules  # Prevents overwriting dependencies

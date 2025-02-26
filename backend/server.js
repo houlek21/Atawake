@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', userRoutes);
 
 // Sync Sequelize models with the database
-sequelize.sync()
+sequelize.sync({ alter: true })  // 'alter: true' will update tables if needed
   .then(() => console.log('Database & tables synced'))
   .catch(err => console.error('Error syncing database:', err));
 
