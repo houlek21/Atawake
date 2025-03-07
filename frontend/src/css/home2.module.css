@@ -1,0 +1,864 @@
+
+
+.shop-homepage-buyer,
+.shop-homepage-buyer * {
+  box-sizing: border-box;
+}
+.shop-homepage-buyer {
+  background: #ffffff;
+  height: 3596px;
+  position: relative;
+  overflow: hidden;
+}
+.slider {
+  width: 1280px;
+  height: 381px;
+  position: absolute;
+  left: 0px;
+  top: 156px;
+}
+.group-65 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-16 {
+  width: 1280px;
+  height: 381px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  object-fit: cover;
+}
+.rectangle-159 {
+  background: rgba(0, 0, 0, 0.65);
+  width: 1280px;
+  height: 381px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.group-59 {
+  position: absolute;
+  inset: 0;
+}
+.made-with-heart {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 37px;
+  font-weight: 600;
+  position: absolute;
+  left: 196px;
+  top: 85px;
+}
+.explore-handcrafted-goods-made-by-indigenous-artisans-blending-tradition-with-artistry {
+  color: #ffffff;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 500;
+  position: absolute;
+  left: 196px;
+  top: 167px;
+  width: 534px;
+  height: 57px;
+}
+.group-58 {
+  width: 273px;
+  height: 47px;
+  position: static;
+}
+.rectangle-4 {
+  background: #ffffff;
+  border-radius: 23.5px;
+  width: 273px;
+  height: 47px;
+  position: absolute;
+  left: 196px;
+  top: 250px;
+}
+.shop-handmade-goods {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  left: 219px;
+  top: 262px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.stroke-1 {
+  width: 54px;
+  height: 27px;
+  position: absolute;
+  left: 1172px;
+  top: 219px;
+  overflow: visible;
+}
+.stroke-2 {
+  width: 54px;
+  height: 27px;
+  position: absolute;
+  left: 107px;
+  top: 219px;
+  overflow: visible;
+}
+.rectangle-161 {
+  background: #ffffff;
+  width: 1280px;
+  height: 156px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  box-shadow: 0px 2px 5.8px 0px rgba(0, 0, 0, 0.22);
+}
+.mask-group {
+  height: auto;
+  position: absolute;
+  left: 1188px;
+  top: 1945px;
+  overflow: visible;
+}
+.div {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Light", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  position: absolute;
+  left: 1138px;
+  top: 60px;
+}
+.group-19 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-2 {
+  background: #7a7a7a;
+  width: 126.21px;
+  height: 57.65px;
+  position: absolute;
+  left: 107px;
+  top: 53px;
+}
+.logo {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 144px;
+  top: 65px;
+  width: 52.43px;
+  height: 30.7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.group-55 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-3 {
+  border-radius: 29.5px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1.5px;
+  width: 572px;
+  height: 59px;
+  position: absolute;
+  left: 393px;
+  top: 53px;
+}
+.search {
+  color: #676767;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  position: absolute;
+  left: 465px;
+  top: 70px;
+}
+.div2 {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Light", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  position: absolute;
+  left: 419px;
+  top: 65px;
+  width: 35px;
+  height: 36px;
+}
+.div3 {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Light", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  position: absolute;
+  left: 1084px;
+  top: 60px;
+}
+.popular-categories {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  position: absolute;
+  left: 108px;
+  top: 1856px;
+}
+.from-our-artists {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  position: absolute;
+  left: 108px;
+  top: 2411px;
+}
+.fashion {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 108px;
+  top: 2318px;
+}
+.taya-sky {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 379px;
+  top: 1705px;
+  width: 174px;
+}
+.market-s-name {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 249px;
+  top: 1155px;
+  width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market-s-name2 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 554px;
+  top: 1155px;
+  width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market-s-name3 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 859px;
+  top: 1155px;
+  width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.market-s-name4 {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 1182px;
+  top: 1155px;
+  width: 174px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nova-waskah {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 652px;
+  top: 1705px;
+  width: 174px;
+}
+.maya-crowfoot {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 925px;
+  top: 1705px;
+  width: 239px;
+}
+.accessories {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 468px;
+  top: 2318px;
+}
+.painting {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 828px;
+  top: 2318px;
+}
+.pottery {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  position: absolute;
+  left: 1188px;
+  top: 2318px;
+}
+.div4 {
+  color: #000000;
+  text-align: center;
+  font-family: "SfCompact-Medium", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  position: absolute;
+  left: 428px;
+  top: 2416px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.explore-local-artists {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 600;
+  position: absolute;
+  left: 108px;
+  top: 1462px;
+}
+.discover-community-markets {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 38px;
+  font-weight: 600;
+  position: absolute;
+  left: 372px;
+  top: 792px;
+}
+.rectangle-31 {
+  background: #d9d9d9;
+  width: 1282px;
+  height: 418px;
+  position: absolute;
+  left: 0px;
+  top: 3178px;
+}
+.footer {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 44px;
+  font-weight: 500;
+  position: absolute;
+  left: 108px;
+  top: 3238px;
+}
+.ellipse-20 {
+  background: #d9d9d9;
+  border-radius: 50%;
+  width: 249px;
+  height: 249px;
+  position: absolute;
+  left: 211px;
+  top: 887px;
+}
+.ellipse-21 {
+  background: #d9d9d9;
+  border-radius: 50%;
+  width: 249px;
+  height: 249px;
+  position: absolute;
+  left: 516px;
+  top: 887px;
+}
+.ellipse-22 {
+  background: #d9d9d9;
+  border-radius: 50%;
+  width: 249px;
+  height: 249px;
+  position: absolute;
+  left: 821px;
+  top: 887px;
+}
+.ellipse-23 {
+  background: #d9d9d9;
+  border-radius: 50%;
+  width: 249px;
+  height: 249px;
+  position: absolute;
+  left: 1126px;
+  top: 887px;
+}
+.div5 {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Light", sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  position: absolute;
+  left: 1033px;
+  top: 60px;
+}
+.group-56 {
+  position: absolute;
+  inset: 0;
+}
+.shop {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  position: absolute;
+  left: 310px;
+  top: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div6 {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Medium", sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  position: absolute;
+  left: 274px;
+  top: 70px;
+}
+.rectangle-153 {
+  background: #d9d9d9;
+  border-radius: 25px;
+  width: 1064px;
+  height: 168px;
+  position: absolute;
+  left: 108px;
+  top: 581px;
+}
+.your-vision-their-craft {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 27px;
+  font-weight: 500;
+  position: absolute;
+  left: 145px;
+  top: 613px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.work-with-indigenous-artisans-to-create-a-custom-one-of-a-kind-piece-made-just-for-you {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 400;
+  position: absolute;
+  left: 146px;
+  top: 665px;
+  width: 701px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.group-62 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-154 {
+  border-radius: 31.5px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 269px;
+  height: 48px;
+  position: absolute;
+  left: 867px;
+  top: 641px;
+}
+.browse-custom-goods {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  left: 892px;
+  top: 653px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.group-63 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-1542 {
+  border-radius: 31.5px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 1px;
+  width: 138px;
+  height: 48px;
+  position: absolute;
+  left: 108px;
+  top: 1577px;
+}
+.view-all {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  left: 139px;
+  top: 1589px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mask-group2 {
+  height: auto;
+  position: absolute;
+  left: 468px;
+  top: 1945px;
+  overflow: visible;
+}
+.mask-group3 {
+  height: auto;
+  position: absolute;
+  left: 108px;
+  top: 1945px;
+  overflow: visible;
+}
+.mask-group4 {
+  height: auto;
+  position: absolute;
+  left: 828px;
+  top: 1945px;
+  overflow: visible;
+}
+.group-66 {
+  height: auto;
+  position: absolute;
+  left: 1156px;
+  top: 2085px;
+  overflow: visible;
+}
+.group-67 {
+  height: auto;
+  position: absolute;
+  left: 1156px;
+  top: 980px;
+  overflow: visible;
+}
+.artists {
+  width: 344px;
+  height: 593px;
+  position: absolute;
+  left: 108px;
+  top: 2500px;
+}
+.rectangle-160 {
+  background: #ededed;
+  border-radius: 14px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 0%;
+}
+.mask-group5 {
+  width: 100%;
+  height: 58.01%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 41.99%;
+  top: 0%;
+  overflow: visible;
+}
+.the-story-behind-the-beads-honoring-craftsmanship {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  font-weight: 400;
+  position: absolute;
+  right: 6.98%;
+  left: 7.27%;
+  width: 85.76%;
+  bottom: 21.59%;
+  top: 68.3%;
+  height: 10.12%;
+}
+.mask-group6 {
+  width: 18.92%;
+  height: 10.98%;
+  position: absolute;
+  right: 40.09%;
+  left: 40.99%;
+  bottom: 36.58%;
+  top: 52.45%;
+  overflow: visible;
+}
+.taya-sky2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 600;
+  position: absolute;
+  right: 71.22%;
+  left: 7.27%;
+  width: 21.51%;
+  bottom: 15.18%;
+  top: 80.27%;
+  height: 4.55%;
+}
+.group-672 {
+  position: absolute;
+  inset: 0;
+}
+.rectangle-1543 {
+  border-radius: 31.5px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.75px;
+  width: 33.72%;
+  height: 5.75%;
+  position: absolute;
+  right: 59.01%;
+  left: 7.27%;
+  bottom: 3.69%;
+  top: 90.56%;
+}
+._5-min-read {
+  color: #000000;
+  text-align: center;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  position: absolute;
+  right: 64.83%;
+  left: 13.08%;
+  width: 22.09%;
+  bottom: 4.91%;
+  top: 91.75%;
+  height: 3.34%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.artists2 {
+  width: 344px;
+  height: 593px;
+  position: absolute;
+  left: 468px;
+  top: 2500px;
+}
+.mask-group7 {
+  width: 100%;
+  height: 58.01%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 41.99%;
+  top: 0%;
+  overflow: visible;
+}
+.mask-group8 {
+  width: 18.92%;
+  height: 10.98%;
+  position: absolute;
+  right: 40.09%;
+  left: 40.99%;
+  bottom: 36.58%;
+  top: 52.45%;
+  overflow: visible;
+}
+.taya-sky3 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 600;
+  position: absolute;
+  right: 60.17%;
+  left: 7.27%;
+  width: 32.56%;
+  bottom: 15.18%;
+  top: 80.27%;
+  height: 4.55%;
+}
+.artists3 {
+  width: 344px;
+  height: 593px;
+  position: absolute;
+  left: 828px;
+  top: 2500px;
+}
+.mask-group9 {
+  width: 100%;
+  height: 58.01%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 41.99%;
+  top: 0%;
+  overflow: visible;
+}
+.mask-group10 {
+  width: 18.92%;
+  height: 10.98%;
+  position: absolute;
+  right: 40.09%;
+  left: 40.99%;
+  bottom: 36.58%;
+  top: 52.45%;
+  overflow: visible;
+}
+.taya-sky4 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 600;
+  position: absolute;
+  right: 56.4%;
+  left: 7.27%;
+  width: 36.34%;
+  bottom: 15.18%;
+  top: 80.27%;
+  height: 4.55%;
+}
+.mask-group11 {
+  height: auto;
+  position: absolute;
+  left: 379px;
+  top: 1343px;
+  overflow: visible;
+}
+.mask-group12 {
+  height: auto;
+  position: absolute;
+  left: 652px;
+  top: 1343px;
+  overflow: visible;
+}
+.mask-group13 {
+  height: auto;
+  position: absolute;
+  left: 925px;
+  top: 1343px;
+  overflow: visible;
+}
+.sherwood-park-ab {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  position: absolute;
+  right: 58.28%;
+  left: 29.61%;
+  width: 12.11%;
+  bottom: 50.76%;
+  top: 48.47%;
+  height: 0.77%;
+}
+.edmonton-ab {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  position: absolute;
+  right: 40.16%;
+  left: 50.94%;
+  width: 8.91%;
+  bottom: 50.76%;
+  top: 48.47%;
+  height: 0.77%;
+}
+.sherwood-park-ab2 {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  position: absolute;
+  right: 15.62%;
+  left: 72.27%;
+  width: 12.11%;
+  bottom: 50.76%;
+  top: 48.47%;
+  height: 0.77%;
+}
