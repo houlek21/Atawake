@@ -48,4 +48,15 @@ const User = sequelize.define(
   }
 );
 
+//await User.create({
+//  
+//  first_name:"Alls", 
+//  last_name:"dawdaw", 
+//  email:"dwdd@gmail.com",
+//  phone:5464564564,
+//  address:"1231",
+//  password_hash: "dwadaw", // save the hashed password
+//  user_type: 'regular', // Default user type is 'regular' for new users
+//});
+
 export default User;

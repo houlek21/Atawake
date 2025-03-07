@@ -6,6 +6,11 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
     try {
+        //SIMPLE RESP DEBUG
+        console.log('logstar' , req.body)
+        
+
+
         const user = await User.findOne({ where: { email } });
         if(!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
@@ -18,8 +23,14 @@ const loginUser = async (req, res) => {
         }
 
         // Create JWT token
-        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+
+        //const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        
+        const token = jwt.sign({ id: user.id, fn:user.first_name, ln:user.last_name }, "secret", { expiresIn: '1h' });
         res.status(200).json({ token });
+        
+       
+       
     } catch (error) {
         console.log(error); // Log error for debugging
         res.status(500).json({ message: 'Server error' });

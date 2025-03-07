@@ -14,7 +14,11 @@ export const getAllUsers = async (req, res) => {
 
 // Add a new user
 export const addUser = async (req, res) => {
+  
   const { first_name, last_name, email, phone, address, password } = req.body;
+ 
+        
+  
 
   try {
     // check if the email already exists
