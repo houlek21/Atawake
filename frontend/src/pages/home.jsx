@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import "../App.css"; // Ensure correct path
 
-function Home() {
+export default function HomePage() {
   const [users, setUsers] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/users") // Fetch users from backend
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/products") // Fetch products from backend
+      .then((response) => response.json())
+      .then((data) => setProducts(data))
+      .catch((error) => console.error("Error fetching products:", error));
   }, []);
 
   return (
@@ -26,8 +34,17 @@ function Home() {
           <p>Loading users...</p>
         )}
       </ul>
+      
+      <h2>Products</h2>
+      <ul>
+        {products.map((product) => (
+          <li key={product.id}>
+            <h3>{product.name}</h3>
+            <p>{product.description}</p>
+            <p>Price: ${product.price}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
-
-export default Home;

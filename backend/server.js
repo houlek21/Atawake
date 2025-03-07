@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import sequelize from './database/connection.js';
-import userRoutes from './routes/userRoutes.js';
+import userRoutes from './routes/user.js';
 
 dotenv.config();
 
