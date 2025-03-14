@@ -6,6 +6,7 @@ import { homePage } from "./home.jsx";
 import { signupPage } from "./signup.jsx";
 import { accountPage } from "./account.jsx";
 import { loginPage } from "./login.jsx";
+import { settingsPage } from "./settings.jsx";
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
@@ -24,7 +25,7 @@ function App() {
         <Route path="/buy" component={buyPage} />
         <Route path="/sell" component={sellPage} />
         <Route path="/signup" component={signupPage} />
-
+        <Route path="/settings" component={settingsPage} />
         <Route path="/account" component={accountPage} />
         <Route path="/login" component={loginPage} />
 

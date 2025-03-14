@@ -4,83 +4,99 @@ import React from 'react';
 //login
 export function loginPage() {
     return (
-        <html>
 
-            <div class={styles["rectangle-15"]}></div>
-            <div class={styles["rectangle-2"]}></div>
-            <div class={styles["logo"]}>Logo</div>
-            <div class={styles["rectangle-3"]}></div>
-            <div class={styles["rectangle-17"]}></div>
-            <div class={styles["all"]}>All</div>
-            <div class={styles["accessories"]}>Accessories</div>
-            <div class={styles["artists"]}>Artists</div>
-            <div class={styles["fashion"]}>Fashion</div>
-            <div class={styles["health-beauty"]}>Health &amp; Beauty</div>
-            <div class={styles["art"]}>Art</div>
-            <div class={styles["home-decor"]}>Home Decor</div>
-            <div class={styles["popular"]}>Popular</div>
-            <div class={styles["sign-up"]}>Sign Up</div>
-            <div class={styles["sign-up2"]}>Sign Up</div>
-            <div class={styles["search"]}>Search</div>
-            <div class={styles["div"]}>􀊫</div>
+
+        <div class={styles["log-in"]}>
+            <img class={styles["rectangle-177"]} src="http://localhost:5173/src/assets/loginbg.png" />
+
             <div class={styles["log-in-or-register"]}>
-                <div class={styles["rectangle-141"]}></div>
-                <div class={styles["log-in-or-register2"]}>Log in or register</div>
-
+                <div class={styles["log-in-or-register2"]}>Log in or Register</div>
+                <div class={styles["rectangle-142"]}></div>
                 <div class={styles["rectangle-146"]}></div>
-                <div class={styles["group-43"]}>
-                    <div class={styles["rectangle-4"]}></div>
-                    <div class={styles["continue-with-google"]}>Continue with Google</div>
-                </div>
                 <div class={styles["group-44"]}>
-                    <button class={styles["rectangle-143"]} onClick={login}></button>
+                    <div class={styles["rectangle-143"]}></div>
                     <div class={styles["log-in2"]}>Log In</div>
                 </div>
-                <div class={styles["group-42"]}>
-                    <div class={styles["rectangle-144"]}></div>
-                    <div class={styles["continue-with-facebook"]}>Continue with Facebook</div>
-                </div>
-                <div class={styles["group-41"]}>
-                    <div class={styles["rectangle-145"]}></div>
-                    <div class={styles["continue-with-apple"]}>Continue with Apple</div>
-                </div>
-                <input class={styles["rectangle-142"]} type="text" id="femail" name="femail"></input>
-                <label for="fpassC">First name:</label>
-                <input class={styles["rectangle-146"]} type="text" id="fpass" name="fpass"></input>
-                <div id="popsign">signed in as </div>
+                <div class={styles["email"]}>Email</div>
+                <div class={styles["password"]}>Password</div>
                 <div class={styles["line-41"]}></div>
-            </div>
-
-            <div class={styles["component-3"]}>
-                <div class={styles["rectangle-31"]}></div>
-                <div class={styles["frame-31"]}>
-                    <div class={styles["frame-30"]}>
-                        <div class={styles["product-name"]}>Product Name</div>
-                        <div class={styles["frame-28"]}>
-                            <div class={styles["about-us"]}>About Us</div>
-                            <div class={styles["career"]}>Career</div>
+                <div class={styles["log-in-through-social-media"]}>
+                    <div class={styles["google"]}>
+                        <div class={styles["google2"]}>
+                            <img class={styles["devicon-google"]} src="devicon-google0.svg" />
+                            <div class={styles["continue-with-google"]}>Continue with Google</div>
                         </div>
                     </div>
-                    <div class={styles["frame-27"]}>
-                        <div class={styles["info"]}>Info</div>
-                        <div class={styles["frame-26"]}>
-                            <div class={styles["term-of-use"]}>Term of Use</div>
-                            <div class={styles["privacy-policy"]}>Privacy Policy</div>
-                            <div class={styles["posting-policy"]}>Posting Policy</div>
+                    <div class={styles["facebook"]}>
+                        <div class={styles["frame-111"]}>
+                            <img class={styles["vector"]} src="vector0.svg" />
+                            <div class={styles["continue-with-facebook"]}>Continue with Facebook</div>
                         </div>
                     </div>
-                    <div class={styles["frame-29"]}>
-                        <div class={styles["support"]}>Support</div>
-                        <div class={styles["frame-262"]}>
-                            <div class={styles["faq"]}>FAQ</div>
-                            <div class={styles["en-francais"]}>en Francais</div>
-                            <div class={styles["accessibility"]}>Accessibility</div>
+                    <div class={styles["apple"]}>
+                        <div class={styles["frame-114"]}>
+                            <img class={styles["vector2"]} src="loginbg.png" />
+                            <div class={styles["continue-with-apple"]}>Continue with Apple</div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class={styles["footer"]}>
+                <div class={styles["rectangle-178"]}></div>
+                <div class={styles["rectangle-31"]}></div>
+                <img class={styles["desn-443-logo-01-4"]} src="loginbg.png" />
+                <div class={styles["about"]}>About</div>
+                <div class={styles["help"]}>Help</div>
+                <div class={styles["community"]}>Community</div>
+                <div class={styles["about-atawake"]}>About Atawake</div>
+                <div class={styles["from-artists"]}>From artists</div>
+                <div class={styles["help-center"]}>Help center</div>
+                <div class={styles["faq"]}>FAQ</div>
+                <div class={styles["accessibility"]}>Accessibility</div>
+                <div class={styles["en-francais"]}>en Francais</div>
+                <div class={styles["community-markets"]}>Community markets</div>
+                <div class={styles["careers"]}>Careers</div>
+                <div class={styles["posting-policy"]}>Posting policy</div>
+                <div class={styles["sell-on-atawake"]}>Sell on Atawake</div>
+                <div class={styles["group-94"]}>
+                    <div class={styles["_2025-atawake-inc"]}>2025 Atawake Inc.</div>
+                    <div class={styles["terms-of-use"]}>Terms of Use</div>
+                    <div class={styles["privacy"]}>Privacy</div>
+                </div>
+                <div class={styles["div"]}>􀀈</div>
+                <div class={styles["ri-instagram-fill"]}></div>
+                <div class={styles["frame-133"]}>
+                    <img class={styles["instagram"]} src="instagram0.svg" />
+                    <img class={styles["devicon-facebook"]} src="devicon-facebook0.svg" />
+                    <img class={styles["x"]} src="x0.svg" />
+                </div>
+            </div>
 
-        </html>
+
+            <div class={styles["group-79"]}>
+
+                <div class={styles["div2"]}>􀍩</div>
+                <div class={styles["rectangle-3"]}>
+                    <div class={styles["frame-134"]}>
+                        <div class={styles["div3"]}>􀊫</div>
+                        <div class={styles["search"]}>Search</div>
+                    </div>
+                </div>
+                <div class={styles["div4"]}>􀊴</div>
+                <div class={styles["div5"]}>􀉩</div>
+                <div class={styles["frame-135"]}>
+                    <div class={styles["div6"]}>􀌇</div>
+                    <div class={styles["shop"]}>Shop</div>
+                </div>
+                <img class={styles["desn-443-logo-01-2"]} src="loginbg.png" />
+            </div>
+
+            <div class={styles["hey"]}>hey</div>
+        </div>
+
+
+
+
     )
 }
 
