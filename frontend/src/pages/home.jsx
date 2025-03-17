@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import "../App.css"; // Ensure correct path
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AddUser from "./addUser.jsx";
 
-export default function HomePage() {
+const HomePageContent = () => {
   const [users, setUsers] = useState([]);
-  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/users/") // Fetch users from backend
+    fetch("http://localhost:5000/api/users/")
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
@@ -15,18 +15,24 @@ export default function HomePage() {
   return (
     <div className="container">
       <h1>Welcome to the Home Page 🚀</h1>
-      <p>Below are some users from our database:</p>
-      <ul>
-        {users.length > 0 ? (
-          users.map((user) => (
-            <li key={user.id}>
-              <strong>{user.first_name}</strong> - {user.email} - {user.phone}
-            </li>
-          ))
-        ) : (
-          <p>Loading users...</p>
-        )}
-      </ul>
     </div>
   );
-}
+};
+
+const Home = () => {
+  return (
+    <Router>
+      <nav>
+        <Link to="/" className="hover:underline">Home</Link>
+        <Link to="/add-user" className="hover:underline">Add User</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<HomePageContent />} />
+        <Route path="/add-user" element={<AddUser />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default Home;
