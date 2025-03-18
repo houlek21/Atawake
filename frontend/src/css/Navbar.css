@@ -1,0 +1,89 @@
+:root {
+  --brown: #392516;
+  --beige: #faf5ee;
+  --light-beige: rgba(250, 245, 238, 0.52);
+}
+
+/* NAVBAR CONTAINER */
+.navbar {
+  width: 100%;
+  height: 137px;
+  position: absolute;
+  top: 0;
+  background: var(--brown);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0px 2px 5.8px rgba(0, 0, 0, 0.22);
+  left: 0;
+  z-index: 1000;
+}
+
+/* LOGO SECTION */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--beige);
+  text-decoration: none;
+}
+
+.menu-icon {
+  font-size: 24px;
+  color: var(--beige);
+}
+
+/* SEARCH BAR */
+.search-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 40px;
+  border: 1.5px solid var(--beige);
+  border-radius: 40px;
+  padding: 10px 20px;
+}
+
+.search-container i {
+  font-size: 18px;
+  color: var(--light-beige);
+  margin-right: 10px;
+}
+
+.search-container input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--light-beige);
+  font-size: 16px;
+  width: 100%;
+  font-family: "Inter-Regular", sans-serif;
+}
+
+/* RIGHT ICONS */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-right a {
+  color: var(--beige);
+  text-decoration: none;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 16px;
+}
+
+.navbar-right i {
+  font-size: 20px;
+  color: var(--beige);
+  cursor: pointer;
+}
