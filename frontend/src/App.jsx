@@ -1,21 +1,32 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home"; // Homepage
-import TestPage from "./pages/testPage"; // Additional test page
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Slider from "./components/Slider";
+import RedBanner from "./components/RedBanner";
+import LocalArtists from "./components/LocalArtists";
+import PopularItems from "./components/PopularItems";
+import MarketSection from "./components/MarketSection";
+import ProductPage from "./pages/ProductPage";
+import ArtistPage from "./pages/ArtistPage";
 
-const App = () => {
+function App() {
   return (
     <Router>
-      <nav>
-        <Link to="/">Home</Link> | <Link to="/test">Test Page</Link>
-      </nav>
-
+      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/test" element={<TestPage />} />
+        <Route path="/" element={
+          <>
+            <Slider />
+            <RedBanner />
+            <LocalArtists />
+            <PopularItems />
+            <MarketSection />
+          </>
+        } />
+        <Route path="/artist/:seller/product/:productName" element={<ProductPage />} />
+        <Route path="/artist/:seller" element={<ArtistPage />} /> {/* NEW ROUTE */}
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;

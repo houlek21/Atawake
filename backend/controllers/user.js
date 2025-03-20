@@ -12,6 +12,22 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
+// Get a user by ID
+export const getUser = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const user = await User.findByPk(id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    res.json(user);
+  } catch (error) {
+    console.error('Error fetching user:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 // Add a new user
 export const addUser = async (req, res) => {
   const { first_name, last_name, email, phone, address, password } = req.body;

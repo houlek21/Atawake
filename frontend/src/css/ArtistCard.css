@@ -1,0 +1,54 @@
+.artist-card {
+  max-width: 300px;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 16px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.artist-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.artist-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.artist-card:hover .artist-image {
+  opacity: 0.95;
+}
+
+.artist-info {
+  margin-top: 12px;
+}
+
+.artist-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.artist-location {
+  font-size: 1rem;
+  color: #666;
+  margin: 4px 0 0 0;
+}
+
+.artist-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.artist-card-link:hover {
+  text-decoration: none;
+}
