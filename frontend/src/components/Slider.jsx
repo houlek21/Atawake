@@ -5,20 +5,20 @@ import RedButton from "./RedButton";
 const Slider = () => {
   const slides = [
     {
-      image: "/img1.jpg",
+      image: "/Slider/img1.jpg",
       title: "MADE WITH HEART",
       subtitle: "Explore handcrafted goods made by Indigenous artisans",
       buttonText: "Shop Handmade Items",
     },
     {
-      image: "/img2.jpg",
+      image: "/Slider/img2.jpg",
       title: "MEET THE ARTISTS",
       subtitle:
         "From beadwork to pottery, every piece tells a story. Support Indigenous artists and bring cultural artistry into your life",
       buttonText: "Meet the Artists",
     },
     {
-      image: "/img3.jpg",
+      image: "/Slider/img3.jpg",
       title: "Looking for Something Unique?",
       subtitle:
         "Work directly with Indigenous artisans to create custom, one-of-a-kind pieces made just for you",

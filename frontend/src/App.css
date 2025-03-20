@@ -5,10 +5,10 @@
   --color-beige: #faf5ee;
   --color-green: #0f2a2d;
 
-  --font-family-regular: 'Inter-Regular', sans-serif;
-  --font-family-medium: 'Inter-Medium', sans-serif;
-  --font-family-semibold: 'Inter-SemiBold', sans-serif;
-  --font-family-bold: 'Inter-Bold', sans-serif;
+  --font-family-regular: "Inter-Regular", sans-serif;
+  --font-family-medium: "Inter-Medium", sans-serif;
+  --font-family-semibold: "Inter-SemiBold", sans-serif;
+  --font-family-bold: "Inter-Bold", sans-serif;
 
   --font-size-xl: 38px;
   --font-size-lg: 27px;
@@ -17,7 +17,8 @@
   --font-size-xs: 14px;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--color-beige);
@@ -121,4 +122,14 @@ html, body {
   border-radius: 31.5px;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  background-color: #fefaf5; /* Matches section background */
+  padding: 24px;
+  box-sizing: border-box;
 }

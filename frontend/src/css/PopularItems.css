@@ -1,0 +1,64 @@
+.popular-items-section {
+  padding: 32px 24px;
+  max-width: 1200px;
+  margin: 0 auto; /* Center horizontally */
+  box-sizing: border-box;
+}
+
+.popular-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #7a271a;
+  margin-bottom: 16px;
+}
+
+.scroll-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.product-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.product-scroll::-webkit-scrollbar {
+  display: none; /* Hide scrollbar */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.scroll-btn.left {
+  left: -12px;
+}
+
+.scroll-btn.right {
+  right: -12px;
+}
+
+.product-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+}
