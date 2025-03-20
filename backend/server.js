@@ -4,6 +4,9 @@ import dotenv from 'dotenv';
 
 import sequelize from './database/connection.js';
 import userRoutes from './routes/userRoutes.js';
+import sellerRoutes from './routes/sellerRoutes.js';
+import productRoutes from './routes/productRoutes.js';
+import categoryRoutes from './routes/categoryRoutes.js';
 
 dotenv.config();
 
@@ -16,8 +19,11 @@ app.get('/', (req, res) => {
   res.send('Backend is running with Sequelize!');
 });
 
-// Use user routes
+// Use routes
 app.use('/api/users', userRoutes);
+app.use('/api/sellers', sellerRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/categories', categoryRoutes);
 
 // Sync Sequelize models with the database
 sequelize.sync({ alter: true })  // 'alter: true' will update tables if needed
