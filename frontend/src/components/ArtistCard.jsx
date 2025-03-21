@@ -1,17 +1,21 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "../css/ArtistCard.css";
 
-const ArtistCard = ({ name, location, image, link }) => {
+const ArtistCard = ({ seller_id, name, image_url, location }) => {
   return (
-    <a href={link} className="artist-card-link">
+    <Link to={`/artist/${seller_id}`} className="artist-card-link">
       <div className="artist-card">
-        <img className="artist-image" src={image} alt={name} />
+        <img
+          src={image_url || "path/to/default.jpg"} // fallback image
+          alt={name}
+          className="artist-image"
+        />
         <div className="artist-info">
           <h2 className="artist-name">{name}</h2>
-          <p className="artist-location">{location}</p>
+          <p className="artist-location">{location || "Location unknown"}</p>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

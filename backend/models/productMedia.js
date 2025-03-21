@@ -1,3 +1,7 @@
+import sequelize from "../database/connection.js";
+import { DataTypes } from "sequelize";
+import Product from "./product.js";
+
 const ProductMedia = sequelize.define("ProductMedia", {
     // No explicit 'id' => Sequelize will create it automatically as the primary key (INTEGER auto-increment)
     product_id: {
