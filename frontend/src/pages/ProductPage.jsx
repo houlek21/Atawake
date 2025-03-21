@@ -26,12 +26,11 @@ const ProductPage = () => {
   return (
     <div className="product-page">
       <div className="product-page-content">
-        {/* Product Images */}
         <div className="product-images">
           {product.ProductMedia?.map((media) => (
             <img
               key={media.id}
-              src={`/${media.media_url}`}
+              src={`${media.media_url}`}
               alt={product.name}
               className="product-page-image"
             />

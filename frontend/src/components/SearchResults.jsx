@@ -52,7 +52,7 @@ const SearchResults = () => {
                   name={product.name}
                   seller={product.Seller?.business_name}
                   price={`CA$${parseFloat(product.price).toFixed(2)}`}
-                  image_url={`/${
+                  image_url={`${
                     product.ProductMedia[0]?.media_url || "Products/default.jpg"
                   }`}
                   rating={4.8}

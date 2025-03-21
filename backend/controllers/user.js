@@ -30,7 +30,7 @@ export const getUser = async (req, res) => {
 
 // Add a new user
 export const addUser = async (req, res) => {
-  const { first_name, last_name, email, phone, address, password } = req.body;
+  const { first_name, last_name, email, phone, address, password, user_type } = req.body;
 
   try {
     // check if the email already exists
@@ -50,7 +50,7 @@ export const addUser = async (req, res) => {
       phone,
       address,
       password_hash: hashedPassword, // save the hashed password
-      user_type: 'regular', // Default user type is 'regular' for new users
+      user_type
     });
 
     res.status(201).json({ message: 'User successfully created'});
