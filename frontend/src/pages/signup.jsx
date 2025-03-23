@@ -117,7 +117,6 @@ async function newU() {
   var first = document.getElementById("fname").value;
   var last = document.getElementById("lname").value;
   var email = document.getElementById("email").value;
-
   var pass = document.getElementById("pass").value;
   var passC = document.getElementById("passC").value;
 
@@ -136,26 +135,13 @@ async function newU() {
     const resjson = await response.json();
 
     if (!response.ok) {
-
-      // document.getElementById("popCreate").innerHTML = resjson.details;
-      //setTimeout(function () {
-      //   document.getElementById("popCreate").innerHTML = "";
-      //}, 5000)
-
       throw new Error(`Response status: ${response}`);
     }
-
-
-    //document.getElementById("popCreate").innerHTML = resjson.message;
-    //setTimeout(function () {
-    //  document.getElementById("popCreate").innerHTML = "";
-    //}, 5000)
 
 
   } catch (error) {
     console.error(error.message);
   }
-
 }
 
 export default signupPage;

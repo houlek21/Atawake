@@ -1,87 +1,85 @@
-import styles from "../css/login.module.css"
+import "../css/login.css"
 import React from 'react';
-import { useParams } from "react-router-dom";
-//login
 
+//login
     const loginPage = () => {
         
     return (
 
+        <div className="log-in">
+            <img className="rectangle-177" src="http://localhost:5173/src/assets/loginbg.png" />
 
-        <div class={styles["log-in"]}>
-            <img class={styles["rectangle-177"]} src="http://localhost:5173/src/assets/loginbg.png" />
-
-            <div class={styles["log-in-or-register"]}>
-                <div class={styles["log-in-or-register2"]}>Log in or Register</div>
-                <input class={styles["rectangle-142"]} placeholder="email" id='email'></input>
+            <div className="log-in-or-register">
+                <div className="log-in-or-register2">Log in or Register</div>
+                <input className="rectangle-142" placeholder="email" id='email'></input>
                 
                 
-                <input class={styles["rectangle-146"]} placeholder="password" id='pass'></input>
+                <input className="rectangle-146" placeholder="password" id='pass'></input>
                 
 
-                <div class={styles["group-44"]}>
-                    <button class={styles["rectangle-143"]} onClick={login}>
-                        <div class={styles["log-in2"]}>Log In</div>
+                <div className="group-44">
+                    <button className="rectangle-143" onClick={login}>
+                        <div className="log-in2">Log In</div>
                     </button>
 
                     <a href="http://localhost:5173/signup">
-                    <button class={styles["regButton"]}>
-                    <div class={styles["log-in2"]}> Register</div>
+                    <button className="regButton">
+                    <div className="log-in2"> Register</div>
                         </button>
                         </a>
                 </div>
                 
                 
-                <div class={styles["line-41"]}></div>
-                <div class={styles["log-in-through-social-media"]}>
-                    <div class={styles["google"]}>
-                        <div class={styles["google2"]}>
-                            <img class={styles["devicon-google"]} src="devicon-google0.svg" />
-                            <div class={styles["continue-with-google"]}>Continue with Google</div>
+                <div className="line-41"></div>
+                <div className="log-in-through-social-media">
+                    <div className="google">
+                        <div className="google2">
+                            <img className="devicon-google" src="devicon-google0.svg" />
+                            <div className="continue-with-google">Continue with Google</div>
                         </div>
                     </div>
-                    <div class={styles["facebook"]}>
-                        <div class={styles["frame-111"]}>
-                            <img class={styles["vector"]} src="vector0.svg" />
-                            <div class={styles["continue-with-facebook"]}>Continue with Facebook</div>
+                    <div className="facebook">
+                        <div className="frame-111">
+                            <img className="vector" src="vector0.svg" />
+                            <div className="continue-with-facebook">Continue with Facebook</div>
                         </div>
                     </div>
-                    <div class={styles["apple"]}>
-                        <div class={styles["frame-114"]}>
-                            <img class={styles["vector2"]} src="loginbg.png" />
-                            <div class={styles["continue-with-apple"]}>Continue with Apple</div>
+                    <div className="apple">
+                        <div className="frame-114">
+                            <img className="vector2" src="loginbg.png" />
+                            <div className="continue-with-apple">Continue with Apple</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class={styles["footer"]}>
-                <div class={styles["rectangle-178"]}></div>
-                <div class={styles["rectangle-31"]}></div>
-                <img class={styles["desn-443-logo-01-4"]} src="loginbg.png" />
-                <div class={styles["about"]}>About</div>
-                <div class={styles["help"]}>Help</div>
-                <div class={styles["community"]}>Community</div>
-                <div class={styles["about-atawake"]}>About Atawake</div>
-                <div class={styles["from-artists"]}>From artists</div>
-                <div class={styles["help-center"]}>Help center</div>
-                <div class={styles["faq"]}>FAQ</div>
-                <div class={styles["accessibility"]}>Accessibility</div>
-                <div class={styles["en-francais"]}>en Francais</div>
-                <div class={styles["community-markets"]}>Community markets</div>
-                <div class={styles["careers"]}>Careers</div>
-                <div class={styles["posting-policy"]}>Posting policy</div>
-                <div class={styles["sell-on-atawake"]}>Sell on Atawake</div>
-                <div class={styles["group-94"]}>
-                    <div class={styles["_2025-atawake-inc"]}>2025 Atawake Inc.</div>
-                    <div class={styles["terms-of-use"]}>Terms of Use</div>
-                    <div class={styles["privacy"]}>Privacy</div>
+            <div className="footer">
+                <div className="rectangle-178"></div>
+                <div className="rectangle-31"></div>
+                <img className="desn-443-logo-01-4" src="loginbg.png" />
+                <div className="about">About</div>
+                <div className="help">Help</div>
+                <div className="community">Community</div>
+                <div className="about-atawake">About Atawake</div>
+                <div className="from-artists">From artists</div>
+                <div className="help-center">Help center</div>
+                <div className="faq">FAQ</div>
+                <div className="accessibility">Accessibility</div>
+                <div className="en-francais">en Francais</div>
+                <div className="community-markets">Community markets</div>
+                <div className="careers">Careers</div>
+                <div className="posting-policy">Posting policy</div>
+                <div className="sell-on-atawake">Sell on Atawake</div>
+                <div className="group-94">
+                    <div className="_2025-atawake-inc">2025 Atawake Inc.</div>
+                    <div className="terms-of-use">Terms of Use</div>
+                    <div className="privacy">Privacy</div>
                 </div>
-                <div class={styles["div"]}>􀀈</div>
-                <div class={styles["ri-instagram-fill"]}></div>
-                <div class={styles["frame-133"]}>
-                    <img class={styles["instagram"]} src="instagram0.svg" />
-                    <img class={styles["devicon-facebook"]} src="devicon-facebook0.svg" />
-                    <img class={styles["x"]} src="x0.svg" />
+                <div className="div">􀀈</div>
+                <div className="ri-instagram-fill"></div>
+                <div className="frame-133">
+                    <img className="instagram" src="instagram0.svg" />
+                    <img className="devicon-facebook" src="devicon-facebook0.svg" />
+                    <img className="x" src="x0.svg" />
                 </div>
             </div>
 
@@ -120,25 +118,11 @@ async function login() {
         console.log(a)
         
         if (!response.ok) {
-
-            //document.getElementById("popsign").style.opacity = 1;
-            //document.getElementById("popsign").innerHTML = resjson.message;
             throw new Error(`Response status: ${response}`);
         }
         localStorage.setItem('token', a.token)
-        
-        
-        //var tt = localStorage.getItem('token')
-        
-
+                
         alert('suc');
-        //TODO setup session
-        console.log(resjson.f);
-
-        //response display
-        //document.getElementById("popsign").style.opacity = 1;
-        //document.getElementById("popsign").innerHTML = "<p>signed in as:<p>" + resjson.fn + " " + resjson.ln;
-
 
     } catch (error) {
         alert(error);
