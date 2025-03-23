@@ -1,0 +1,92 @@
+.product-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-card {
+  background-color: #fefaf5;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: white;
+  color: #000;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  padding: 12px;
+}
+
+.product-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-seller {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 4px 0;
+}
+
+.product-rating {
+  font-size: 0.85rem;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.rating-value {
+  margin-right: 4px;
+}
+
+.star {
+  color: #000;
+  margin-right: 4px;
+}
+
+.review-count {
+  color: #555;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #b91c1c; /* Tailwind red-700 */
+  margin: 8px 0 0 0;
+}

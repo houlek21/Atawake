@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql
+    container_name: mysql1
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: ecommerce_db
@@ -20,7 +18,7 @@ services:
 
   backend:
     build: ./backend
-    container_name: backend
+    container_name: backend1
     ports:
       - "5000:5000"
     environment:
@@ -37,7 +35,7 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: frontend
+    container_name: frontend1
     ports:
       - "5173:5173"
     volumes:

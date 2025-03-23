@@ -1,0 +1,32 @@
+.artist-page {
+  background-color: #fefaf5;
+  padding: 32px;
+  text-align: center;
+}
+
+.artist-profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.artist-page-name {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #7a271a;
+  margin-bottom: 8px;
+}
+
+.artist-page-location {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.artist-page-bio {
+  font-size: 1rem;
+  color: #555;
+}
