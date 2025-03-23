@@ -4,6 +4,55 @@
   --light-beige: rgba(250, 245, 238, 0.52);
 }
 
+
+
+
+
+
+
+
+
+/*pop up */
+.categorypopup {
+  
+  background: var(--brown, #392516);
+  display: grid;
+  width: 130%;
+  height: 320%;
+  position: relative;
+  right: 0%;
+  left: 0%;
+  bottom: 0%;
+  top: 10%;
+  box-shadow: 0px 2px 5.8px 0px rgba(0, 0, 0, 0.22);
+}
+
+
+    
+.menu-icon .categorypopup {
+  visibility: hidden;
+  width: 320px;
+  
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  
+}
+    
+.menu-icon:hover .categorypopup {
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
 /* NAVBAR CONTAINER */
 .navbar {
   width: 100%;
