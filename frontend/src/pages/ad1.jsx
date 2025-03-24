@@ -1,10 +1,8 @@
 
-
-
 import styles from "../css/ad1.module.css"
 import React from 'react';
 
-var  category = 'none'
+var  category = 'none'//move
 //base buy page for show
 export function addItemPage() {
 

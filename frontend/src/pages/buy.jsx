@@ -169,85 +169,8 @@ const buyPage = () => {
 export default buyPage;
 
 
-
-
-//gets specific products and displays
-async function getItems(cate) {
-
-  var url = "http://localhost:5000/api/products/getitems/s";
-  try {
-    //1-jewl and acc, 2-cloth, 3-carving, 4-home, 5-potery, 6-bead/quilt
-
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ category: cate })
-    });
-
-
-    const resjson = await response;
-    if (!response.ok) {
-      //document.getElementById("popsign").style.opacity = 1;
-      //document.getElementById("popsign").innerHTML = resjson.message;
-      throw new Error(`Response status: ${response}`);
-    }
-    var a = await resjson.json()
-
-
-    console.log(a)
-
-    //pageselect pos
-    if (a.length >= 3) { document.getElementById("grid").style.gridTemplateRows = "335% 135% 70%"; }
-    else document.getElementById("grid").style.gridTemplateRows = "335% 135% 0%";
-
-    //draws info into html
-    let id;
-    for (let i = 0; i < 6; i++) {
-      if (i < a.length) {
-
-        id = await getuser(a[i].seller_id)  //temp
-
-        document.getElementById("c" + String(i)).style.opacity = "1";
-        document.getElementById("c" + String(i)).childNodes[0].innerHTML = a[i].name//title
-        document.getElementById("c" + String(i)).childNodes[1].src = a[i].file//pic
-        document.getElementById("c" + String(i)).childNodes[5].innerHTML = id.first_name//acc
-
-        document.getElementById("c" + String(i)).childNodes[4]
-        document.getElementById("c" + String(i)).childNodes[2]
-        document.getElementById("c" + String(i)).childNodes[3]
-
-        document.getElementById("c" + String(i)).childNodes[6].innerHTML = '$' + a[i].price // price
-      }
-      else {
-        document.getElementById("c" + String(i)).style.opacity = "0";
-      }
-
-      document.getElementById("result").innerHTML = String(a.length) + " results"
-
-    }
-
-
-
-
-    //response display
-    //document.getElementById("popsign").style.opacity = 1;
-    //document.getElementById("popsign").innerHTML = "<p>signed in as:<p>" + resjson.fn + " " + resjson.ln;
-
-
-  } catch (error) {
-
-    console.error(error.message);
-  }
-
-
-}
-
 //gets 6 most recent prodects  TEMP
 async function getRecent(category = 0) {
-  //console.log("cateee", category)
   switch (category) {
     case ("jewelry"):
       category = 1
@@ -289,20 +212,18 @@ async function getRecent(category = 0) {
 
     const resjson = await response;
     if (!response.ok) {
-      //document.getElementById("popsign").style.opacity = 1;
-      //document.getElementById("popsign").innerHTML = resjson.message;
+      
       throw new Error(`Response status: ${response}`);
     }
     var a = await resjson.json()
-    //console.log(a,"a res")
+    
 
 
     let id;
 
-    console.log(a[0])
+    
     if (a.length >= 3) {
       document.getElementById("grid").style.gridTemplateRows = "335% 135% 70%";
-
     }
     for (let i = 0; i < a.length; i++) {
       //id = await getuser(a[i].seller_id)  //temp
@@ -312,23 +233,15 @@ async function getRecent(category = 0) {
       document.getElementById("c" + String(i)).childNodes[0].innerHTML = a[i].name//title
       document.getElementById("c" + String(i)).childNodes[1].src = a[i].ProductMedia[0].media_url//pic
       document.getElementById("c" + String(i)).childNodes[5].innerHTML = a[i].Seller.business_name//acc
-
-      document.getElementById("c" + String(i)).childNodes[4]
-      document.getElementById("c" + String(i)).childNodes[2]
-      document.getElementById("c" + String(i)).childNodes[3]
-
       document.getElementById("c" + String(i)).childNodes[6].innerHTML = '$' + a[i].price // price
-
-
+      
+      //document.getElementById("c" + String(i)).childNodes[4]
+      //document.getElementById("c" + String(i)).childNodes[2]
+      //document.getElementById("c" + String(i)).childNodes[3]
+      
       document.getElementById("result").innerHTML = String(a.length) + " results"
 
     }
-
-
-
-    //response display
-    //document.getElementById("popsign").style.opacity = 1;
-    //document.getElementById("popsign").innerHTML = "<p>signed in as:<p>" + resjson.fn + " " + resjson.ln;
 
 
   } catch (error) {

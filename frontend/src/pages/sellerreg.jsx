@@ -114,7 +114,7 @@ async function  newU() {
     const contact = document.getElementById("contact").value
     const phone = document.getElementById("phone").value
     if (!phone){
-        console.log('dd')
+        
         document.getElementById("phone").style.borderColor = '#93159f'
         return
     }
@@ -143,19 +143,9 @@ async function  newU() {
         
         if (!response.ok) {
     
-          // document.getElementById("popCreate").innerHTML = resjson.details;
-          //setTimeout(function () {
-          //   document.getElementById("popCreate").innerHTML = "";
-          //}, 5000)
-    
           throw new Error(`Response status: ${response}`);
         }
     
-    
-        //document.getElementById("popCreate").innerHTML = resjson.message;
-        //setTimeout(function () {
-        //  document.getElementById("popCreate").innerHTML = "";
-        //}, 5000)
     
     
       } catch (error) {
