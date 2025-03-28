@@ -1,72 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Header.css";
 
-//onClick={() => catSel(6)}
+import logo from "../assets/logo.svg";
+import shopIcon from "../assets/icons/shop.svg";
+import favoriteIcon from "../assets/icons/favorite.svg";
+import cartIcon from "../assets/icons/cart.svg";
+import SearchBar from "./SearchBar";
 
 const Header = () => {
-  const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
+  const handleSearch = (query) => {
     if (query.trim()) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`);
-      setQuery(""); // Clear input after navigation (optional)
     }
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <a href="/" className="logo">
-          Atawake
+        <a href="/" className="logo-link">
+          <img src={logo} alt="Logo" className="logo" />
         </a>
-        <i className="fas fa-bars menu-icon">popup
 
-          <span className="categorypopup"> Shop Categories:
-            <a href="http://localhost:5173/buy/jewelry">
-              <div className="categoryname">Jewelry and Accessories</div></a>
-            <a href="http://localhost:5173/buy/clothing">
-              <div className="categoryname" >Clothing and Textiles</div></a>
-            <a href="http://localhost:5173/buy/sculpture">
-              <div className="categoryname" >Carvings and Sculptures</div></a>
-            <a href="http://localhost:5173/buy/home">
-              <div className="categoryname" >Home Decor</div></a>
-            <a href="http://localhost:5173/buy/pottery">
-              <div className="categoryname" >Pottery & Ceramics</div></a>
-            <a href="http://localhost:5173/buy/beadwork">
-              <div className="categoryname" >Beadwork & Quillwork</div></a>
+        <div className="shop-button">
+          <img src={shopIcon} alt="Shop" className="shop-icon" />
+          <span className="shop-text">Shop</span>
 
-          </span>
-        </i>
-
-        <a href="http://localhost:5173/buy">
-          <span>Shop</span>
-        </a>
+          <div className="dropdown-menu">
+            <a href="/buy/all">All</a>
+            <a href="/buy/popular">Popular Categories</a>
+            <a href="/buy/favorites">Atawake Favorites</a>
+            <a href="/buy/custom">Custom Orders</a>
+            <a href="/buy/ready">Ready for You</a>
+            <a href="/buy/handmade">Handmade Items</a>
+            <a href="/buy/artists">Shop by Artists</a>
+          </div>
+        </div>
+        <SearchBar onSearch={handleSearch} />
       </div>
 
-      <form className="search-container" onSubmit={handleSearchSubmit}>
-        <i className="fas fa-search"></i>
-        <input
-          type="text"
-          placeholder="Search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="search-input"
-        />
-      </form>
-
       <div className="navbar-right">
-        <a href="/login">Log in</a>
-        <i className="far fa-heart"></i>
-        <i className="fas fa-shopping-cart"></i>
+        <a href="/login" className="login">
+          Log in
+        </a>
+        <a href="/favorites">
+          <img src={favoriteIcon} alt="Favorites" className="icon" />
+        </a>
+        <a href="/cart">
+          <img src={cartIcon} alt="Cart" className="icon" />
+        </a>
       </div>
     </nav>
   );
 };
 
 export default Header;
-
-
-

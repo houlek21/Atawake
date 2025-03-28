@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
 import "../css/PopularItems.css";
+import LeftArrow from "../assets/icons/leftarrow2.svg";
+import RightArrow from "../assets/icons/rightarrow2.svg";
 
 const PopularItems = () => {
   const [products, setProducts] = useState([]);
@@ -68,7 +70,7 @@ const PopularItems = () => {
       <h2 className="popular-title">Popular Items</h2>
       <div className="scroll-wrapper">
         <button className="scroll-btn left" onClick={() => scroll("left")}>
-          ‹
+          <img src={LeftArrow} alt="Left Arrow" />
         </button>
         <div className="product-scroll" ref={scrollRef}>
           {popularItems.map((item) => {
@@ -91,7 +93,7 @@ const PopularItems = () => {
           })}
         </div>
         <button className="scroll-btn right" onClick={() => scroll("right")}>
-          ›
+          <img src={RightArrow} alt="Right Arrow" />
         </button>
       </div>
     </section>

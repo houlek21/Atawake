@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../css/SearchBar.css";
+import SearchIcon from "../assets/icons/search.svg";
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
@@ -12,7 +13,7 @@ const SearchBar = ({ onSearch }) => {
 
   return (
     <div className="search-container">
-      <i className="fas fa-search"></i>
+      <img src={SearchIcon} alt="Search" className="search-icon" />
       <input
         type="text"
         placeholder="Search"

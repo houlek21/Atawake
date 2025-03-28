@@ -4,12 +4,14 @@
 }
 
 .product-card {
-  background-color: #fefaf5;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
   width: 250px;
+  height: 330px;
+  border-radius: 12px;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-card:hover {
@@ -26,7 +28,7 @@
 
 .product-image {
   width: 100%;
-  height: auto;
+  height: 180px;
   object-fit: cover;
   display: block;
 }
@@ -59,8 +61,8 @@
 }
 
 .product-seller {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: 0.8rem;
+  color: #666;
   margin: 4px 0;
 }
 

@@ -2,12 +2,12 @@
   padding: 48px 24px;
   display: flex;
   justify-content: center;
-  align-items: center; /* Vertically center text with cards */
+  align-items: center;
   gap: 48px;
   flex-wrap: wrap;
   text-align: left;
   max-width: 1200px;
-  margin: 0 auto; /* <== THIS centers the whole section horizontally */
+  margin: 60px auto 0 auto;
   box-sizing: border-box;
 }
 

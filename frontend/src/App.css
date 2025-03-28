@@ -1,135 +1,129 @@
+@import "tailwindcss";
+
+/* Root Variables */
 :root {
-  --color-black: #000000;
-  --color-red: #93151f;
-  --color-brown: #392516;
-  --color-beige: #faf5ee;
-  --color-green: #0f2a2d;
+  --beige: #fff8ef;
+  --red: #93151f;
+  --dark-red: #5f030b;
+  --brown: #392516;
+  --yellow: #ffe3bb;
+  --light-grey: #6d6d6d;
 
-  --font-family-regular: "Inter-Regular", sans-serif;
-  --font-family-medium: "Inter-Medium", sans-serif;
-  --font-family-semibold: "Inter-SemiBold", sans-serif;
-  --font-family-bold: "Inter-Bold", sans-serif;
-
-  --font-size-xl: 38px;
-  --font-size-lg: 27px;
-  --font-size-md: 20px;
-  --font-size-sm: 16px;
-  --font-size-xs: 14px;
+  --font-primary: "Inter", sans-serif;
 }
 
-html,
+/* Base Styling */
 body {
+  font-family: var(--font-primary);
+  color: var(--beige);
+  background-color: var(--beige);
   margin: 0;
   padding: 0;
-  background-color: var(--color-beige);
-  font-family: var(--font-family-regular);
-  box-sizing: border-box;
 }
 
-.text-red {
-  color: var(--color-red);
-}
-.text-white {
-  color: var(--color-beige);
-}
-.text-black {
-  color: var(--color-black);
-}
-.text-center {
-  text-align: center;
-}
-
-.bg-red {
-  background-color: var(--color-red);
-}
-.bg-brown {
-  background-color: var(--color-brown);
-}
-.bg-beige {
-  background-color: var(--color-beige);
-}
-
-.btn-rounded {
-  border-radius: 25px;
-  font-family: var(--font-family-medium);
-  font-size: var(--font-size-md);
-  font-weight: 500;
-  text-align: center;
-}
-
-.circle-border {
-  border-radius: 50%;
-  border-style: solid;
-  border-color: rgba(57, 37, 22, 0.15);
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.shadow-sm {
-  box-shadow: 0px 2px 5.8px rgba(0, 0, 0, 0.22);
-}
-
-.header-xl {
-  font-family: var(--font-family-semibold);
-  font-size: var(--font-size-xl);
+/* Header 1 */
+.h1 {
+  font-size: 38px;
   font-weight: 600;
+  font-style: normal;
+  line-height: normal;
+  color: var(--beige);
 }
 
-.header-lg {
-  font-family: var(--font-family-medium);
-  font-size: var(--font-size-lg);
+/* Header 2 */
+.h2 {
+  font-size: 27px;
   font-weight: 500;
+  font-style: normal;
+  line-height: normal;
+  color: var(--beige);
 }
 
-.header-md {
-  font-size: var(--font-size-md);
+/* Header 3 */
+.h3 {
+  font-size: 25px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: normal;
+  color: var(--beige);
 }
 
-.header-sm {
-  font-size: var(--font-size-sm);
+/* Header 4 */
+.h4 {
+  font-size: 20px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 27px; /* 135% */
+  color: var(--beige);
 }
 
-.bold {
+/* Header 5 */
+.h5 {
+  font-size: 17px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 27px; /* 158.824% */
+  color: var(--beige);
+}
+
+/* Body Text */
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 18px; /* 112.5% */
+  color: var(--beige);
+}
+
+/* Bold Text */
+.bold-text {
+  font-size: 54px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: normal;
+  color: var(--beige);
+}
+
+/* Button Text */
+.button-text {
+  font-size: 20px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px; /* 90% */
+  color: var(--beige);
+}
+
+/* Icon Label */
+.icon-label {
+  font-size: 10px;
   font-weight: 700;
+  font-style: normal;
+  line-height: 20px; /* 200% */
+  letter-spacing: 0.1px;
+  color: var(--beige);
 }
 
-.light {
-  font-weight: 300;
+/* Background Utility Classes */
+.background-beige {
+  background-color: var(--beige);
 }
 
-.button-primary {
-  background-color: var(--color-red);
-  border: none;
-  border-radius: 23.5px;
-  color: var(--color-beige);
-  padding: 10px 20px;
-  cursor: pointer;
+.background-red {
+  background-color: var(--red);
 }
 
-.button-outline {
-  border: 1px solid var(--color-red);
-  background: transparent;
-  color: var(--color-red);
-  border-radius: 31.5px;
-  padding: 10px 20px;
-  cursor: pointer;
+.background-dark-red {
+  background-color: var(--dark-red);
 }
 
-.page-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh; /* Full viewport height */
-  background-color: #fefaf5; /* Matches section background */
-  padding: 24px;
-  box-sizing: border-box;
+.background-brown {
+  background-color: var(--brown);
+}
+
+.background-yellow {
+  background-color: var(--yellow);
+}
+
+.background-light-grey {
+  background-color: var(--light-grey);
 }
