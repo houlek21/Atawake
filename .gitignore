@@ -8,6 +8,9 @@ yarn-error.log
 .env
 .DS_Store
 
+# Ignore uploads directory
+/backend/uploads/
+
 # Logs
 logs
 *.log

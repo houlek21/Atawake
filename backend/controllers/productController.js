@@ -1,8 +1,9 @@
-import Product from '../models/product.js'
-import Seller from '../models/seller.js'
-import Category from '../models/category.js'
-import ProductMedia from '../models/productMedia.js'
-import { Op } from 'sequelize'
+import Product from '../models/product.js';
+import Seller from '../models/seller.js';
+import Category from '../models/category.js';
+import ProductMedia from '../models/productMedia.js';
+import { Op } from 'sequelize';
+import { deleteFile } from '../utils/fileUpload.js';
 
 // get all active products (public)
 export const getAllProducts = async (req, res) => {
@@ -12,7 +13,7 @@ export const getAllProducts = async (req, res) => {
         // build query filters
         const filters = {
             is_active: true, // Only return active products
-        }
+        };
 
         // Add category filter if provided
         if (category) {
@@ -29,8 +30,8 @@ export const getAllProducts = async (req, res) => {
         // Add search filter if provided
         if (search) {
             filters[Op.or] = [
-                { name: { [Op.like]: '%${search}%' } },
-                { description: { [Op.like]: '%${search}%' } }
+                { name: { [Op.like]: `%${search}%` } },
+                { description: { [Op.like]: `%${search}%` } }
             ];
         }
 
@@ -53,14 +54,10 @@ export const getAllProducts = async (req, res) => {
                 },
                 {
                     model: Seller,
-                    attributes: ['id', 'business_name']
+                    attributes: ['id', 'business_name', 'profile_image']
                 },
                 {
                     model: ProductMedia,
-                    attributes: ['id', 'media_url', 'media_type'],
-                    where: {
-                        media_type: 'image'
-                    },
                     required: false,
                     limit: 1, // only get 1 image for product thumbnail
                     order: [['sort_order', 'ASC']]
@@ -69,7 +66,27 @@ export const getAllProducts = async (req, res) => {
             order
         });
 
-        res.json(products);
+        // Add full URLs for images
+        const productsWithImageUrls = products.map(product => {
+            const productJson = product.toJSON();
+            
+            // Process product media
+            if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
+                productJson.ProductMedia = productJson.ProductMedia.map(media => ({
+                    ...media,
+                    imageUrl: `${req.protocol}://${req.get('host')}/${media.file_path.replace(/\\/g, '/')}`
+                }));
+            }
+            
+            // Process seller profile image
+            if (productJson.Seller && productJson.Seller.profile_image) {
+                productJson.Seller.profileImageUrl = `${req.protocol}://${req.get('host')}/${productJson.Seller.profile_image.replace(/\\/g, '/')}`;
+            }
+            
+            return productJson;
+        });
+
+        res.json(productsWithImageUrls);
     } catch (error) {
         console.error('Error fetching products: ', error);
         res.status(500).json({ error: 'Failed to fetch products', details: error.message });
@@ -93,11 +110,11 @@ export const getProductById = async (req, res) => {
                 },
                 {
                     model: Seller,
-                    attributes: ['id', 'business_name', 'about_us_description', 'indigenous_verification_status']                    
+                    attributes: ['id', 'business_name', 'about_us_description', 
+                                'indigenous_verification_status', 'profile_image']                    
                 },
                 {
                     model: ProductMedia,
-                    attributes: ['id', 'media_url', 'media_type', 'sort_order'],
                     order: [['sort_order', 'ASC']]
                 }
             ]
@@ -107,7 +124,23 @@ export const getProductById = async (req, res) => {
             return res.status(404).json({ message: 'Product not found' });
         }
 
-        res.json(product);
+        // Add full URLs for images
+        const productJson = product.toJSON();
+        
+        // Process product media
+        if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
+            productJson.ProductMedia = productJson.ProductMedia.map(media => ({
+                ...media,
+                imageUrl: `${req.protocol}://${req.get('host')}/${media.file_path.replace(/\\/g, '/')}`
+            }));
+        }
+        
+        // Process seller profile image
+        if (productJson.Seller && productJson.Seller.profile_image) {
+            productJson.Seller.profileImageUrl = `${req.protocol}://${req.get('host')}/${productJson.Seller.profile_image.replace(/\\/g, '/')}`;
+        }
+
+        res.json(productJson);
     } catch (error) {
         console.error('Error fetching product: ', error);
         res.status(500).json({ error: 'Failed to fetch product', details: error.message });
@@ -122,8 +155,7 @@ export const createProduct = async (req, res) => {
         price,
         quantity,
         category_id,
-        is_active = true,
-        media_urls = [] // Optional array of media URLS
+        is_active = true
     } = req.body;
 
     try {
@@ -134,7 +166,7 @@ export const createProduct = async (req, res) => {
         }
 
         // check if category exists
-        if (category_id){
+        if (category_id) {
             const categoryExists = await Category.findByPk(category_id);
             if (!categoryExists) {
                 return res.status(400).json({ message: 'Invalid category' });
@@ -152,30 +184,15 @@ export const createProduct = async (req, res) => {
             is_active
         });
 
-        // if media URLs are provided, add them to the product_media table
-        if (media_urls.length > 0) {
-            const mediaItems = media_urls.map((url, index) => ({
-                product_id: newProduct.id,
-                media_url: url,
-                media_type: 'image', // Default to image type
-                sort_order: index
-            }));
+        // Return the created product
+        const createdProduct = await Product.findByPk(newProduct.id);
 
-            await ProductMedia.bulkCreate(mediaItems);
-        }
-
-        // Return the created product with its media
-        const createdProduct = await Product.findByPk(newProduct.id, {
-            include: [
-                {
-                    model: ProductMedia,
-                    attributes: ['id', 'media_url', 'media_type', 'sort_order'],
-                    order: [['sort_order', 'ASC']]
-                }
-            ]
+        res.status(201).json({
+            message: "Product created successfully",
+            product: createdProduct,
+            // Return upload instructions to the client
+            uploadInstructions: `To upload images for this product, send a POST request to /api/products/${newProduct.id}/images with form-data containing 'image' field`
         });
-
-        res.status(201).json(createdProduct);
     } catch (error) {
         console.error('Error creating product: ', error);
         res.status(500).json({ error: 'Failed to create product', details: error.message });
@@ -234,13 +251,22 @@ export const updateProduct = async (req, res) => {
           },
           {
             model: ProductMedia,
-            attributes: ['id', 'media_url', 'media_type', 'sort_order'],
             order: [['sort_order', 'ASC']]
           }
         ]
       });
       
-      res.json(updatedProduct);
+      // Add full URLs for images
+      const productJson = updatedProduct.toJSON();
+      
+      if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
+        productJson.ProductMedia = productJson.ProductMedia.map(media => ({
+          ...media,
+          imageUrl: `${req.protocol}://${req.get('host')}/${media.file_path.replace(/\\/g, '/')}`
+        }));
+      }
+      
+      res.json(productJson);
     } catch (error) {
       console.error('Error updating product: ', error);
       res.status(500).json({ error: 'Failed to update product', details: error.message });
@@ -264,7 +290,17 @@ export const deleteProduct = async (req, res) => {
         return res.status(403).json({ message: 'You are not authorized to delete this product' });
       }
       
-      // Delete the product
+      // Find all associated images
+      const productImages = await ProductMedia.findAll({
+        where: { product_id: id }
+      });
+
+      // Delete all images from filesystem
+      for (const image of productImages) {
+        deleteFile(image.file_path);
+      }
+      
+      // Delete the product (will cascade delete media entries in DB)
       await product.destroy();
       
       res.json({ message: 'Product deleted successfully' });
@@ -273,7 +309,6 @@ export const deleteProduct = async (req, res) => {
       res.status(500).json({ error: 'Failed to delete product', details: error.message });
     }
 };
-
 
 // Get seller's products (protected - seller only)
 export const getSellerProducts = async (req, res) => {
@@ -293,7 +328,6 @@ export const getSellerProducts = async (req, res) => {
           },
           {
             model: ProductMedia,
-            attributes: ['id', 'media_url', 'media_type'],
             limit: 1,
             order: [['sort_order', 'ASC']]
           }
@@ -301,7 +335,21 @@ export const getSellerProducts = async (req, res) => {
         order: [['createdAt', 'DESC']]
       });
       
-      res.json(products);
+      // Add full URLs for images
+      const productsWithImageUrls = products.map(product => {
+        const productJson = product.toJSON();
+        
+        if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
+          productJson.ProductMedia = productJson.ProductMedia.map(media => ({
+            ...media,
+            imageUrl: `${req.protocol}://${req.get('host')}/${media.file_path.replace(/\\/g, '/')}`
+          }));
+        }
+        
+        return productJson;
+      });
+      
+      res.json(productsWithImageUrls);
     } catch (error) {
       console.error('Error fetching seller products: ', error);
       res.status(500).json({ error: 'Failed to fetch seller products', details: error.message });

@@ -26,20 +26,43 @@ const Payment = sequelize.define(
       onDelete: "CASCADE",
     },
     payment_method: {
-      type: DataTypes.ENUM("credit_card", "paypal", "bank_transfer"),
+      type: DataTypes.ENUM("credit_card"),
       allowNull: false,
+      defaultValue: "credit_card",
     },
     payment_status: {
-      type: DataTypes.ENUM("pending", "completed", "failed", "refunded"),
+      type: DataTypes.ENUM("pending", "processing", "completed", "failed", "refunded"),
       defaultValue: "pending",
     },
-    transaction_id: {
+    stripe_payment_intent_id: {
       type: DataTypes.STRING(255),
       unique: true,
+      allowNull: false,
+      comment: "Stripe Payment Intent ID",
+    },
+    stripe_payment_method_id: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      comment: "Stripe Payment Method ID",
+    },
+    card_brand: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+      comment: "Card brand (Visa, Mastercard, etc.)",
+    },
+    card_last4: {
+      type: DataTypes.STRING(4),
+      allowNull: true,
+      comment: "Last 4 digits of card",
     },
     amount: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
+    },
+    receipt_url: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      comment: "URL to Stripe receipt",
     },
   },
   {
@@ -56,4 +79,3 @@ User.hasMany(Payment, { foreignKey: "user_id" });
 Payment.belongsTo(User, { foreignKey: "user_id" });
 
 export default Payment;
-
