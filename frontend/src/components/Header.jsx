@@ -60,7 +60,7 @@ const Header = () => {
             <div className="ellipse-35">
             <img className="profim" src={icc1}></img>
             </div>
-            <div id="popname" className="emily-carter">Login</div>
+            <div id="popname" className="emily-carter">Emily Carter</div>
             <a href="/dashboard" className="view-your-profile">View your profile</a>
             <div className="group-112">
               <img className="icons-8-settings-50-1" src={icc3} />
@@ -97,29 +97,8 @@ export default Header;
 
 async function accPop() {
   console.log("ent")
-  
-  let lo = localStorage.getItem('token');
-  if (lo == null) {
-    window.location.href = "http://localhost:5173/login"
-    console.log("no token");
-    return
-  }
-  else {
-    let to = JSON.parse(atob(lo.split(".")[1]));
-    console.log(Date.now() / 1000, to.exp);
-    if (Date.now() / 1000 >= to.exp) {
-      window.location.href = "http://localhost:5173/login"
-      return
-    }
-  }
-    
-
-
-
   var pop = document.getElementById("accp");
-
   console.log(pop)
-
   pop.classList.toggle("show");
 }
 
@@ -128,7 +107,6 @@ async function signout() {
 
 
 }
-
 async function loggedin() {
   let lo = localStorage.getItem('token');
   if (lo == null) {
@@ -175,4 +153,4 @@ async function loggedin() {
               </div>
             </div>
 
- */
+            */
