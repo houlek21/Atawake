@@ -270,4 +270,3 @@ export const getOrderDetails = async (req, res) => {
     });
   }
 };
-*/

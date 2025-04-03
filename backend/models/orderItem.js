@@ -51,3 +51,4 @@ Product.hasMany(OrderItem, { foreignKey: "product_id" });
 OrderItem.belongsTo(Product, { foreignKey: "product_id" });
 
 export default OrderItem;
+
