@@ -1,51 +1,120 @@
 @import "tailwindcss";
 
-/* Root Variables */
+/* Root Variables - Merged and Expanded */
 :root {
-  --beige: #fff8ef;
-  --red: #93151f;
-  --dark-red: #5f030b;
-  --brown: #392516;
-  --yellow: #ffe3bb;
-  --light-grey: #6d6d6d;
+  /* Colors */
+  --color-black: #000000;
+  --color-red: #93151f;
+  --color-dark-red: #5f030b;
+  --color-brown: #392516;
+  --color-beige: #faf5ee;
+  --color-green: #0f2a2d;
+  --color-yellow: #ffe3bb;
+  --color-light-grey: #6d6d6d;
 
+  /* Font Families */
+  --font-family-regular: "Inter-Regular", sans-serif;
+  --font-family-medium: "Inter-Medium", sans-serif;
+  --font-family-semibold: "Inter-SemiBold", sans-serif;
+  --font-family-bold: "Inter-Bold", sans-serif;
   --font-primary: "Inter", sans-serif;
+
+  /* Font Sizes */
+  --font-size-xl: 38px;
+  --font-size-lg: 27px;
+  --font-size-md: 20px;
+  --font-size-sm: 16px;
+  --font-size-xs: 14px;
 }
 
 /* Base Styling */
+html,
 body {
   font-family: var(--font-primary);
   color: var(--beige);
   background-color: var(--beige);
   margin: 0;
   padding: 0;
+  background-color: var(--color-beige);
+  font-family: var(--font-family-regular);
+  box-sizing: border-box;
+  color: var(--color-brown);
 }
 
-/* Header 1 */
-.h1 {
-  font-size: 38px;
-  font-weight: 600;
-  font-style: normal;
-  line-height: normal;
-  color: var(--beige);
+/* Text Color Utilities */
+.text-red {
+  color: var(--color-red);
+}
+.text-white {
+  color: var(--color-beige);
+}
+.text-black {
+  color: var(--color-black);
+}
+.text-center {
+  text-align: center;
 }
 
-/* Header 2 */
-.h2 {
-  font-size: 27px;
+/* Background Color Utilities */
+.bg-red {
+  background-color: var(--color-red);
+}
+.bg-brown {
+  background-color: var(--color-brown);
+}
+.bg-beige {
+  background-color: var(--color-beige);
+}
+.background-red {
+  background-color: var(--color-red);
+}
+.background-dark-red {
+  background-color: var(--color-dark-red);
+}
+.background-brown {
+  background-color: var(--color-brown);
+}
+.background-yellow {
+  background-color: var(--color-yellow);
+}
+.background-light-grey {
+  background-color: var(--color-light-grey);
+}
+
+/* Button Styles */
+.btn-rounded {
+  border-radius: 25px;
+  font-family: var(--font-family-medium);
+  font-size: var(--font-size-md);
   font-weight: 500;
   font-style: normal;
   line-height: normal;
   color: var(--beige);
 }
 
-/* Header 3 */
-.h3 {
-  font-size: 25px;
-  font-weight: 600;
-  font-style: normal;
-  line-height: normal;
-  color: var(--beige);
+.button-primary {
+  background-color: var(--color-red);
+  border: none;
+  border-radius: 23.5px;
+  color: var(--color-beige);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button-outline {
+  border: 1px solid var(--color-red);
+  background: transparent;
+  color: var(--color-red);
+  border-radius: 31.5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Utility Classes */
+.circle-border {
+  border-radius: 50%;
+  border-style: solid;
+  border-color: rgba(57, 37, 22, 0.15);
 }
 
 /* Header 4 */
@@ -75,55 +144,70 @@ body {
   color: var(--beige);
 }
 
-/* Bold Text */
+
+/* Typography Utilities */
+.header-xl, .h1 {
+  font-family: var(--font-family-semibold);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.header-lg, .h2 {
+  font-family: var(--font-family-medium);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.header-md, .h4 {
+  font-size: 20px;
+}
+
+.header-sm, .h5 {
+  font-size: 16px;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
 .bold-text {
   font-size: 54px;
   font-weight: 600;
-  font-style: normal;
-  line-height: normal;
-  color: var(--beige);
 }
 
-/* Button Text */
 .button-text {
   font-size: 20px;
   font-weight: 500;
-  font-style: normal;
-  line-height: 18px; /* 90% */
-  color: var(--beige);
+  line-height: 18px;
 }
 
-/* Icon Label */
 .icon-label {
   font-size: 10px;
   font-weight: 700;
-  font-style: normal;
-  line-height: 20px; /* 200% */
+  line-height: 20px;
   letter-spacing: 0.1px;
-  color: var(--beige);
 }
 
-/* Background Utility Classes */
-.background-beige {
-  background-color: var(--beige);
+/* Font Weight Utilities */
+.bold {
+  font-weight: 700;
 }
 
-.background-red {
-  background-color: var(--red);
+.light {
+  font-weight: 300;
 }
 
-.background-dark-red {
-  background-color: var(--dark-red);
-}
-
-.background-brown {
-  background-color: var(--brown);
-}
-
-.background-yellow {
-  background-color: var(--yellow);
-}
-
-.background-light-grey {
-  background-color: var(--light-grey);
+/* Page Container */
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fefaf5;
+  padding: 24px;
+  box-sizing: border-box;
 }
