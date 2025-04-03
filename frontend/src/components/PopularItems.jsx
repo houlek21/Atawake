@@ -1,10 +1,59 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
 import "../css/PopularItems.css";
-import { formatURL } from '../formatURL';
+import LeftArrow from "../assets/icons/leftarrow2.svg";
+import RightArrow from "../assets/icons/rightarrow2.svg";
 
 const PopularItems = () => {
+  const [products, setProducts] = useState([]);
   const scrollRef = useRef(null);
+
+  const popularItems = [
+    {
+      name: "Flowers Hoodie",
+      image: "/Products/FlowersHoodie.png",
+      rating: 4.8,
+      review: 100,
+    },
+    {
+      name: "Forest Beaded Earrings",
+      image: "/Products/ForestBeadedEarrings.png",
+      rating: 4.9,
+      review: 120,
+    },
+    {
+      name: "Northern Lights Art",
+      image: "/Products/NorthernLights.png",
+      rating: 4.7,
+      review: 90,
+    },
+    {
+      name: "Ceramic Bowl",
+      image: "/Products/CeramicBowl.png",
+      rating: 4.5,
+      review: 80,
+    },
+    {
+      name: "Ribbon Skirt",
+      image: "/Products/RibbonSkirt.png",
+      rating: 4.6,
+      review: 95,
+    },
+  ];
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/products");
+        const data = await res.json();
+        setProducts(data);
+      } catch (err) {
+        console.error("Error fetching products:", err);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -16,81 +65,36 @@ const PopularItems = () => {
     }
   };
 
-  const products = [
-    {
-      name: "Flowers Hoodie",
-      seller: "Taya Sky",
-      price: "CA$45.00",
-      image: "Products/FlowersHoodie.png",
-      rating: 4.7,
-      reviews: 90,
-      badge: "Popular now",
-    },
-    {
-      name: "Forest Beaded Earrings",
-      seller: "Taya Sky",
-      price: "CA$37.00",
-      image: "Products/ForestBeadedEarrings.png",
-      rating: 5.0,
-      reviews: 2100,
-      badge: "Popular now",
-    },
-    {
-      name: "Northern Lights Art",
-      seller: "Nova Waskah",
-      price: "CA$10.00",
-      image: "Products/NorthernLights.png",
-      rating: 4.2,
-      reviews: 50,
-      badge: "Popular now",
-    },
-    {
-      name: "Ceramic Bowl",
-      seller: "Maya Crowfoot",
-      price: "CA$34.00",
-      image: "Products/CeramicBowl.png",
-      rating: 4.8,
-      reviews: 85,
-      badge: "Popular now",
-    },
-    {
-      name: "Ribbon Skirt",
-      seller: "Nova Waskah",
-      price: "CA$210.00",
-      image: "Products/RibbonSkirt.png",
-      rating: 4.9,
-      reviews: 1100,
-      badge: "Popular now",
-    },
-  ];
-
   return (
     <section className="popular-items-section">
       <h2 className="popular-title">Popular Items</h2>
       <div className="scroll-wrapper">
-        <button className="scroll-btn left" onClick={() => scroll("left")}>‹</button>
+        <button className="scroll-btn left" onClick={() => scroll("left")}>
+          <img src={LeftArrow} alt="Left Arrow" />
+        </button>
         <div className="product-scroll" ref={scrollRef}>
-          {products.map((product, index) => {
-            const sellerURL = formatURL(product.seller);
-            const productURL = formatURL(product.name);
-            const link = `/artist/${sellerURL}/product/${productURL}`;
+          {popularItems.map((item) => {
+            const matchedProduct = products.find((p) => p.name === item.name);
+            if (!matchedProduct) return null;
 
             return (
               <ProductCard
-                key={index}
-                name={product.name}
-                seller={product.seller}
-                price={product.price}
-                image={product.image}
-                rating={product.rating}
-                reviews={product.reviews}
-                link={link}
-                badge={product.badge}
+                key={matchedProduct.id}
+                id={matchedProduct.id}
+                name={matchedProduct.name}
+                seller={matchedProduct.Seller?.business_name}
+                price={`CA$${parseFloat(matchedProduct.price).toFixed(2)}`}
+                image_url={item.image}
+                rating={item.rating}
+                reviews={item.review}
+                badge="Popular now"
               />
             );
           })}
         </div>
-        <button className="scroll-btn right" onClick={() => scroll("right")}>›</button>
+        <button className="scroll-btn right" onClick={() => scroll("right")}>
+          <img src={RightArrow} alt="Right Arrow" />
+        </button>
       </div>
     </section>
   );

@@ -2,19 +2,29 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
 
 const authenticateJWT = (req, res, next) => {
-    const token = req.header('Authorization')?.replace('Bearer ', '');
+    
+    console.log(req.headers['authorization'],'auth')
+    
+    //not work?
+    //const token = req.header('Authorization')?.replace('Bearer ', '');  
+    const token = req.headers['authorization']
+
     if(!token) {
         return res.status(401).json({ message: 'Authentication required' });
     }
-    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
+    
+    //process.env.JWT_SECRET ->secret, cause issue
+    jwt.verify(token, "secret", async (err, decoded) => {
        if(err) {
         return res.status(403).json({ message: 'Invalid token - Please Login Again' });
        }
+
        try {
         const user = await User.findByPk(decoded.id);
         if(!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+
         req.user = user; // Attach user to the request object
         next();
        } catch (error) {

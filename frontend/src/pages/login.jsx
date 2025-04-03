@@ -1,90 +1,78 @@
-import "../css/login.css"
+import "../css/Login.css"
 import React from 'react';
 
+import google from "../assets/icons/google.svg";
+import face from "../assets/icons/facebook.svg";
+import apple from "../assets/icons/apple.svg";
+
+
+
 //login
-    const loginPage = () => {
-        
+const loginPage = () => {
+
     return (
 
         <div className="log-in">
-            <img className="rectangle-177" src="http://localhost:5173/src/assets/loginbg.png" />
-
-            <div className="log-in-or-register">
-                <div className="log-in-or-register2">Log in or Register</div>
-                <input className="rectangle-142" placeholder="email" id='email'></input>
-                
-                
-                <input className="rectangle-146" placeholder="password" id='pass'></input>
-                
-
-                <div className="group-44">
-                    <button className="rectangle-143" onClick={login}>
-                        <div className="log-in2">Log In</div>
-                    </button>
-
-                    <a href="http://localhost:5173/signup">
-                    <button className="regButton">
-                    <div className="log-in2"> Register</div>
-                        </button>
-                        </a>
-                </div>
-                
-                
-                <div className="line-41"></div>
-                <div className="log-in-through-social-media">
-                    <div className="google">
-                        <div className="google2">
-                            <img className="devicon-google" src="devicon-google0.svg" />
-                            <div className="continue-with-google">Continue with Google</div>
-                        </div>
-                    </div>
-                    <div className="facebook">
-                        <div className="frame-111">
-                            <img className="vector" src="vector0.svg" />
-                            <div className="continue-with-facebook">Continue with Facebook</div>
-                        </div>
-                    </div>
-                    <div className="apple">
-                        <div className="frame-114">
-                            <img className="vector2" src="loginbg.png" />
-                            <div className="continue-with-apple">Continue with Apple</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="footer">
-                <div className="rectangle-178"></div>
-                <div className="rectangle-31"></div>
-                <img className="desn-443-logo-01-4" src="loginbg.png" />
-                <div className="about">About</div>
-                <div className="help">Help</div>
-                <div className="community">Community</div>
-                <div className="about-atawake">About Atawake</div>
-                <div className="from-artists">From artists</div>
-                <div className="help-center">Help center</div>
-                <div className="faq">FAQ</div>
-                <div className="accessibility">Accessibility</div>
-                <div className="en-francais">en Francais</div>
-                <div className="community-markets">Community markets</div>
-                <div className="careers">Careers</div>
-                <div className="posting-policy">Posting policy</div>
-                <div className="sell-on-atawake">Sell on Atawake</div>
-                <div className="group-94">
-                    <div className="_2025-atawake-inc">2025 Atawake Inc.</div>
-                    <div className="terms-of-use">Terms of Use</div>
-                    <div className="privacy">Privacy</div>
-                </div>
-                <div className="div">􀀈</div>
-                <div className="ri-instagram-fill"></div>
-                <div className="frame-133">
-                    <img className="instagram" src="instagram0.svg" />
-                    <img className="devicon-facebook" src="devicon-facebook0.svg" />
-                    <img className="x" src="x0.svg" />
-                </div>
-            </div>
+            <img className="rectangle-177" src="http://localhost:5173/src/assets/loginbg.jpg" />
 
 
+            <div className="frame-272">
+  <div className="frame-271">
+    <div className="frame-275">
+      <div className="input-boxes">
+        <div className="log-in-as-a-seller">Log in</div>
+        <div className="frame-278">
+          <div className="emaillog">Email</div>
+          <input id="email" className="email-input-boxlog"></input>
             
+          
+        </div>
+        <div className="frame-279">
+          <div className="password">Password</div>
+          <input id="pass" className="email-input-boxlog"></input>
+            
+          
+        </div>
+      </div>
+      <div className="forgot-password">Forgot password?</div>
+    </div>
+
+    <button onClick={login} className="shop-button1">
+      <div className="shop">Log In</div>
+    </button>
+
+    <button onClick={() => {window.location.href="http://localhost:5173/signup"}} className="shop-button1">
+      <div className="shop">Signup</div>
+    </button>
+  
+  </div>
+  <div className="line-41"></div>
+  <div className="log-in-through-social-media">
+    <div className="facebook">
+      <div className="frame-111">
+        <img className="vectorlog" src={face} />
+        <div className="continue-with-facebook">Continue with Facebook</div>
+      </div>
+    </div>
+    <div className="googlelog">
+      <div className="google2log">
+        <img className="devicon-google" src={google} />
+        <div className="continue-with-google">Continue with Google</div>
+      </div>
+    </div>
+    <div className="applelog">
+      <div className="frame-114">
+        <img className="vector2" src={apple} />
+        <div className="continue-with-apple">Continue with Apple</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
         </div>
 
 
@@ -114,14 +102,15 @@ async function login() {
 
 
         const resjson = await response;
-        var  a = await  resjson.json()
+        var a = await resjson.json()
         console.log(a)
-        
+
         if (!response.ok) {
             throw new Error(`Response status: ${response}`);
         }
         localStorage.setItem('token', a.token)
-                
+
+        window.location.href = "http://localhost:5173/"
         alert('suc');
 
     } catch (error) {
@@ -132,3 +121,50 @@ async function login() {
 }
 
 
+/*
+            <div className="log-in-or-register">
+                <div className="log-in-or-register2">Log in or Register</div>
+                <input className="rectangle-142" placeholder="email" id='email'></input>
+
+
+                <input className="rectangle-146" placeholder="password" id='pass'></input>
+
+                <div className="forgot-pass">forgot password</div>
+
+                
+
+                <button className="rectangle-143" onClick={login}>
+                    <div className="log-in2">Log In</div>
+                </button>
+
+
+                <button className="regButton" onClick={() => { window.location.replace("http://localhost:5173/signup") }}>
+                    <div className="log-in2"> Register</div>
+                </button>
+
+
+
+
+                <div className="line-41"></div>
+                <div className="log-in-through-social-media">
+                    <div className="google">
+                        <div className="google2">
+                            <img className="devicon-google" src="devicon-google0.svg" />
+                            <div className="continue-with-google">Continue with Google</div>
+                        </div>
+                    </div>
+                    <div className="facebook">
+                        <div className="frame-111">
+                            <img className="vector" src="vector0.svg" />
+                            <div className="continue-with-facebook">Continue with Facebook</div>
+                        </div>
+                    </div>
+                    <div className="apple">
+                        <div className="frame-114">
+                            <img className="vector2" src="loginbg.png" />
+                            <div className="continue-with-apple">Continue with Apple</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+*/

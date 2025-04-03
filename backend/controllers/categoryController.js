@@ -1,5 +1,65 @@
 import Category from '../models/category.js';
 
+
+
+
+
+
+
+
+
+
+async function catcreate(){
+
+console.log("create");
+function sleep(ms) {
+return new Promise((resolve) => {
+  setTimeout(resolve, ms);
+});
+}
+await sleep(1000);
+
+
+const categories = await Category.findAll({});
+
+if (categories.length == 0) {
+  const newCategory = await Category.create({
+    category_name: "Jewelry and Accessories",
+    description: "jewls"
+  });
+  const newCategory2 = await Category.create({
+    category_name: "Clothing and Textiles",
+    description: "Clothing and Textiles"
+  });
+  const newCategory3 = await Category.create({
+    category_name: "Carvings and Sculptures",
+    description: "Carvings and Sculptures"
+  });
+  const newCategory4 = await Category.create({
+    category_name: "Home Decor",
+    description: "Home Decor"
+  });
+  const newCategory5 = await Category.create({
+    category_name: "Pottery & Ceramics",
+    description: "Pottery & Ceramics"
+  });
+  const newCategory6 = await Category.create({
+    category_name: "Beadwork & Quillwork",
+    description: "Beadwork & Quillwork"
+  });
+}
+
+}
+
+
+catcreate()
+
+
+
+
+
+
+
 // Get all categories (public)
 export const getAllCategories = async (req, res) => {
   try {

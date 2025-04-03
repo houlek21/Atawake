@@ -1,0 +1,392 @@
+/* Figma Styles of your File */
+:root {
+  /* Colors */
+  --black: #000000;
+  --red: #93151f;
+  --brown: #392516;
+  --beige: #faf5ee;
+  --green: #0f2a2d;
+
+  /* Fonts */
+  --header-1-font-family: Inter-SemiBold, sans-serif;
+  --header-1-font-size: 38px;
+  --header-1-line-height: normal;
+  --header-1-font-weight: 600;
+  --header-1-font-style: normal;
+  --header-2-font-family: Inter-Medium, sans-serif;
+  --header-2-font-size: 27px;
+  --header-2-line-height: normal;
+  --header-2-font-weight: 500;
+  --header-2-font-style: normal;
+  --header-3-font-family: Inter-SemiBold, sans-serif;
+  --header-3-font-size: 25px;
+  --header-3-line-height: normal;
+  --header-3-font-weight: 600;
+  --header-3-font-style: normal;
+  --header-4-font-family: Inter-Regular, sans-serif;
+  --header-4-font-size: 20px;
+  --header-4-line-height: 27px;
+  --header-4-font-weight: 400;
+  --header-4-font-style: normal;
+  --body-font-family: Inter-Regular, sans-serif;
+  --body-font-size: 16px;
+  --body-line-height: 18px;
+  --body-font-weight: 400;
+  --body-font-style: normal;
+  --header-5-font-family: Inter-Regular, sans-serif;
+  --header-5-font-size: 17px;
+  --header-5-line-height: 27px;
+  --header-5-font-weight: 400;
+  --header-5-font-style: normal;
+  --button-font-family: Inter-Medium, sans-serif;
+  --button-font-size: 20px;
+  --button-line-height: 18px;
+  --button-font-weight: 500;
+  --button-font-style: normal;
+  --icon-label-font-family: Inter-Bold, sans-serif;
+  --icon-label-font-size: 14px;
+  --icon-label-line-height: 20px;
+  --icon-label-font-weight: 700;
+  --icon-label-font-style: normal;
+  --bold-body-font-family: Inter-Bold, sans-serif;
+  --bold-body-font-size: 16px;
+  --bold-body-line-height: 18px;
+  --bold-body-font-weight: 700;
+  --bold-body-font-style: normal;
+
+  /* Effects */
+}
+
+
+
+
+
+
+
+
+
+.create-seller-account,
+.create-seller-account * {
+  box-sizing: border-box;
+}
+.create-seller-account {
+  background: var(--color, #faf5ee);
+ 
+  height: 1420px;
+  position: relative;
+  overflow: hidden;
+}
+.rectangle-177 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+.frame-274sign,
+.frame-274sign * {
+  box-sizing: border-box;
+}
+.frame-274sign {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 64px;
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  gap: 32px;
+  width: 760px;
+  top: 5%;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+.frame-277sign {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame-73s {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.sign-ups {
+  color: var(--red, #93151f);
+  text-align: left;
+  font-family: var(--header-1-font-family, "Inter-SemiBold", sans-serif);
+  font-size: var(--header-1-font-size, 38px);
+  font-weight: var(--header-1-font-weight, 600);
+  position: relative;
+  align-self: stretch;
+}
+.frame-5s {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame-273s {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.frame-1s {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.names {
+  color: #000000;
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  position: relative;
+  align-self: stretch;
+  height: 18px;
+}
+.email-input-boxs {
+  color:#000000;
+  background: #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: var(--light-grey, #6d6d6d);
+  border-width: 1px;
+  padding: 10px 16px 10px 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  height: 56px;
+  position: relative;
+  
+
+  
+  text-align: left;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--body-font-size, 16px);
+  line-height: var(--body-line-height, 18px);
+  font-weight: var(--body-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+.name2s {
+  color: var(--light-grey, #6d6d6d);
+  text-align: left;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--body-font-size, 16px);
+  line-height: var(--body-line-height, 18px);
+  font-weight: var(--body-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-2s {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.email-addresss {
+  color: #000000;
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  position: relative;
+}
+.email-address2s {
+  color: var(--light-grey, #6d6d6d);
+  text-align: left;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--body-font-size, 16px);
+  line-height: var(--body-line-height, 18px);
+  font-weight: var(--body-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-3s {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.create-a-passwords {
+  color: #000000;
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  position: relative;
+  align-self: stretch;
+  height: 18px;
+}
+.create-a-password2s {
+  color: var(--light-grey, #6d6d6d);
+  text-align: left;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--body-font-size, 16px);
+  line-height: var(--body-line-height, 18px);
+  font-weight: var(--body-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-4s {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-shrink: 0;
+  position: relative;
+}
+.confirm-passwords {
+  color: #000000;
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  position: relative;
+  align-self: stretch;
+  height: 18px;
+}
+.confirm-password2s {
+  color: var(--light-grey, #6d6d6d);
+  text-align: left;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--body-font-size, 16px);
+  line-height: var(--body-line-height, 18px);
+  font-weight: var(--body-font-weight, 400);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-276s {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.already-on-atawakes {
+  color: #000000;
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.log-ins {
+  color: var(--red, #93151f);
+  text-align: left;
+  font-family: var(--bold-body-font-family, "Inter-Bold", sans-serif);
+  font-size: var(--bold-body-font-size, 16px);
+  line-height: var(--bold-body-line-height, 18px);
+  font-weight: var(--bold-body-font-weight, 700);
+  text-decoration: underline;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frame-116s {
+  display: flex;
+  flex-direction: row;
+  gap: 207px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+}
+.shop-buttons {
+  background: var(--red, #93151f);
+  border-radius: 25.5px;
+  padding: 13px 26px 13px 26px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 198px;
+  height: 49px;
+  position: relative;
+}
+.shops {
+  color: var(--beige, #fff8ef);
+  text-align: center;
+  font-family: var(--button-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--button-font-size, 20px);
+  line-height: var(--button-line-height, 18px);
+  font-weight: var(--button-font-weight, 500);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
