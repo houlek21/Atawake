@@ -27,7 +27,7 @@ const Header = () => {
   });
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" id="header">
       <div className="navbar-left">
         <a href="/" className="logo-link">
           <img src={logo} alt="Logo" className="logo" />

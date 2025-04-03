@@ -6,22 +6,34 @@ import Slides from "../components/Slider"
 import ReactDOM from "react-dom/client";
 import SA from "../components/AccountPopupSETUP"
 
+import img1 from "../assets/Artist/X.svg"
+import img2 from "../assets/Artist/profile1.jpg"
+import img3 from "../assets/Artist/profile2.jpg"
+import img4 from "../assets/Artist/profpiccirc.png"
+import img5 from "../assets/Artist/X.svg"
+import img6 from "../assets/icons/facebook.svg"
+import img7 from "../assets/Artist/instagram.svg"
 
 
 const sellerPage = () => {
-    useEffect(() => {
-        slide();
-        return;
-      }, []);
+  useEffect(() => {
+    slide();
+
+
+    console.log(document.getElementById("header"))
+    document.getElementById("header").style.backgroundColor = "rgba(0, 0, 0, 0)"
+    return;
+  }, []);
 
   return (
 
-    <html>
-      <div id="top" class="rectangle-208sell"></div>
+    <div className="footseperator">
+    <div className="sellercont">
+      <img id="top" class="rectangle-208sell" src={img2}></img>
 
 
       <div class="accountheadsell">
-        <img class="_2-1024-x-683-3sell" src="_2-1024-x-683-3.png" />
+        <img class="_2-1024-x-683-3sell" src={img3} />
 
         <div class="accrec2sell">
           <div class="taya-skysell">Taya Sky</div>
@@ -29,9 +41,16 @@ const sellerPage = () => {
             <div class="shopsell">Browse my custom goods</div>
           </div>
 
+          <div class="frame-133">
+            <img class="instagram" src={img7} />
+            <img class="devicon-facebook" src={img6} />
+            <img class="x" src={img5} />
+          </div>
+
+
           <div class="currently-at-holiday-marketsell">
             <span>
-              <span class="currently-at-holiday-market-span4sell">Currently at</span>
+              <span class="currently-at-holiday-market-span4sell">Currently at </span>
               <span class="currently-at-holiday-market-span5sell"></span>
               <span class="currently-at-holiday-market-span6sell">Holiday Market</span>
             </span>
@@ -41,11 +60,11 @@ const sellerPage = () => {
 
 
         <div class="rectangle-4sell">
-          <img class="ellipse-11sell" src="_2-1024-x-683-1.png" />
+          <img class="ellipse-11sell" src={img4} />
           <div class="message-taya-skysell">Message Taya Sky</div>
-           <div class="awaysell">Away</div>
+          <div class="awaysell">Away</div>
           <div class="average-response-time-1-hrsell">Average response time: 1 hr</div>
-         
+
         </div>
 
       </div>
@@ -64,24 +83,25 @@ const sellerPage = () => {
           generation of storytellers.
         </div>
 
-        
-        
-            <div id="id" ><Slides/></div>
-            
-             
-            
-          
+
+
+        <div id="id" ><Slides /></div>
+
+
+
+
 
       </div>
-    </html>
+    </div>
+    </div>
   )
 };
 export default sellerPage;
 
 
 
-function slide(){
-  
+function slide() {
+
   console.log(document.getElementById('id').innerHTML)
   // ReactDOM.createRoot(document.getElementById('id')).render(<Slides />)
 
