@@ -71,9 +71,9 @@ export const updateUser = async (req, res) => {
     }
 
     // Only Admins should be able to change the 'user_type'
-    if(user_type && req.user.user_type !== 'admin') {
-      return res.status(403).json( { message: 'Regular users are not permitted to change the account type' });
-    }
+    // if(user_type && req.user.user_type !== 'admin') {
+    //   return res.status(403).json( { message: 'Regular users are not permitted to change the account type' });
+    // }
 
     await user.update({ first_name, last_name, email, phone, address, user_type });
     res.json(user);
@@ -99,3 +99,8 @@ export const deleteUser = async (req, res) => {
     res.status(500).json({ error: 'Failed to delete user', details: error.message });
   }
 };
+
+// validate a user login jwt token 
+export const validateToken = async (req, res) => {
+  res.status(200).json({ message: "Token is valid"})
+}

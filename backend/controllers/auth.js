@@ -28,7 +28,8 @@ const loginUser = async (req, res) => {
         }
 
         // Create JWT token
-        const token = jwt.sign({ id: user.id, name: user.first_name }, "secret", { expiresIn: '24h' });
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+
         res.status(200).json({ token });
     } catch (error) {
         console.log(error); // Log error for debugging
