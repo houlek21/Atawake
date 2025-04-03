@@ -23,3 +23,4 @@ try {
 
 // Export as default
 export default sequelize;
+

@@ -163,9 +163,10 @@ async function upload() {
     const price = document.getElementById("price").value
     var titleandcate = JSON.parse(localStorage.getItem('p1'))
 
+    //del media_url
     const send = { "name": titleandcate.name, "description": detail, "quantity": 1, "media_urls": images, "category_id": titleandcate.category, "price": price }
 
-    const url = "http://localhost:5000/api/products/addprod";
+    const url = "http://localhost:5000/api/products/";
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -183,21 +184,27 @@ async function upload() {
             throw new Error(`Response status: ${response}`);
         }
 
-        var ad = resjson.uploadID
-        console.log(resjson)
+        
+        console.log(resjson.product.id)
+
+        imgupload(resjson.product.id)
 
     } catch (error) {
         console.error(error.message);
     }
 
+}
+
+async function imgupload(id) {
 
     //picture upload--------
-    /*
+    const fileInput = document.querySelector("f");
+    console.log(fileInput)
     var forrm = new FormData();
     forrm.append("image", fileobj[0])
     
     
-    const url2 = "http://localhost:5000/api/products/" + ad + "/images"
+    const url2 = "http://localhost:5000/api/products/" + id + "/images"
     //console.log(images[0])
     console.log(fileobj)
     console.log(fileobj[0])
@@ -226,7 +233,7 @@ async function upload() {
 
         console.error(error.message);
     }
-*/
+
 }
 
 

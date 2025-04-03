@@ -7,30 +7,31 @@ const loginUser = async (req, res) => {
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({ message: 'Email and password are required' });
     }
-    console.log("inlog")
+    
     const { email, password } = req.body;
     
     // Validate that email and password are provided
     if (!email || !password) {
         return res.status(400).json({ message: 'Email and password are required' });
     }
-
+    
     try {
         const user = await User.findOne({ where: { email } });
+        
         if(!user) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
-
+        
         // Compare the entered password with the stored password hash
         const isMatch = await bcrypt.compare(password, user.password_hash);
+        
         if(!isMatch) {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
-
+        
         // Create JWT token
-        console.log("inlog")
-        const token = jwt.sign({ id: user.id, name: user.first_name}, process.env.JWT_SECRET, { expiresIn: '7d' });
-
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        
         res.status(200).json({ token });
     } catch (error) {
         console.log(error); // Log error for debugging

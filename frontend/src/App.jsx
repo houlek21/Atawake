@@ -14,7 +14,7 @@ import ProductPage from "./pages/ProductPage";
 import ArtistPage from "./pages/ArtistPage";
 
 import SettingsPage from "./pages/AccountSettingsSETUP.jsx";
-import LoginPage from "./pages/login.jsx";
+import LoginPage from "./pages/Login.jsx";
 import SignupPage from "./pages/signup.jsx";
 import SellerSignupPage from "./pages/sellerreg.jsx";
 import AddItemPage1 from "./pages/AddProdPage1.jsx";
@@ -83,3 +83,4 @@ function App() {
 }
 
 export default App;
+

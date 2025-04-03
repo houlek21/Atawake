@@ -114,7 +114,7 @@ async function login() {
         alert('suc');
 
     } catch (error) {
-      alert("Credentials Invalid");
+        alert(error);
         console.error(error.message);
     }
 

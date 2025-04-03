@@ -1,6 +1,6 @@
 import "../css/account.css"
 import React from 'react';
-import { useEffect, useRef  } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 //log into site
 
@@ -43,14 +43,9 @@ import dash6 from "../assets/dashboard/dash/Ellipse 31.png"
 
 
 const accountPage = () => {
-  const initialized = useRef(false)
-  
   useEffect(() => {
-    if (!initialized.current) {
-      initialized.current = true
-    
     getlistings();
-    }
+    return;
   }, []);
 
 
@@ -512,51 +507,56 @@ export default accountPage;
 
 //create a listting button
 async function isSeller() {
-  let lo = localStorage.getItem('token')
-
+  let lo = localStorage.getItem('token');
   if (lo == null) {
-    console.log("no token")
+    console.log("no token");
     return
   }
+
   else {
-    var to = JSON.parse(atob(lo.split(".")[1]))
+    let to = JSON.parse(atob(lo.split(".")[1]));
+    console.log(Date.now() / 1000, to.exp);
+    
     if (Date.now() / 1000 >= to.exp) {
       return
     }
     else {
-    }
+      
+
+      try {
+        var url = "http://localhost:5000/api/sellers/" + to.id;
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+          } 
+        });
+
+        const resjson = await response.json();
+        console.log(response)
+        if (response.status == 404) {
+          console.log(to.id)
+          window.location.href = "http://localhost:5173/sellersignup"
+        }
+
+        if (!response.ok) {
+
+          throw new Error(`Response status: ${response}`);
+        }
+
+        window.location.href = "http://localhost:5173/addprod1"
+      
+
+      } catch (error) {
+        console.error(error.message);
+      }
+
+
+    
   }
-
-
-  var url = "http://localhost:5000/api/seller/isseller/" + to.id;
-  console.log(to.id)
-  try {
-    const response = await fetch(url, {
-      method: "GET",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
-    });
-
-
-    const resjson = await response;
-    console.log(response, response.json())
-
-    if (response.status == 400) {
-      console.log(to.id)
-      window.location.href = "http://localhost:5173/sellersignup"
-    }
-    else if (!response.ok) {
-      throw new Error(`Response status: ${response}`);
-    }
-    else {
-
-      window.location.href = "http://localhost:5173/addprod1"
-    }
-  } catch (error) {
-    console.error(error.message);
-  }
+}
 }
 
 

@@ -20,6 +20,7 @@ const Header = () => {
     if (query.trim()) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`);
     }
+
   };
 
   useEffect(() => {
@@ -97,37 +98,18 @@ export default Header;
 
 async function accPop() {
   console.log("ent")
-  
-  let lo = localStorage.getItem('token');
-  if (lo == null) {
-    window.location.href = "http://localhost:5173/login"
-    console.log("no token");
-    return
-  }
-  else {
-    let to = JSON.parse(atob(lo.split(".")[1]));
-    console.log(Date.now() / 1000, to.exp);
-    if (Date.now() / 1000 >= to.exp) {
-      window.location.href = "http://localhost:5173/login"
-      return
-    }
-  }
-    
-
-
-
   var pop = document.getElementById("accp");
-
   console.log(pop)
-
   pop.classList.toggle("show");
 }
 
 async function signout() {
 
-
-
 }
+
+
+
+
 async function loggedin() {
   let lo = localStorage.getItem('token');
   if (lo == null) {
@@ -141,11 +123,45 @@ async function loggedin() {
       return
     }
     else {
-      document.getElementById("login").innerHTML = JSON.parse(atob(lo.split(".")[1])).name
-      document.getElementById("popname").innerHTML = JSON.parse(atob(lo.split(".")[1])).name
+      console.log(to.id)
+
+      try {
+        var url = "http://localhost:5000/api/users/" + to.id;
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.getItem('token')
+          } 
+        });
+
+        const resjson = await response.json();
+
+        if (!response.ok) {
+
+          throw new Error(`Response status: ${response}`);
+        }
+      document.getElementById("login").innerHTML = resjson.first_name
+      document.getElementById("popname").innerHTML = resjson.first_name
       document.getElementById("login").href = "/dashboard"
+        
+
+      } catch (error) {
+        console.error(error.message);
+      }
+
+
+
+
+      
     }
   }
+
+
+  
+
+  
 }
 
 

@@ -85,7 +85,7 @@ async function newSeller() {
 
   try {
 
-    var url = "http://localhost:5000/api/seller/";
+    var url = "http://localhost:5000/api/sellers/";
     const response = await fetch(url, {
       method: 'POST',
       headers: {
