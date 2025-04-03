@@ -14,7 +14,7 @@ const authenticateJWT = (req, res, next) => {
     }
     
     //process.env.JWT_SECRET ->secret, cause issue
-    jwt.verify(token, "secret", async (err, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
        if(err) {
         return res.status(403).json({ message: 'Invalid token - Please Login Again' });
        }

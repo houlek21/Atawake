@@ -8,6 +8,7 @@ import Category from '../models/category.js';
 
 
 
+//CREATE CATAGORYS  delete when not needed
 
 async function catcreate(){
 

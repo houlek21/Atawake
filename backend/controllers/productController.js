@@ -22,7 +22,7 @@ export const createProduct = async (req, res) => {
  
   try {
     // check if user is a seller
-    console.log(name, description, price, quantity, category_id, is_active, "reqs")
+    console.log(name, description, price, quantity, category_id, is_active)
 
 
     const seller = await Seller.findOne({ where: { user_id: req.user.id } });
