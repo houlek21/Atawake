@@ -217,7 +217,7 @@ async function imgupload(id) {
                 'Content-Type': 'application/json',
                 'Authorization': localStorage.getItem('token')
             },
-            body: forrm,
+            body: JSON.stringify({"images":forrm}),
         });
 
 
