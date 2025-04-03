@@ -4,14 +4,14 @@ import WhatCustomersSay from "../components/WhatCustomersSay";
 import CustomerReviews from "../components/CustomerReviews";
 import MoreFromSeller from "../components/MoreFromSeller";
 import MoreFromCategory from "../components/MoreFromCategory";
-import CartConfirmation from "../components/CartConfirmation"; // ✅ ADD
+import CartConfirmation from "../components/CartConfirmation";
 
 const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [seller, setSeller] = useState(null);
-  const [cartOpen, setCartOpen] = useState(false); // ✅ for drawer
-  const [cartItems, setCartItems] = useState([]); // ✅ cart contents
+  const [cartOpen, setCartOpen] = useState(false); // for drawer
+  const [cartItems, setCartItems] = useState([]); // cart contents
 
   // Fetch product
   useEffect(() => {
@@ -70,21 +70,23 @@ const ProductPage = () => {
         {product.name}
       </h1>
 
-      <div className="flex flex-col lg:flex-row gap-10 items-start">
-        {/* Left: Image Gallery */}
+      <div className="flex flex-col lg:flex-row gap-80 items-start">
+        {/* Left: Images */}
         <div className="flex gap-4">
-          <div className="flex flex-col gap-3 w-20">
+          {/* Thumbnails */}
+          <div className="flex flex-col gap-3">
             {product.ProductMedia?.map((media, idx) => (
               <img
                 key={idx}
                 src={media.media_url}
                 alt={`thumb-${idx}`}
-                className="w-20 h-20 object-cover rounded-lg border cursor-pointer hover:scale-105 transition"
+                className="w-50 h-50 object-cover rounded-lg border cursor-pointer hover:scale-105 transition"
               />
             ))}
           </div>
 
-          <div className="w-full max-w-xl max-h-[500px] overflow-hidden rounded-xl shadow-md">
+          {/* Main Image */}
+          <div className="w-[550px] h-[550px] rounded-xl shadow-md overflow-hidden">
             <img
               src={product.ProductMedia?.[0]?.media_url}
               alt={product.name}
@@ -95,7 +97,7 @@ const ProductPage = () => {
 
         {/* Right: Info Panel */}
         <div className="p-4 space-y-4 w-full max-w-sm">
-          <p className="text-sm text-red-700 font-semibold">
+          <p className="text-xl text-red-700 font-semibold">
             Only {product.quantity} left and in 4 baskets
           </p>
 
@@ -131,11 +133,11 @@ const ProductPage = () => {
             </div>
           )}
 
-          <div className="space-y-4 pt-4">
+          <div className="space-y-5 pt-4">
             <div>
               <label
                 htmlFor="size"
-                className="block text-sm font-medium text-black"
+                className="block text-lg font-base text-black"
               >
                 Size<span className="text-red-600">*</span>
               </label>
@@ -156,7 +158,7 @@ const ProductPage = () => {
             <div>
               <label
                 htmlFor="personalization"
-                className="block text-sm font-medium text-black"
+                className="block text-lg font-base text-black"
               >
                 Add your personalization (optional)
               </label>
@@ -177,7 +179,7 @@ const ProductPage = () => {
             <button
               type="button"
               onClick={handleAddToCart}
-              className="w-full bg-[#981b1e] text-white text-sm font-medium px-6 py-3 rounded-full hover:bg-[#7d161a] transition"
+              className="w-full bg-[#981b1e] text-white text-lg font-medium mt-4 px-6 py-3 rounded-full hover:bg-[#7d161a] transition"
             >
               Add to cart
             </button>
@@ -185,45 +187,52 @@ const ProductPage = () => {
         </div>
       </div>
 
-      {/* Reviews & Details */}
-      <div className="flex flex-col md:flex-row gap-6 bg-[#f9f0e7] p-6 rounded-lg max-w-4xl w-full">
-        <div className="p-4 rounded-lg w-full max-w-xs space-y-3 text-sm">
-          <h2 className="text-xl font-bold text-[#981b1e]">
-            1,2654 reviews{" "}
-            <span className="text-lg text-[#981b1e]">★ ★ ★ ★ ☆</span>
-          </h2>
+      <div className="flex flex-col mt-10 md:flex-row gap-120 w-full justify-start">
+        {/* Number of Reviews */}
+        <div className="p-6 bg-[#f9f0e7] rounded-lg space-y-4 w-140">
+          <div className="flex items-center gap-4">
+            <p className="text-4xl font-bold text-[#981b1e]">1,2654 reviews</p>
+            <p className="text-3xl text-[#981b1e]">★ ★ ★ ★ ☆</p>
+          </div>
 
           {[5, 4, 3, 2, 1].map((star) => {
             const percentage = { 5: 90, 4: 10, 3: 0, 2: 0, 1: 0 }[star];
             return (
               <div
                 key={star}
-                className="flex items-center gap-2 text-[#392516]"
+                className="flex items-center gap-3 text-[#392516]"
               >
-                <span className="w-12">{star} star</span>
-                <div className="flex-1 h-3 bg-white border border-gray-300 rounded">
+                <div className="w-14">
+                  <p>{star} star</p>
+                </div>
+                <div className="flex-1 h-4 bg-white border border-gray-300 rounded">
                   <div
                     className="h-full bg-[#3c2e24] rounded"
                     style={{ width: `${percentage}%` }}
                   ></div>
                 </div>
-                <span className="w-10 text-right">{percentage}%</span>
+                <div className="w-10 text-right">
+                  <p>{percentage}%</p>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="bg-[#f9f0e7] p-4 rounded-md text-sm text-[#3c2e24] space-y-4 w-full max-w-xs">
-          <div className="flex justify-between items-center font-semibold text-[#981b1e] cursor-pointer">
-            <span>Product details</span>
-            <span>›</span>
+        {/* Product + Delivery Box */}
+        <div className="p-6 bg-[#f9f0e7] rounded-lg space-y-4 text-[#3c2e24] w-full max-w-md">
+          <div className="flex justify-between items-center font-semibold text-[#981b1e] text-4xl cursor-pointer">
+            <p>Product details</p>
+            <p>›</p>
           </div>
-          <div className="space-y-2">
-            <div className="flex justify-between items-center font-semibold text-[#981b1e] cursor-pointer">
-              <span>Delivery details</span>
-              <span>⌄</span>
+
+          <div className="space-y-4 text-xl">
+            <div className="flex justify-between items-center font-semibold text-[#981b1e] text-4xl cursor-pointer">
+              <p>Delivery details</p>
+              <p>⌄</p>
             </div>
-            <div className="text-[#3c2e24] mt-1">
+
+            <div>
               <p>
                 Order today to get by{" "}
                 <span className="font-semibold">19–23 March</span>

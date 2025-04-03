@@ -5,17 +5,14 @@ import RightArrow from "../assets/icons/rightarrow2.svg";
 
 const MoreFromSeller = ({ sellerId, sellerName }) => {
   const [sellerProducts, setSellerProducts] = useState([]);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
   const scrollRef = useRef(null);
 
-  // Fetch seller's products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products`);
+        const res = await fetch(`http://localhost:5000/api/products?seller_id=${sellerId}`);
         const data = await res.json();
-        const filtered = data.filter((p) => p.seller_id === sellerId);
-        setSellerProducts(filtered);
+        setSellerProducts(data);
       } catch (err) {
         console.error("Error fetching seller's products:", err);
       }
@@ -24,13 +21,6 @@ const MoreFromSeller = ({ sellerId, sellerName }) => {
     if (sellerId) fetchProducts();
   }, [sellerId]);
 
-  // Update scroll button visibility
-  const updateScrollButtons = () => {
-    if (!scrollRef.current) return;
-    setCanScrollLeft(scrollRef.current.scrollLeft > 0);
-  };
-
-  // Scroll action
   const scroll = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = 300;
@@ -41,52 +31,49 @@ const MoreFromSeller = ({ sellerId, sellerName }) => {
     }
   };
 
-  // Add scroll listener
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", updateScrollButtons);
-      updateScrollButtons();
-      return () => el.removeEventListener("scroll", updateScrollButtons);
-    }
-  }, [sellerProducts]);
-
   if (!sellerProducts.length) return null;
 
   return (
-    <section className="popular-items-section">
-      <div className="flex items-center gap-2 mb-2">
-        <h2 className="popular-title text-[#981b1e]">More from {sellerName}</h2>
-        <span className="bg-[#3c2e24] text-white text-xs px-3 py-1 rounded-full">
-          {sellerName}
-        </span>
-      </div>
+    <div className="w-full px-8 py-10">
+      <p className="text-[#93151F] text-4xl font-semibold mb-4">
+        More from {sellerName}
+      </p>
+      <div className="relative flex items-center">
+        <button
+          className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("left")}
+        >
+          <img src={LeftArrow} alt="Left Arrow" className="w-5 h-5" />
+        </button>
 
-      <div className="scroll-wrapper relative">
-        {canScrollLeft && (
-          <button className="scroll-btn left" onClick={() => scroll("left")}>
-            <img src={LeftArrow} alt="Left Arrow" />
-          </button>
-        )}
-        <div className="product-scroll" ref={scrollRef}>
+        <div
+          className="flex flex-row overflow-x-auto gap-4 pb-2 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          ref={scrollRef}
+        >
           {sellerProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              seller={product.Seller?.business_name}
-              price={`CA$${parseFloat(product.price).toFixed(2)}`}
-              image_url={product.ProductMedia?.[0]?.media_url}
-              rating={4 + Math.random()} // TEMP
-              reviews={Math.floor(Math.random() * 2000)} // TEMP
-            />
+            <div key={product.id} className="snap-start flex-shrink-0">
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                seller={product.Seller?.business_name}
+                price={`CA$${parseFloat(product.price).toFixed(2)}`}
+                image_url={product.ProductMedia?.[0]?.media_url}
+                rating={4 + Math.random()} // Replace with actual backend data
+                reviews={Math.floor(Math.random() * 2000)} // Replace with actual backend data
+                badge={`From ${sellerName}`}
+              />
+            </div>
           ))}
         </div>
-        <button className="scroll-btn right" onClick={() => scroll("right")}>
-          <img src={RightArrow} alt="Right Arrow" />
+
+        <button
+          className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("right")}
+        >
+          <img src={RightArrow} alt="Right Arrow" className="w-5 h-5" />
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 

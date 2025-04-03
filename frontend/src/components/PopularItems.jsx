@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import ProductCard from "./ProductCard";
-import "../css/PopularItems.css";
 import LeftArrow from "../assets/icons/leftarrow2.svg";
 import RightArrow from "../assets/icons/rightarrow2.svg";
 
@@ -66,13 +65,26 @@ const PopularItems = () => {
   };
 
   return (
-    <section className="popular-items-section">
-      <h2 className="popular-title">Popular Items</h2>
-      <div className="scroll-wrapper">
-        <button className="scroll-btn left" onClick={() => scroll("left")}>
-          <img src={LeftArrow} alt="Left Arrow" />
-        </button>
-        <div className="product-scroll" ref={scrollRef}>
+    <div className="w-full px-65 py-10">
+      <p className="text-[#93151F] text-4xl font-semibold mb-4">
+        Popular Items
+      </p>
+      <div className="relative flex items-center">
+        <div
+          className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-8 md:h-8 p-2 md:p-1.5 rounded-full shadow cursor-pointer hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("left")}
+        >
+          <img
+            src={LeftArrow}
+            alt="Left Arrow"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        <div
+          className="flex overflow-x-auto gap-4 pb-2 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          ref={scrollRef}
+        >
           {popularItems.map((item) => {
             const matchedProduct = products.find((p) => p.name === item.name);
             if (!matchedProduct) return null;
@@ -92,11 +104,19 @@ const PopularItems = () => {
             );
           })}
         </div>
-        <button className="scroll-btn right" onClick={() => scroll("right")}>
-          <img src={RightArrow} alt="Right Arrow" />
-        </button>
+
+        <div
+          className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-8 md:h-8 p-2 md:p-1.5 rounded-full shadow cursor-pointer hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("right")}
+        >
+          <img
+            src={RightArrow}
+            alt="Right Arrow"
+            className="w-full h-full object-contain"
+          />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

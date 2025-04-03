@@ -20,12 +20,12 @@ const WhatCustomersSay = () => {
   }, []);
 
   return (
-    <div className="p-4 rounded-md max-w-lg">
-      <p className="text-black font-Inter font-semibold mb-2">
+    <div className="p-4 rounded-md w-lg">
+      <p className="text-black font-Inter font-medium text-4xl mt-4 mb-2">
         What customers say ✨
       </p>
-      <p className="text-sm text-[#3c2e24]">{selected}</p>
-      <p className="text-sm text-[#6D6D6D]">
+      <p className="text-2xl text-black">{selected}</p>
+      <p className="text-[#6D6D6D] mt-2">
         AI-generated from the text of customer reviews
       </p>
     </div>

@@ -6,6 +6,7 @@ import logo from "../assets/logo.svg";
 import shopIcon from "../assets/icons/shop.svg";
 import favoriteIcon from "../assets/icons/favorite.svg";
 import cartIcon from "../assets/icons/cart.svg";
+import profile from "../assets/icons/profile.svg";
 import SearchBar from "./SearchBar";
 
 const Header = () => {
@@ -43,7 +44,7 @@ const Header = () => {
 
       <div className="navbar-right">
         <a href="/login" className="login">
-          Log in
+          <img src={profile} alt="profile" className="icon" />
         </a>
         <a href="/favorites">
           <img src={favoriteIcon} alt="Favorites" className="icon" />

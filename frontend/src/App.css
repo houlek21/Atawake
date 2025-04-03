@@ -32,11 +32,13 @@ body {
 
 /* Header 2 */
 .h2 {
-  font-size: 27px;
-  font-weight: 500;
-  font-style: normal;
-  line-height: normal;
-  color: var(--beige);
+color: var(--beige, #FFF8EF);
+font-family: Inter;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: uppercase;
 }
 
 /* Header 3 */

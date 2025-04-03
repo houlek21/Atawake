@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/MarketCard.css";
-import { formatURL } from '../formatURL';
+import { formatURL } from "../formatURL";
 
 const MarketCard = ({ name, image }) => {
   const link = `/markets/${formatURL(name)}`;

@@ -5,7 +5,6 @@ import RightArrow from "../assets/icons/rightarrow2.svg";
 
 const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -17,8 +16,8 @@ const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
         const filtered = data.filter(
           (p) =>
             p.category_id === categoryId &&
-            p.id !== currentProductId && // exclude current product
-            p.is_active !== false // optionally skip inactive products
+            p.id !== currentProductId &&
+            p.is_active !== false
         );
 
         setRelatedProducts(filtered);
@@ -30,11 +29,6 @@ const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
     if (categoryId) fetchProducts();
   }, [categoryId, currentProductId]);
 
-  const updateScrollButtons = () => {
-    if (!scrollRef.current) return;
-    setCanScrollLeft(scrollRef.current.scrollLeft > 0);
-  };
-
   const scroll = (direction) => {
     if (scrollRef.current) {
       const scrollAmount = 300;
@@ -45,48 +39,49 @@ const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
     }
   };
 
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", updateScrollButtons);
-      updateScrollButtons();
-      return () => el.removeEventListener("scroll", updateScrollButtons);
-    }
-  }, [relatedProducts]);
-
   if (!relatedProducts.length) return null;
 
   return (
-    <section className="popular-items-section">
-      <h2 className="popular-title text-[#981b1e] mb-2">You may also like</h2>
+    <div className="w-full px-8 py-10">
+      <p className="text-[#93151F] text-4xl font-semibold mb-4">
+        You may also like
+      </p>
+      <div className="relative flex items-center">
+        <button
+          className="absolute left-0 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("left")}
+        >
+          <img src={LeftArrow} alt="Left Arrow" className="w-5 h-5" />
+        </button>
 
-      <div className="scroll-wrapper relative">
-        {canScrollLeft && (
-          <button className="scroll-btn left" onClick={() => scroll("left")}>
-            <img src={LeftArrow} alt="Left Arrow" />
-          </button>
-        )}
-
-        <div className="product-scroll" ref={scrollRef}>
+        <div
+          className="flex flex-row overflow-x-auto gap-4 pb-2 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          ref={scrollRef}
+        >
           {relatedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              name={product.name}
-              seller={product.Seller?.business_name}
-              price={`CA$${parseFloat(product.price).toFixed(2)}`}
-              image_url={product.ProductMedia?.[0]?.media_url}
-              rating={4 + Math.random()} // TEMP
-              reviews={Math.floor(Math.random() * 2000)} // TEMP
-            />
+            <div key={product.id} className="snap-start flex-shrink-0">
+              <ProductCard
+                id={product.id}
+                name={product.name}
+                seller={product.Seller?.business_name}
+                price={`CA$${parseFloat(product.price).toFixed(2)}`}
+                image_url={product.ProductMedia?.[0]?.media_url}
+                rating={4 + Math.random()}
+                reviews={Math.floor(Math.random() * 2000)}
+                badge={`From ${categoryName}`}
+              />
+            </div>
           ))}
         </div>
 
-        <button className="scroll-btn right" onClick={() => scroll("right")}>
-          <img src={RightArrow} alt="Right Arrow" />
+        <button
+          className="absolute right-0 top-1/2 transform translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 hover:scale-105 transition"
+          onClick={() => scroll("right")}
+        >
+          <img src={RightArrow} alt="Right Arrow" className="w-5 h-5" />
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 

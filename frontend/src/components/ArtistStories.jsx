@@ -28,29 +28,28 @@ const ArtistStories = () => {
   return (
     <div className="bg-[#FFF8F1] py-10 px-6 mt-20">
       <div className="max-w-6xl mx-auto">
-        <h2
-          className="mb-6 flex items-center gap-2"
-          style={{
-            color: "var(--red, #93151F)",
-            fontFamily: "Inter",
-            fontSize: "38px",
-            fontStyle: "normal",
-            fontWeight: 600,
-            lineHeight: "normal",
-          }}
-        >
-          From Our Artists <span style={{ fontSize: "38px" }}>→</span>
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
+        {/* Simple header */}
+        <div className="mb-6 px-2 sm:px-0">
+          <p className="text-[38px] font-semibold text-[#93151F] font-[Inter] flex items-center gap-2 ml-[1.5%] md:ml-[1.5%]">
+            From Our Artists <span>→</span>
+          </p>
+        </div>
+
+        {/* Card container using flex */}
+        <div className="flex flex-wrap justify-center gap-6">
           {cardData.map((card, index) => (
-            <StoryCard
+            <div
               key={index}
-              image={card.image}
-              avatar={card.avatar}
-              title={card.title}
-              author={card.author}
-              readTime={card.readTime}
-            />
+              className="w-full sm:w-[48%] md:w-[31%] flex justify-center"
+            >
+              <StoryCard
+                image={card.image}
+                avatar={card.avatar}
+                title={card.title}
+                author={card.author}
+                readTime={card.readTime}
+              />
+            </div>
           ))}
         </div>
       </div>
