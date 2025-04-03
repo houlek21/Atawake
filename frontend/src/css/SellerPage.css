@@ -1,0 +1,275 @@
+
+
+.sellercont{
+  position: relative;
+  height: 100%;
+  
+  
+  width: 1410px;
+  
+  z-index: -99;
+
+  align-items: center;
+  
+  
+  
+  
+  margin: -8% auto 0px auto;
+  box-sizing: border-box;
+}
+
+.footseperator{
+
+  
+}
+._2-1024-x-683-3sell {
+  border-radius: 11px;
+  width: 270px;
+  height: 240px;
+  position: relative;
+  object-fit: cover;
+  aspect-ratio: 270/240;
+  
+}
+
+
+.accountheadsell{
+    display:flex;
+    flex-direction: row;
+    width:90%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.rectangle-208sell {
+    background: rgba(0, 0, 0, 0.35);
+    height: 526px;
+    width: 1410px;
+    margin: auto;
+    position: relative;
+  }
+  
+.accrec2sell{
+    padding-left: 2%;
+
+}
+
+.taya-skysell {
+    color: var(--red, #93151f);
+    text-align: left;
+    font-family: var(--header-1-font-family, "Inter-SemiBold", sans-serif);
+    font-size: var(--header-1-font-size, 38px);
+    font-weight: var(--header-1-font-weight, 600);
+    position: relative;
+    width: 197px;
+    height: 58px;
+  }
+
+
+.rectangle-4sell {
+        background: var(--red, #93151f);
+        border-radius: 50px;
+        height: 80.18px;
+        width: 340px;
+        position: relative;
+        box-shadow: 0px 2px 3.9px 0px rgba(0, 0, 0, 0.25);
+        margin: auto;
+        display: flex;
+        left: 11%;
+      
+}
+
+.message-taya-skysell {
+  color: var(--beige, #fff8ef);
+  text-align: left;
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  position: absolute;
+  width: 209.94px;
+  height: 30.13px;
+  left: 26%;
+  top: 20%;
+ 
+  
+
+}
+
+.average-response-time-1-hrsell {
+  color: var(--beige, #fff8ef);
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  position: absolute;
+  width: 174px;
+  height: 29.7px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  left: 40%;
+  top: 50%;
+}
+
+
+.awaysell {
+  color: rgba(250, 245, 238, 0.79);
+  text-align: left;
+  font-family: "Inter-Regular", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  position: relative;
+  width: 37px;
+  height: 29.7px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  left: 5%;
+  top: 50%;
+}
+
+
+
+
+.frame-133 {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  top: 18%
+}
+.instagram {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  overflow: visible;
+}
+.devicon-facebook {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  overflow: visible;
+  aspect-ratio: 1;
+}
+.x {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  overflow: visible;
+}
+
+
+
+
+
+
+
+
+.currently-at-holiday-marketsell {
+  color: var(--red, #93151f);
+  text-align: left;
+  font-family: "-", sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  position: relative;
+  height: 29px;
+  top: 30%;
+}
+.currently-at-holiday-market-span4sell {
+  color: var(--red, #93151f);
+  font-family: "Inter-SemiBold", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+}
+.currently-at-holiday-market-span5sell{
+  color: var(--red, #93151f);
+  font-family: "Inter-SemiBoldItalic", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: italic;
+}
+.currently-at-holiday-market-span6sell {
+  color: var(--red, #93151f);
+  font-family: "Inter-SemiBoldItalic", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  font-style: italic;
+  text-decoration: underline;
+}
+.biocontsell{
+
+    padding-top: 2%;
+    width: 90%;
+    margin: auto;
+}
+
+.biodescsell {
+  color: #000000;
+  text-align: left;
+  font-family: "Inter-Medium", sans-serif;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 500;
+  position: relative;
+  height: 115px;
+  width: 70%;
+  
+}
+
+.biosell {
+  color: #000000;
+  text-align: left;
+  font-family: var(--header-1-font-family, "Inter-SemiBold", sans-serif);
+  font-size: var(--header-1-font-size, 38px);
+  font-weight: var(--header-1-font-weight, 600);
+  position: relative;
+}
+
+.shop-buttonsell {
+  background: var(--red, #93151f);
+  border-radius: 45.5px;
+  padding: 13px 26px 13px 26px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 290px;
+  height: 49px;
+  position: relative;
+  top: 3%;
+}
+._2-1024-x-683-1sell {
+    width: 150.5px;
+    height: 100.38px;
+    position: relative;
+    object-fit: cover;
+    aspect-ratio: 150.5/100.38;
+  }
+  .ellipse-11sell {
+    background: #878787;
+    border-radius: 50%;
+    width: 69px;
+    height: 68.3px;
+    left: 2%;
+    top:6%;
+    position: relative;
+  }  
+
+.shopsell {
+  color: var(--beige, #fff8ef);
+  text-align: center;
+  font-family: var(--button-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--button-font-size, 20px);
+  line-height: var(--button-line-height, 18px);
+  font-weight: var(--button-font-weight, 500);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

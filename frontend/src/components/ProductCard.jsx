@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
 import "../css/ProductCard.css";
 
-const ProductCard = ({ name, seller, price, image, rating, reviews, link, badge }) => {
+const ProductCard = ({
+  id,
+  name,
+  seller,
+  price,
+  image_url,
+  rating,
+  reviews,
+  badge
+}) => {
   return (
-    <Link to={link} className="product-card-link">
+    <Link to={`/product/${id}`} className="product-card-link">
       <div className="product-card">
         <div className="image-wrapper">
-          <img className="product-image" src={image} alt={name} />
+          <img className="product-image" src={image_url} alt={name} />
           {badge && <span className="product-badge">{badge}</span>}
         </div>
         <div className="product-info">
