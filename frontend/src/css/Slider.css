@@ -1,9 +1,8 @@
 .slider-container {
-  width: 100vw;
+  width: 100%;
   height: 381px;
-  top: 137px;
-  position: absolute;
   overflow: hidden;
+  position: relative;
 }
 
 .slide-image {
@@ -13,11 +12,25 @@
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
+  top: 0;
+  left: 0;
 }
 
 .slide-image.active {
   opacity: 1;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .slide-overlay {
@@ -29,16 +42,6 @@
   color: white;
   z-index: 2;
   max-width: 40%;
-}
-
-.dark-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 50% black overlay */
-  z-index: 1;
 }
 
 .title {
@@ -59,29 +62,28 @@
 
 .prev,
 .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
+  background: transparent;
   border: none;
-  font-size: 2rem;
-  padding: 8px 12px;
+  padding: 0;
   cursor: pointer;
   z-index: 2;
-  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
 }
 
 .prev {
   left: 20px;
 }
+
 .next {
   right: 20px;
 }
 
-.prev:hover,
-.next:hover {
-  background: rgba(0, 0, 0, 0.6);
+.prev img,
+.next img {
+  width: 30px;
+  height: 30px;
 }
 
 .dots-container {

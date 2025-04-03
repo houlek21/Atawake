@@ -1,24 +1,21 @@
-import React from "react";
 import "../css/RedBanner.css";
-import RedButton from "./RedButton";
 
 function RedBanner() {
   return (
     <div className="banner">
-      <div className="banner-text">
-        <h2>Your Vision, Their Craft</h2>
-        <p>
-          Work with Indigenous artisans to create a custom, one-of-a-kind piece
+      <div className="banner-content">
+        <p className="banner-text">
+          Work with Indigenous artisans to create a custom, one-of-a-kind piece{" "}
+          <br />
           made just for you.
         </p>
+        <a
+          href="/custom"
+          className="mt-4 border border-white rounded-full px-3 py-1.5 font-medium text-white hover:bg-white hover:text-[#8c1c24] transition self-start inline-block"
+        >
+          Browse custom goods
+        </a>
       </div>
-      <RedButton
-        text="Browse Custom Goods"
-        style={{
-          border: "1px solid white",
-          color: "white",
-        }}
-      />
     </div>
   );
 }

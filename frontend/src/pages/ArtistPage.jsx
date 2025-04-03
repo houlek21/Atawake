@@ -1,19 +1,57 @@
 import { useParams } from "react-router-dom";
-import "../css/ArtistPage.css";
+import { useEffect, useState } from "react";
+import "../css/ArtistPage.css"; // Ensure this is imported for styling
 
 const ArtistPage = () => {
-  const { seller } = useParams();
+  const { seller } = useParams(); // seller = seller_id
+  const [sellerInfo, setSellerInfo] = useState(null);
 
-  const formattedName = seller.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+  // Same profile map from LocalArtists.jsx
+  const artistProfiles = {
+    "Taya Sky Creations": {
+      image: "/LocalArtists/Taya.jpg",
+      location: "Sherwood Park, AB"
+    },
+    "Nova Waskah Creations": {
+      image: "/LocalArtists/Nova.jpg",
+      location: "Edmonton, AB"
+    },
+    "Maya Crowfoot Creations": {
+      image: "/LocalArtists/Maya.jpg",
+      location: "Sherwood Park, AB"
+    }
+  };
+
+  useEffect(() => {
+    const fetchSeller = async () => {
+      try {
+        const res = await fetch(`http://localhost:5000/api/seller/${seller}`);
+        if (!res.ok) throw new Error("Failed to fetch seller");
+        const data = await res.json();
+        setSellerInfo(data);
+      } catch (err) {
+        console.error("Error fetching seller:", err);
+      }
+    };
+
+    fetchSeller();
+  }, [seller]);
+
+  if (!sellerInfo) return <p>Loading artist info...</p>;
+
+  const profile = artistProfiles[sellerInfo.business_name] || {};
 
   return (
     <div className="artist-page">
-      <div className="artist-profile">
-        <img src={`/LocalArtists/${seller}.jpg`} alt={formattedName} className="artist-profile-image" />
-        <h1 className="artist-page-name">{formattedName}</h1>
-        <p className="artist-page-location">Location: [Insert Location]</p>
-        <p className="artist-page-bio">Bio coming soon...</p>
-      </div>
+      <img
+        src={profile.image || "/LocalArtists/default.jpg"}
+        alt={profile.name}
+        className="artist-profile-image"
+      />
+      <h1 className="artist-page-name">{sellerInfo.business_name || sellerInfo.business_name}</h1>
+      <p className="artist-page-location">{profile.location || "Location unknown"}</p>
+      <p className="artist-page-bio">{sellerInfo.about_us_description}</p>
+      <p>Status: {sellerInfo.indigenous_verification_status}</p>
     </div>
   );
 };

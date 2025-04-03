@@ -1,0 +1,19 @@
+.search-results-page {
+  padding: 32px;
+  background: #fefaf5;
+}
+
+.category-section {
+  margin-bottom: 32px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.no-results {
+  font-size: 1.25rem;
+  color: #b91c1c;
+}
