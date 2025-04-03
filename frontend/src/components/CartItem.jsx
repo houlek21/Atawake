@@ -9,7 +9,7 @@ const CartItem = ({ item, updateQuantity, removeItem }) => {
         className="item-image"
         onError={(e) => {
           e.target.onerror = null;
-          e.target.src = "https://images.everydayhealth.com/images/news/an-egg-day-lower-dementia-risk-1440x810.jpg";
+          e.target.src = "https://media.istockphoto.com/id/1186111736/vector/question-mark-and-exclamation-point-blue-signs-on-yellow-comic-banner-in-pop-art-style-vector.jpg?s=612x612&w=0&k=20&c=4UUN2cDXwzqf5XuI_-mzhhwTgmoCppZxA3MpzMjvajI=";
         }}
       />
       

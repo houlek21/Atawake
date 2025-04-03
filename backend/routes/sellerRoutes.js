@@ -2,6 +2,7 @@ import express from 'express';
 import {
   getAllSellers,
   getSellerById,
+  getSellerByUserId,
   registerSellerProfile,
   updateSeller,
   deleteSeller,
@@ -16,6 +17,7 @@ const router = express.Router();
 // Public routes
 router.get('/', getAllSellers);
 router.get('/:id', getSellerById);
+router.get('/isseller/:id', getSellerByUserId) // -- M
 
 // Protected routes (JWT required)
 router.post('/', authenticateJWT, registerSellerProfile); // register seller profile
