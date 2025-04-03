@@ -7,7 +7,7 @@ const loginUser = async (req, res) => {
     if (!req.body || Object.keys(req.body).length === 0) {
         return res.status(400).json({ message: 'Email and password are required' });
     }
-    
+    console.log("inlog")
     const { email, password } = req.body;
     
     // Validate that email and password are provided
@@ -28,7 +28,9 @@ const loginUser = async (req, res) => {
         }
 
         // Create JWT token
-        const token = jwt.sign({ id: user.id, name: user.first_name }, "secret", { expiresIn: '24h' });
+        console.log("inlog")
+        const token = jwt.sign({ id: user.id, name: user.first_name}, process.env.JWT_SECRET, { expiresIn: '7d' });
+
         res.status(200).json({ token });
     } catch (error) {
         console.log(error); // Log error for debugging

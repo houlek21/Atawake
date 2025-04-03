@@ -97,8 +97,29 @@ export default Header;
 
 async function accPop() {
   console.log("ent")
+  
+  let lo = localStorage.getItem('token');
+  if (lo == null) {
+    window.location.href = "http://localhost:5173/login"
+    console.log("no token");
+    return
+  }
+  else {
+    let to = JSON.parse(atob(lo.split(".")[1]));
+    console.log(Date.now() / 1000, to.exp);
+    if (Date.now() / 1000 >= to.exp) {
+      window.location.href = "http://localhost:5173/login"
+      return
+    }
+  }
+    
+
+
+
   var pop = document.getElementById("accp");
+
   console.log(pop)
+
   pop.classList.toggle("show");
 }
 

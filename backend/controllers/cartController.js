@@ -1,5 +1,8 @@
 import Cart from "../models/cart.js";
 import Product from "../models/product.js";
+import ProductMedia from "../models/productMedia.js";
+import Category from "../models/category.js";
+import Seller from "../models/seller.js";      
 import { v4 as uuidv4 } from "uuid";
 
 // Helper to ensure a session ID exists
@@ -45,12 +48,30 @@ export const getCart = async (req, res) => {
     const sessionId = req.cookies.cart_session_id;
     
     if (!sessionId) {
-      return res.status(200).json({ cartItems: [], total: 0 });
+      return res.status(200).json({ cartItems: [], subtotal: "0.00", total: "0.00" });
     }
     
     const cartItems = await Cart.findAll({
       where: { session_id: sessionId },
-      include: [{ model: Product }],
+      include: [{ 
+        model: Product,
+        include: [
+          {
+            model: ProductMedia,
+            required: false,
+            limit: 1, // Only get 1 image
+            order: [['sort_order', 'ASC']]
+          },
+          {
+            model: Category,
+            attributes: ['id', 'category_name']
+          },
+          {
+            model: Seller,
+            attributes: ['id', 'business_name', 'profile_image']
+          }
+        ]
+      }]
     });
 
     // Format cart items with product details
@@ -62,15 +83,45 @@ export const getCart = async (req, res) => {
       
       total += itemSubtotal;
       
+      const productJson = product.toJSON();
+      
+      // Add image URL
+      let image_url = null;
+      if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
+        image_url = `${req.protocol}://${req.get('host')}/${productJson.ProductMedia[0].file_path.replace(/\\/g, '/')}`;
+      }
+      
+      // Add seller name and image
+      let seller_name = null;
+      let seller_image = null;
+      if (productJson.Seller) {
+        seller_name = productJson.Seller.business_name;
+        if (productJson.Seller.profile_image) {
+          seller_image = `${req.protocol}://${req.get('host')}/${productJson.Seller.profile_image.replace(/\\/g, '/')}`;
+        }
+      }
+      
+      // Add category name
+      let category_name = null;
+      if (productJson.Category) {
+        category_name = productJson.Category.category_name;
+      }
+      
       return {
         product_id: product.id,
         product_name: product.name,
+        description: product.description,
         price: product.price,
         quantity: item.quantity,
         subtotal: itemSubtotal.toFixed(2),
         is_active: product.is_active,
         seller_id: product.seller_id,
         stock_available: product.quantity,
+        category_id: product.category_id,
+        image_url: image_url,
+        seller_name: seller_name,
+        seller_image: seller_image,
+        category_name: category_name
       };
     });
 
@@ -80,6 +131,7 @@ export const getCart = async (req, res) => {
       total: total.toFixed(2)
     });
   } catch (error) {
+    console.log("Error: ", error);
     res.status(500).json({ message: "Error retrieving cart", error: error.message });
   }
 };

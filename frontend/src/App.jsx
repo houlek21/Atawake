@@ -14,7 +14,7 @@ import ProductPage from "./pages/ProductPage";
 import ArtistPage from "./pages/ArtistPage";
 
 import SettingsPage from "./pages/AccountSettingsSETUP.jsx";
-import LoginPage from "./pages/Login.jsx";
+import LoginPage from "./pages/login.jsx";
 import SignupPage from "./pages/signup.jsx";
 import SellerSignupPage from "./pages/sellerreg.jsx";
 import AddItemPage1 from "./pages/AddProdPage1.jsx";
@@ -22,7 +22,8 @@ import AddItemPage2 from "./pages/AddProdPage2.jsx";
 import BuyPage from "./pages/buy.jsx";
 import AccountPage from "./pages/account.jsx";
 import SellerPage from "./pages/SellerPage.jsx";
-
+import CheckoutPage from "./pages/checkoutPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -69,6 +70,8 @@ function App() {
 
         <Route path="/buy" element={<BuyPage />} />
         <Route path="/buy/:cate" element={<BuyPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/cart" element={<CartPage />} />
 
         <Route path="/seller" element={<SellerPage />} />
         <Route path="/artist/:seller/product/:productName" element={<ProductPage />} />

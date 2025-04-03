@@ -1,3 +1,0 @@
-JWT_SECRET=supersecretkey123
-STRIPE_TEST_KEY=sk_test_51R9ZSbPlNRynQIWifJKsHpxNEsgB71jhmyA6jFVRfKVxFSBoZikCzK4IpVufOOGC3MmqurntbpUM5ljn3Tk27ReG00NgRfykQS
-FRONTEND_URL=http://localhost:5173
