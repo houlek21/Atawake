@@ -36,7 +36,6 @@ function App() {
               <PopularItems />
               <MarketSection />
               <ArtistStories />
-              <Footer />
             </>
           }
         />
@@ -47,12 +46,10 @@ function App() {
         <Route path="/addprod2" element={<AddItemPage2 />} />
         <Route path="/buy" element={<BuyPage />} />
         <Route path="/buy/:cate" element={<BuyPage />} />
-        <Route
-          path="/artist/:seller/product/:productName"
-          element={<ProductPage />}
-        />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/artist/:seller" element={<ArtistPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }

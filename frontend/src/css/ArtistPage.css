@@ -7,9 +7,11 @@
 .artist-profile-image {
   width: 180px;
   height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
   border-radius: 20%;
   object-fit: cover;
-  margin-bottom: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 

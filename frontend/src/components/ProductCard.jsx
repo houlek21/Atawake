@@ -6,7 +6,7 @@ const ProductCard = ({
   name,
   seller,
   price,
-  image_url,  // renamed from `image` for clarity
+  image_url,
   rating,
   reviews,
   badge
