@@ -8,7 +8,7 @@ const authenticateJWT = (req, res, next) => {
     }
     jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
        if(err) {
-        return res.status(403).json({ message: 'Invalid token' });
+        return res.status(403).json({ message: 'Invalid token - Please Login Again' });
        }
        try {
         const user = await User.findByPk(decoded.id);

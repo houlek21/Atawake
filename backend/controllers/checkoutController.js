@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Initialize Stripe with test mode API key
+// Initializing Stripe with test mode API key
 const stripe = new Stripe(process.env.STRIPE_TEST_KEY);
 
 // Create checkout session and Stripe payment intent
@@ -57,7 +57,7 @@ export const createCheckoutSession = async (req, res) => {
     }
     
     // Apply simplified tax rate
-    const taxRate = 0.08; // 8% tax
+    const taxRate = 0.05; // 5% tax
     const taxAmount = subtotal * taxRate;
     
     // Calculate total (no shipping cost)
@@ -179,7 +179,7 @@ export const processPayment = async (req, res) => {
       receiptUrl = paymentIntent.charges.data[0].receipt_url;
     }
     
-    // Create payment record with enhanced Stripe details
+    // Create payment record with Stripe details
     await Payment.create({
       order_id: order.id,
       user_id: order.user_id,
