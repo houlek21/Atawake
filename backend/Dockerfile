@@ -22,4 +22,3 @@ EXPOSE 5000
 
 # Start the server using nodemon for hot reloading
 CMD ["npm", "run", "dev"]
-
