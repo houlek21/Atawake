@@ -1,6 +1,6 @@
 import "../css/account.css"
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef  } from 'react';
 import { useNavigate } from 'react-router-dom'
 //log into site
 
@@ -43,9 +43,14 @@ import dash6 from "../assets/dashboard/dash/Ellipse 31.png"
 
 
 const accountPage = () => {
+  const initialized = useRef(false)
+  
   useEffect(() => {
+    if (!initialized.current) {
+      initialized.current = true
+    
     getlistings();
-    return;
+    }
   }, []);
 
 
