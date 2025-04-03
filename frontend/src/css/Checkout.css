@@ -1,0 +1,343 @@
+.checkout-container {
+    background-color: var(--color-beige);
+    min-height: calc(100vh - 120px); /* Subtract header height */
+    padding: 24px;
+    box-sizing: border-box;
+    margin-top: 120px; /* Add margin equal to header height */
+}
+  
+.checkout-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+  
+.banner-image {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    position: relative;
+}
+  
+.checkout-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
+.section-title {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-size-md);
+    margin-bottom: 16px;
+}
+  
+.delivery-option {
+    background-color: #f5f5f5;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+  
+.delivery-option-icon {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+  
+.delivery-option-text {
+    flex: 1;
+}
+  
+.delivery-dropdown {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: white;
+    margin-top: 16px;
+    font-family: var(--font-family-regular);
+    appearance: none;
+}
+  
+.address-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 16px;
+    font-family: var(--font-family-regular);
+    resize: vertical;
+}
+  
+.address-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+  
+.btn-cancel {
+    background-color: #f5f5f5;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+  
+.btn-save {
+    background-color: var(--color-red);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+  
+.order-summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+  
+.order-summary-label {
+    color: #666;
+}
+  
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-size-md);
+}
+  
+.btn-continue {
+    width: 100%;
+    background-color: var(--color-red);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 24px;
+    font-family: var(--font-family-medium);
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    margin-top: 24px;
+}
+  
+.btn-continue:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+  
+/* Stripe Element Styles */
+.stripe-container {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #f5f5f5;
+    margin-bottom: 12px;
+}
+  
+.StripeElement {
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+}
+  
+.StripeElement--focus {
+    border-color: var(--color-red);
+}
+  
+.payment-error {
+    color: var(--color-red);
+    margin-top: 8px;
+}
+  
+.success-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+  
+.success-icon {
+    color: green;
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+  
+.success-title {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-size-lg);
+    margin-bottom: 8px;
+}
+  
+.success-message {
+    margin-bottom: 24px;
+}
+  
+.btn-view-orders {
+    background-color: var(--color-red);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-family: var(--font-family-medium);
+    cursor: pointer;
+}
+  
+/* Loading and Error States */
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-family: var(--font-family-medium);
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
+.error {
+    text-align: center;
+    padding: 40px;
+    background-color: var(--color-brown);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+  
+.error h2 {
+    margin-bottom: 16px;
+    font-family: var(--font-family-semibold);
+}
+  
+.error button {
+    background-color: white;
+    color: var(--color-brown);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-family: var(--font-family-medium);
+    margin-top: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+  
+.error button:hover {
+    background-color: #f5f5f5;
+}
+  
+/* Authentication Message Overlay */
+.auth-message-overlay {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+}
+  
+.auth-message-content {
+    background-color: var(--color-brown);
+    color: white;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+  
+.auth-message-content h2 {
+    font-family: var(--font-family-semibold);
+    font-size: var(--font-size-lg);
+    margin-bottom: 16px;
+}
+  
+.auth-message-content p {
+    margin-bottom: 24px;
+    font-family: var(--font-family-regular);
+}
+  
+.auth-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+  
+.auth-login-btn, .auth-signup-btn {
+    background-color: white;
+    color: var(--color-brown);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-family: var(--font-family-medium);
+    cursor: pointer;
+    min-width: 120px;
+}
+  
+.auth-return-cart {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 24px;
+    font-family: var(--font-family-medium);
+    cursor: pointer;
+    margin-top: 8px;
+}
+  
+/* Address form styles */
+.address-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+    max-width: 100%; 
+    box-sizing: border-box;
+}
+  
+.address-field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.address-field label {
+    margin-bottom: 4px;
+    font-family: var(--font-family-regular);
+    font-size: var(--font-size-sm);
+    color: #666;
+}
+  
+.address-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.address-field.half {
+    flex: 1;
+    max-width: 50%;
+}
+  
+.address-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: var(--font-family-regular);
+    box-sizing: border-box; 
+    max-width: 100%;
+}
