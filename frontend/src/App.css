@@ -1,15 +1,25 @@
+@import "tailwindcss";
+
+/* Root Variables - Merged and Expanded */
 :root {
+  /* Colors */
   --color-black: #000000;
   --color-red: #93151f;
+  --color-dark-red: #5f030b;
   --color-brown: #392516;
   --color-beige: #faf5ee;
   --color-green: #0f2a2d;
+  --color-yellow: #ffe3bb;
+  --color-light-grey: #6d6d6d;
 
+  /* Font Families */
   --font-family-regular: "Inter-Regular", sans-serif;
   --font-family-medium: "Inter-Medium", sans-serif;
   --font-family-semibold: "Inter-SemiBold", sans-serif;
   --font-family-bold: "Inter-Bold", sans-serif;
+  --font-primary: "Inter", sans-serif;
 
+  /* Font Sizes */
   --font-size-xl: 38px;
   --font-size-lg: 27px;
   --font-size-md: 20px;
@@ -17,6 +27,7 @@
   --font-size-xs: 14px;
 }
 
+/* Base Styling */
 html,
 body {
   margin: 0;
@@ -24,8 +35,10 @@ body {
   background-color: var(--color-beige);
   font-family: var(--font-family-regular);
   box-sizing: border-box;
+  color: var(--color-brown);
 }
 
+/* Text Color Utilities */
 .text-red {
   color: var(--color-red);
 }
@@ -39,6 +52,7 @@ body {
   text-align: center;
 }
 
+/* Background Color Utilities */
 .bg-red {
   background-color: var(--color-red);
 }
@@ -48,7 +62,23 @@ body {
 .bg-beige {
   background-color: var(--color-beige);
 }
+.background-red {
+  background-color: var(--color-red);
+}
+.background-dark-red {
+  background-color: var(--color-dark-red);
+}
+.background-brown {
+  background-color: var(--color-brown);
+}
+.background-yellow {
+  background-color: var(--color-yellow);
+}
+.background-light-grey {
+  background-color: var(--color-light-grey);
+}
 
+/* Button Styles */
 .btn-rounded {
   border-radius: 25px;
   font-family: var(--font-family-medium);
@@ -57,6 +87,25 @@ body {
   text-align: center;
 }
 
+.button-primary {
+  background-color: var(--color-red);
+  border: none;
+  border-radius: 23.5px;
+  color: var(--color-beige);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button-outline {
+  border: 1px solid var(--color-red);
+  background: transparent;
+  color: var(--color-red);
+  border-radius: 31.5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Utility Classes */
 .circle-border {
   border-radius: 50%;
   border-style: solid;
@@ -78,26 +127,54 @@ body {
   box-shadow: 0px 2px 5.8px rgba(0, 0, 0, 0.22);
 }
 
-.header-xl {
+/* Typography Utilities */
+.header-xl, .h1 {
   font-family: var(--font-family-semibold);
-  font-size: var(--font-size-xl);
+  font-size: 38px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.header-lg, .h2 {
+  font-family: var(--font-family-medium);
+  font-size: 27px;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.header-md, .h4 {
+  font-size: 20px;
+}
+
+.header-sm, .h5 {
+  font-size: 16px;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.bold-text {
+  font-size: 54px;
   font-weight: 600;
 }
 
-.header-lg {
-  font-family: var(--font-family-medium);
-  font-size: var(--font-size-lg);
+.button-text {
+  font-size: 20px;
   font-weight: 500;
+  line-height: 18px;
 }
 
-.header-md {
-  font-size: var(--font-size-md);
+.icon-label {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.1px;
 }
 
-.header-sm {
-  font-size: var(--font-size-sm);
-}
-
+/* Font Weight Utilities */
 .bold {
   font-weight: 700;
 }
@@ -106,30 +183,13 @@ body {
   font-weight: 300;
 }
 
-.button-primary {
-  background-color: var(--color-red);
-  border: none;
-  border-radius: 23.5px;
-  color: var(--color-beige);
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.button-outline {
-  border: 1px solid var(--color-red);
-  background: transparent;
-  color: var(--color-red);
-  border-radius: 31.5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
+/* Page Container */
 .page-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Full viewport height */
-  background-color: #fefaf5; /* Matches section background */
+  min-height: 100vh;
+  background-color: #fefaf5;
   padding: 24px;
   box-sizing: border-box;
 }
