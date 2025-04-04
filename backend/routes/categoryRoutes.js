@@ -8,6 +8,10 @@ import {
 } from '../controllers/categoryController.js';
 import authenticateJWT from '../middlewares/authMiddleware.js';
 
+
+
+
+
 const router = express.Router();
 
 // Public routes

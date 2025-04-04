@@ -1,6 +1,9 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/connection.js";
+import Seller from "./seller.js";
+import Category from "./category.js";
 import Product from "./product.js";
+
 
 const ProductMedia = sequelize.define("ProductMedia", {
     // No explicit 'id' => Sequelize will create it automatically as the primary key
@@ -13,8 +16,8 @@ const ProductMedia = sequelize.define("ProductMedia", {
       },
       onDelete: "CASCADE",
     },
-    file_name: {
-      type: DataTypes.STRING(255),
+    media_url: {
+      type: DataTypes.TEXT('long'),
       allowNull: false,
       comment: "Name of the uploaded file with extension"
     },

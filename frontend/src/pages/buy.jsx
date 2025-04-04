@@ -13,7 +13,35 @@ const buyPage = () => {
   return (
     <div class={styles["buy"]}>
 
-     
+      <div class={styles["group-79"]}>
+        <div class={styles["div2"]}>􀍩</div>
+        <div class={styles["rectangle-3"]}>
+          <div class={styles["frame-134"]}>
+            <div class={styles["div3"]}></div>
+            <div class={styles["search"]}>Search</div>
+          </div>
+        </div>
+        <div class={styles["div4"]}>􀊴</div>
+        <div class={styles["div5"]}>􀉩</div>
+        <div class={styles["frame-135"]}>
+          <div class={styles["div6"]}>􀌇</div>
+          <div class={styles["shop"]}>Shop
+
+            <span class={styles["categorypopup"]}>Shop Categories:
+
+              <div class={styles["categoryname"]} onClick={() => catSel(1)}>Jewelry and Accessories</div>
+              <div class={styles["categoryname"]} onClick={() => catSel(2)}>Clothing and Textiles</div>
+              <div class={styles["categoryname"]} onClick={() => catSel(3)}>Carvings and Sculptures</div>
+              <div class={styles["categoryname"]} onClick={() => catSel(4)}>Home Decor</div>
+              <div class={styles["categoryname"]} onClick={() => catSel(5)}>Pottery & Ceramics</div>
+              <div class={styles["categoryname"]} onClick={() => catSel(6)}>Beadwork & Quillwork</div>
+
+            </span>
+
+          </div>
+        </div>
+        <a class={styles["logo"]} href="/home2" > Atawake</a>
+      </div>
 
 
       <div class={styles["result"]} id="result">no results</div>
@@ -223,5 +251,3 @@ async function getRecent(category = 0) {
 
 
 }
-
-
