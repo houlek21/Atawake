@@ -1,61 +1,129 @@
-
 import "../css/AddProd2.css"
-import { React, useEffect } from 'react';
-
+import { React, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import ImageUploader from '../components/ImageUploader';
 
 export function addItemPage2() {
+    const [productData, setProductData] = useState(null);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate();
+
     useEffect(() => {
-       
-    });
+        // Get saved product data from localStorage
+        const savedData = localStorage.getItem('p1');
+        if (savedData) {
+            setProductData(JSON.parse(savedData));
+        } else {
+            // If no data found, redirect back to step 1
+            navigate('/addprod1');
+        }
+    }, [navigate]);
 
+    // Complete the product creation by updating with remaining details
+    const upload = async () => {
+        if (!productData) return;
 
+        const detail = document.getElementById("detail").value;
+        const price = document.getElementById("price").value;
+
+        // Validation
+        if (!detail || !price) {
+            setErrorMessage('Please fill in all required fields');
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            // Update the product with the full details
+            const response = await fetch(`http://localhost:5000/api/products/${productData.productId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': localStorage.getItem('token')
+                },
+                body: JSON.stringify({
+                    name: productData.name,
+                    description: detail,
+                    price: parseFloat(price),
+                    category_id: productData.category,
+                    is_active: true // Now activate the product
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update product');
+            }
+
+            const data = await response.json();
+            console.log('Product updated successfully:', data);
+
+            // Redirect to dashboard after successful submission
+            window.location.href = "http://localhost:5173/dashboard";
+            
+        } catch (error) {
+            console.error('Error updating product:', error);
+            setErrorMessage('Failed to complete product listing. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    // Handle adding tags (placeholder for now)
+    const handleAddTag = () => {
+        console.log("Add tag button clicked");
+        // TO-DO: Implement Tags 
+    };
+
+    // If data is still loading, show a loading indicator
+    if (!productData) {
+        return <div>Loading...</div>;
+    }
 
     return (
-        <div  className="post-an-ad">
-
-
-
-            <div  className="frame-188">
-                <div  id="contain" className="post-an-ad">
+        <div className="post-an-ad">
+            <div className="frame-188">
+                <div id="contain" className="post-an-ad">
                     <div className="ad-details">
                         <div className="ad-details2">Ad Details</div>
                         <div className="product-description">Product Description</div>
                         <textarea placeholder="Write a brief description of your product." id="detail" cols="10" rows="5" className="rectangle-93"></textarea>
-
-
-                        <div className="frame-182">
-                            <div className="frame-181">
-                                <div className="tags">Tags</div>
-                                <div className="search-bar">
-
-                                    <div className="div7">􀊫</div>
-
-                                    <input className="search2" placeholder="tag" name="Text2" cols="10" />
+                        <div className="tags-section">
+                            <label className="tags-label">Tags</label>
+                            <div className="tags-input-container">
+                                <div className="tags-search-input">
+                                    <span className="search-icon">🔍</span>
+                                    <input type="text" placeholder="Search" />
                                 </div>
-                            </div>
-                            <div className="search-bar-add-button">
-                                <div className="frame-100">
-                                    <div className="add">Add</div>
-                                </div>
+                                <button className="tags-add-button" onClick={handleAddTag}>
+                                    Add
+                                </button>
                             </div>
                         </div>
-
                     </div>
+
                     <div className="media">
                         <div className="media-section">
                             <div className="media2">Media</div>
 
                             <div className="upgrid" id="imgrid">
-                                <div className="upload2">
-                                    <div className="upload">
-                                        <output className="show" id="list0">
-                                            <input onChange={(e) => { imupload(e) }} className="fileim" id="f" type="file" ></input>
-                                        </output>
-                                    </div>
-                                </div>
-
+                                <ImageUploader
+                                    productId={productData.productId}
+                                    token={localStorage.getItem('token')}
+                                />
                             </div>
 
+                            {errorMessage && (
+                                <div style={{ 
+                                    color: '#93151f', 
+                                    marginTop: '10px', 
+                                    fontFamily: 'var(--body-font-family, "Inter-Regular", sans-serif)',
+                                    fontSize: 'var(--body-font-size, 16px)'
+                                }}>
+                                    {errorMessage}
+                                </div>
+                            )}
                         </div>
                     </div>
 
@@ -64,14 +132,12 @@ export function addItemPage2() {
                         <div className="cash-amount">
                             <div className="frame-170">
                                 <div className="cash-amount2">Cash Amount</div>
-                                <input id="price" className="rectangle-106" />
+                                <input id="price" className="rectangle-106" type="number" step="0.01" min="0" />
                             </div>
                         </div>
                     </div>
 
-
                     <div className="frame-187">
-
                         <a href="http://localhost:5173/addprod1">
                             <div className="shop-button">
                                 <div className="shop2">Back</div>
@@ -82,151 +148,19 @@ export function addItemPage2() {
                             <div className="view-all">
                                 <div className="sell-on-atawake2">Preview</div>
                             </div>
-                            <div onClick={upload} className="shop-button2">
-                                <div className="shop2">Post Ad</div>
+                            <div 
+                                onClick={isSubmitting ? null : upload} 
+                                className="shop-button2"
+                                style={{ opacity: isSubmitting ? 0.7 : 1, cursor: isSubmitting ? 'default' : 'pointer' }}
+                            >
+                                <div className="shop2">{isSubmitting ? 'Posting...' : 'Post Ad'}</div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
-
-
     );
-
 }
 
 export default addItemPage2;
-
-
-//global, capture file and img data for upload
-var images = [];
-var fileobj = []
-
-
-//on image upload, changes and creates another upload element and get image to array
-function imupload(e) {
-
-    //html create update
-    //console.log('im', document.getElementById("f"), e.target.files)
-    let element1 = document.createElement("div");
-    element1.setAttribute("class", "upload2");
-    let element2 = document.createElement("div");
-    element2.setAttribute("class", "upload");
-
-    let element4 = document.createElement("input");
-    element4.setAttribute("class", "fileim");
-    element4.addEventListener("change", (e) => { imupload(e) });
-    element4.setAttribute("type", "file");
-
-    element2.appendChild(element4)
-    element1.appendChild(element2);
-    document.getElementById("imgrid").appendChild(element1)
-
-    let element3 = document.createElement("output");
-    element3.setAttribute("class", "show");
-    element3.setAttribute("id", "list" + (images.length));
-
-    document.getElementById("imgrid").childNodes[images.length].replaceWith(element3)
-
-
-    //get image data, display image on page
-    var files = e.target.files;
-    var f = files[0]; // file obj
-    fileobj.push(f)
-    var reader = new FileReader();
-    reader.onload = (function (theFile) {
-        return function (e) {
-
-            images.push(e.target.result) //img obj as designated
-
-            document.getElementById('list' + (images.length - 1)).innerHTML = [
-                "<img src='", e.target.result, "' title='", theFile.name, "'width='100%' />"
-            ].join('');
-        };
-    }
-    )(f);
-    reader.readAsDataURL(f);
-
-}
-
-
-
-
-//upload data
-async function upload() {
-
-    //gets html and stored  values and send 
-    const detail = document.getElementById("detail").value
-    const price = document.getElementById("price").value
-    var titleandcate = JSON.parse(localStorage.getItem('p1'))
-
-    const send = { "name": titleandcate.name, "description": detail, "quantity": 1, "media_urls": images, "category_id": titleandcate.category, "price": price }
-
-    const url = "http://localhost:5000/api/products/addprod";
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
-            },
-            body: JSON.stringify(send)
-        });
-
-        const resjson = await response.json();
-        
-        if (!response.ok) {
-            throw new Error(`Response status: ${response}`);
-        }
-
-        var ad = resjson.uploadID
-        console.log(resjson)
-
-    } catch (error) {
-        console.error(error.message);
-    }
-
-
-    //picture upload--------
-    /*
-    var forrm = new FormData();
-    forrm.append("image", fileobj[0])
-    
-    
-    const url2 = "http://localhost:5000/api/products/" + ad + "/images"
-    //console.log(images[0])
-    console.log(fileobj)
-    console.log(fileobj[0])
-    try {
-
-        const response = await fetch(url2, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token')
-            },
-            body: forrm,
-        });
-
-
-        const resjsonimg = await response.json();
-        
-        if (!response.ok) {
-
-            throw new Error(`Response status: ${response}`);
-        }
-        console.log("goodup")
-        //window.location.href = "http://localhost:5173/dashboard"
-    } catch (error) {
-
-        console.error(error.message);
-    }
-*/
-}
-
-

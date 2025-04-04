@@ -586,7 +586,7 @@ async function getlistings() {
 
       let element1 = document.createElement("img");
       element1.setAttribute("class", "rectangle-124");
-      element1.setAttribute("src", list[i].ProductMedia[0].media_url);
+      element1.setAttribute("src", list[i].ProductMedia[0].imageUrl);
 
       let element2 = document.createElement("div");
       element2.setAttribute("class", "forest-beaded-earrings");

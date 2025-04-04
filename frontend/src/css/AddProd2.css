@@ -1,3 +1,65 @@
+.tags-input-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Search input styling */
+.tags-search-input {
+  flex: 1;
+  height: 47px;
+  border-radius: 10px;
+  border: 1px solid #3b3b3b;
+  padding: 0 16px;
+  font-family: var(--body-font-family, "Inter-Regular", sans-serif);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.search-icon {
+  color: #6d6d6d;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.tags-search-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: #6d6d6d;
+}
+
+/* Add button styling */
+.tags-add-button {
+  height: 47px;
+  min-width: 75px;
+  border-radius: 25px;
+  border: 1px solid #93151f;
+  background-color: white;
+  color: #93151f;
+  font-family: var(--button-font-family, "Inter-Medium", sans-serif);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 16px;
+}
+
+.tag-add-text {
+  color: #93151f;
+  font-family: var(--button-font-family, "Inter-Medium", sans-serif);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* -------------- previous css code by kody/dagron below -----------------------*/
 .post-an-ad-3,
 .post-an-ad-3 * {
   box-sizing: border-box;
@@ -196,10 +258,8 @@
   padding-left: 20px;
   padding-top: 20px;
   padding-right: 20px;
-
- 
-
 }
+
 .frame-182 {
   display: flex;
   flex-direction: row;
@@ -207,7 +267,7 @@
   align-items: flex-end;
   justify-content: flex-start;
   flex-shrink: 0;
-  width: 435px;
+  width: 100%;
   position: relative;
 }
 .frame-181 {
@@ -218,6 +278,7 @@
   justify-content: flex-start;
   flex-shrink: 0;
   position: relative;
+  width: 100%;
 }
 .tags {
   color: #000000;
@@ -374,9 +435,7 @@
  }
 
  .upload {
-    
-     background: transparent url(http://localhost:5173/src/assets/icons/plusimage.svg) center no-repeat;
- 
+  background: transparent url(http://localhost:5173/src/assets/icons/plusimage.svg) center no-repeat;
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -387,6 +446,17 @@
   height: 134px;
   position: relative;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.fileim {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; 
+  cursor: pointer;
 }
 
 .upload2 {
