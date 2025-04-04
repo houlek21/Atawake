@@ -111,10 +111,9 @@ async function login() {
         localStorage.setItem('token', a.token)
 
         window.location.href = "http://localhost:5173/"
-        alert('suc');
 
     } catch (error) {
-        alert(error);
+        alert("Invalid Credentials");
         console.error(error.message);
     }
 

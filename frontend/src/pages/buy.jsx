@@ -1,13 +1,18 @@
 import styles from "../css/buy.module.css"
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams } from "react-router-dom";
 
 //base buy page for show
 const buyPage = () => {
   const { cate } = useParams();
+  const initialized = useRef(false);
+
   useEffect(() => {
-    getRecent(cate)
+    if (!initialized.current) {
+      initialized.current = true;
+      getRecent(cate);
+    }
   });
 
   return (
@@ -143,6 +148,8 @@ export default buyPage;
 
 //gets 6 most recent prodects  TEMP
 async function getRecent(category = 0) {
+  console.log("buy")
+
   switch (category) {
     case ("jewelry"):
       category = 1
@@ -169,16 +176,16 @@ async function getRecent(category = 0) {
       break;
 
   }
-  var url = "http://localhost:5000/api/products/getproducts/";
+  var url = "http://localhost:5000/api/products/";
   try {
 
     const response = await fetch(url, {
-      method: "POST",
+      method: "GET",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ "category": category })
+      query: JSON.stringify({ "category": category })
     });
 
 
@@ -189,11 +196,8 @@ async function getRecent(category = 0) {
     }
     var a = await resjson.json()
     
-
-
     let id;
 
-    
     if (a.length >= 3) {
       document.getElementById("grid").style.gridTemplateRows = "335% 135% 70%";
     }
@@ -203,7 +207,7 @@ async function getRecent(category = 0) {
       console.log('lop' + i + " c" + String(i), id, a[i])
       document.getElementById("c" + String(i)).style.opacity = "1";
       document.getElementById("c" + String(i)).childNodes[0].innerHTML = a[i].name//title
-      document.getElementById("c" + String(i)).childNodes[1].src = a[i].ProductMedia[0].media_url//pic
+      document.getElementById("c" + String(i)).childNodes[1].src = a[i].ProductMedia[0].imageUrl//pic
       document.getElementById("c" + String(i)).childNodes[5].innerHTML = a[i].Seller.business_name//acc
       document.getElementById("c" + String(i)).childNodes[6].innerHTML = '$' + a[i].price // price
       

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Header.css";
 
@@ -15,16 +15,19 @@ import icc4 from "../assets/Header/4.png";
 
 const Header = () => {
   const navigate = useNavigate();
+  const initialized = useRef(false)//for 1 useeffect from strictmode
 
   const handleSearch = (query) => {
     if (query.trim()) {
       navigate(`/search?q=${encodeURIComponent(query.trim())}`);
     }
-
   };
 
   useEffect(() => {
-    loggedin()
+    if (!initialized.current) {
+      initialized.current = true
+      loggedin()
+    }
   });
 
   return (
@@ -61,7 +64,7 @@ const Header = () => {
             <div className="ellipse-35">
             <img className="profim" src={icc1}></img>
             </div>
-            <div id="popname" className="emily-carter">Emily Carter</div>
+            <div id="popname" className="emily-carter">login</div>
             <a href="/dashboard" className="view-your-profile">View your profile</a>
             <div className="group-112">
               <img className="icons-8-settings-50-1" src={icc3} />
@@ -77,8 +80,6 @@ const Header = () => {
               <img className="image-17" src={icc4} />
             </div>
           </div>
-
-
 
 
         </div>
@@ -97,28 +98,42 @@ const Header = () => {
 export default Header;
 
 async function accPop() {
-  console.log("ent")
-  var pop = document.getElementById("accp");
-  console.log(pop)
-  pop.classList.toggle("show");
-}
 
-async function signout() {
-
-}
-
-
-
-
-async function loggedin() {
   let lo = localStorage.getItem('token');
   if (lo == null) {
+    window.location.href = "http://localhost:5173/login"
     console.log("no token");
     return
   }
   else {
     let to = JSON.parse(atob(lo.split(".")[1]));
-    console.log(Date.now() / 1000, to.exp);
+
+    if (Date.now() / 1000 >= to.exp) {
+      window.location.href = "http://localhost:5173/login"
+      return
+    }
+  }
+    
+  var pop = document.getElementById("accp");
+  console.log(pop)
+  pop.classList.toggle("show");
+}
+
+
+async function signout() {
+  localStorage.removeItem('token')
+}
+
+
+async function loggedin() {
+  let lo = localStorage.getItem('token');
+  if (lo == null) {
+    
+    console.log("no token");  
+  }
+  else {
+    let to = JSON.parse(atob(lo.split(".")[1]));
+  
     if (Date.now() / 1000 >= to.exp) {
       return
     }
@@ -151,43 +166,7 @@ async function loggedin() {
         console.error(error.message);
       }
 
-
-
-
-      
     }
   }
-
-
-  
-
-  
 }
 
-
-
-
-
-
-/* <div className="profileacp" id="accp">
-              <div className="rectangle-155acp"></div>
-              <div className="ellipse-35"></div>
-              <div className="div">􀉩</div>
-              <div className="emily-carter">Emily Carter</div>
-              <div className="view-your-profile">View your profile</div>
-              <div className="group-112">
-                <img className="icons-8-settings-50-1" src="icons-8-settings-50-10.png" />
-                <div className="account-setting">Account setting</div>
-              </div>
-              <div className="group-111">
-                <img className="image-16" src="image-160.png" />
-                <div className="sell">Sell</div>
-              </div>
-              <div className="line-45"></div>
-              <div className="group-113">
-                <div className="sign-out">Sign out</div>
-                <img className="image-17" src="image-170.png" />
-              </div>
-            </div>
-
-            */

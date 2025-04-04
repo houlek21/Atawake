@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 // Use routes
 app.use('/api/users', userRoutes);
-app.use('/api/sellers', sellerRoutes);
+app.use('/api/seller', sellerRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 app.use('/api/cart', cartRoutes);

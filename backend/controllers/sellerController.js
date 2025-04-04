@@ -48,11 +48,34 @@ export const getSellerById = async (req, res) => {
     }
 };
 
+// -- M
+export const getSellerByUserId = async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const seller = await Seller.findOne({
+            
+            where: {
+              user_id: id,
+            },
+        });
+        console.log(seller)
+
+        if (!seller) {
+            return res.status(400).json({ message: 'Seller not found ' });
+        }
+        res.json(seller);
+    } catch (error) {
+        console.error('Error fetching seller: ', error);
+        res.status(500).json({ error: 'Failed to fetch seller', details: error.message });
+    }
+};
+
 // Register a seller profile (protected)
 export const registerSellerProfile = async (req, res) => {
     const { business_name, contact_person, business_phone, business_address, about_us_description } = req.body;
     const user_id = req.user.id; // Logged-in user ID from JWT
-    console.log('regs',user_id)
+
     try{
         // check if the user already has a seller profile
         const existingSeller = await Seller.findOne({ where: {user_id} });
