@@ -10,31 +10,26 @@ const PopularItems = () => {
   const popularItems = [
     {
       name: "Flowers Hoodie",
-      image: "/Products/FlowersHoodie.png",
       rating: 4.8,
       review: 100,
     },
     {
       name: "Forest Beaded Earrings",
-      image: "/Products/ForestBeadedEarrings.png",
       rating: 4.9,
       review: 120,
     },
     {
       name: "Northern Lights Art",
-      image: "/Products/NorthernLights.png",
       rating: 4.7,
       review: 90,
     },
     {
       name: "Ceramic Bowl",
-      image: "/Products/CeramicBowl.png",
       rating: 4.5,
       review: 80,
     },
     {
       name: "Ribbon Skirt",
-      image: "/Products/RibbonSkirt.png",
       rating: 4.6,
       review: 95,
     },
@@ -70,15 +65,12 @@ const PopularItems = () => {
         Popular Items
       </p>
       <div className="relative flex items-center">
+        {/* Left Arrow */}
         <div
-          className="absolute left-[-20px] top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-8 md:h-8 p-2 md:p-1.5 rounded-full shadow cursor-pointer hover:bg-gray-100 hover:scale-105 transition"
+          className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-15 h-15 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
           onClick={() => scroll("left")}
         >
-          <img
-            src={LeftArrow}
-            alt="Left Arrow"
-            className="w-full h-full object-contain"
-          />
+          <img src={LeftArrow} alt="Left Arrow"/>
         </div>
 
         <div
@@ -96,7 +88,9 @@ const PopularItems = () => {
                 name={matchedProduct.name}
                 seller={matchedProduct.Seller?.business_name}
                 price={`CA$${parseFloat(matchedProduct.price).toFixed(2)}`}
-                image_url={item.image}
+                imageUrl={
+                  matchedProduct.ProductMedia?.[0]?.imageUrl || item.image
+                }
                 rating={item.rating}
                 reviews={item.review}
                 badge="Popular now"
@@ -105,15 +99,12 @@ const PopularItems = () => {
           })}
         </div>
 
+        {/* Right Arrow */}
         <div
-          className="absolute right-[-20px] top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-8 md:h-8 p-2 md:p-1.5 rounded-full shadow cursor-pointer hover:bg-gray-100 hover:scale-105 transition"
+          className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-15 h-15 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
           onClick={() => scroll("right")}
         >
-          <img
-            src={RightArrow}
-            alt="Right Arrow"
-            className="w-full h-full object-contain"
-          />
+          <img src={RightArrow} alt="Right Arrow"/>
         </div>
       </div>
     </div>

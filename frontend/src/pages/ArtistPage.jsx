@@ -25,7 +25,7 @@ const ArtistPage = () => {
   useEffect(() => {
     const fetchSeller = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/sellers/${seller}`);
+        const res = await fetch(`http://localhost:5000/api/seller/${seller}`);
         if (!res.ok) throw new Error("Failed to fetch seller");
         const data = await res.json();
         setSellerInfo(data);

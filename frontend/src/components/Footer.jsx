@@ -1,4 +1,4 @@
-export default function Footer() {
+const Footer = () => {
   return (
     <footer
       className="text-[#3d2b1f] px-8 py-12 mt-12 bg-cover bg-no-repeat"
@@ -63,3 +63,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

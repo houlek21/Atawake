@@ -1,24 +1,28 @@
-import { Link } from "react-router-dom";
-
 const ProductCard = ({
   id,
   name,
   seller,
   price,
-  image_url,
+  imageUrl,
   rating,
   reviews,
   badge,
 }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    window.location.href = `/product/${id}`; // forces full reload
+  };
+
   return (
-    <Link
-      to={`/product/${id}`}
+    <a
+      href={`/product/${id}`}
+      onClick={handleClick}
       className="no-underline text-inherit outline-none"
     >
-      <div className="w-[350px] bg-[#fef9f5] p-2 rounded-2xl transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl cursor-pointer">
+      <div className="w-[350px] p-2 rounded-2xl transition duration-300 ease-in-out hover:scale-105 hover:shadow-xl cursor-pointer">
         <div className="relative">
           <img
-            src={image_url}
+            src={imageUrl}
             alt={name}
             className="w-full h-[300px] object-cover rounded-xl"
           />
@@ -45,7 +49,7 @@ const ProductCard = ({
           </h1>
         </div>
       </div>
-    </Link>
+    </a>
   );
 };
 

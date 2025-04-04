@@ -5,15 +5,11 @@ const StoryCard = ({ image, avatar, title, author, readTime }) => {
     <div className="rounded-2xl overflow-hidden shadow-md w-100 bg-white">
       <div className="h-100 w-full relative">
         <img src={image} alt={title} className="h-full w-full object-cover" />
-        <div className="absolute -bottom-9 left-1/2 transform -translate-x-1/2">
-          <img
-            src={avatar}
-            alt="avatar"
-            className="w-20 h-20 rounded-full object-cover"
-          />
-        </div>
       </div>
-      <div className="text-[#FAF5EE] px-4 pt-10 pb-5" style={{ backgroundColor: redBackground }}>
+      <div
+        className="text-[#FAF5EE] px-4 pt-10 pb-5"
+        style={{ backgroundColor: redBackground }}
+      >
         <div className="text-[19px] font-normal leading-[28px] font-[Inter]">
           {title}
         </div>

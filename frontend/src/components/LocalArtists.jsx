@@ -7,17 +7,14 @@ const LocalArtists = () => {
   const artistProfiles = {
     "Taya Sky Creations": {
       name: "Taya Sky",
-      image: "/LocalArtists/Taya.jpg",
       location: "Sherwood Park, AB",
     },
     "Nova Waskah Creations": {
       name: "Nova Waskah",
-      image: "/LocalArtists/Nova.jpg",
       location: "Edmonton, AB",
     },
     "Maya Crowfoot Creations": {
       name: "Maya Crowfoot",
-      image: "/LocalArtists/Maya.jpg",
       location: "Sherwood Park, AB",
     },
   };
@@ -25,7 +22,7 @@ const LocalArtists = () => {
   useEffect(() => {
     const fetchSellers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/sellers");
+        const res = await fetch("http://localhost:5000/api/seller");
         const data = await res.json();
         setSellers(data);
       } catch (err) {
@@ -59,7 +56,7 @@ const LocalArtists = () => {
               key={seller.id}
               seller_id={seller.id}
               name={profile.name}
-              image_url={profile.image}
+              image_url={seller.profileImageUrl}
               location={profile.location}
             />
           );

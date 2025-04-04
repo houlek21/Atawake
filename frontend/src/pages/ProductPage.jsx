@@ -32,7 +32,7 @@ const ProductPage = () => {
     const fetchSeller = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/sellers/${product.seller_id}`
+          `http://localhost:5000/api/seller/${product.seller_id}`
         );
         const data = await res.json();
         setSeller(data);
@@ -51,7 +51,7 @@ const ProductPage = () => {
 
     const newItem = {
       name: product.name,
-      image: product.ProductMedia?.[0]?.media_url,
+      image: product.ProductMedia?.[0]?.imageUrl,
       quantity: 1,
       price: parseFloat(product.price),
     };
@@ -65,7 +65,7 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="bg-[#f9f0e7] min-h-screen px-6 md:px-12 lg:px-32 py-12">
+    <div className="min-h-screen px-6 md:px-12 lg:px-32 py-12">
       <h1 className="text-black font-inter text-[38px] font-semibold mb-8">
         {product.name}
       </h1>
@@ -78,7 +78,7 @@ const ProductPage = () => {
             {product.ProductMedia?.map((media, idx) => (
               <img
                 key={idx}
-                src={media.media_url}
+                src={media.imageUrl}
                 alt={`thumb-${idx}`}
                 className="w-50 h-50 object-cover rounded-lg border cursor-pointer hover:scale-105 transition"
               />
@@ -88,7 +88,7 @@ const ProductPage = () => {
           {/* Main Image */}
           <div className="w-[550px] h-[550px] rounded-xl shadow-md overflow-hidden">
             <img
-              src={product.ProductMedia?.[0]?.media_url}
+              src={product.ProductMedia?.[0]?.imageUrl}
               alt={product.name}
               className="w-full h-full object-cover"
             />
@@ -113,9 +113,7 @@ const ProductPage = () => {
             <div className="flex flex-col items-start space-y-3">
               <div className="flex items-center gap-3">
                 <img
-                  src={
-                    seller.User?.profile_image_url || "/placeholder-avatar.jpg"
-                  }
+                  src={seller.profileImageUrl}
                   alt={seller.business_name}
                   className="w-10 h-10 rounded-full object-cover"
                 />
@@ -189,7 +187,7 @@ const ProductPage = () => {
 
       <div className="flex flex-col mt-10 md:flex-row gap-120 w-full justify-start">
         {/* Number of Reviews */}
-        <div className="p-6 bg-[#f9f0e7] rounded-lg space-y-4 w-140">
+        <div className="p-6 rounded-lg space-y-4 w-140">
           <div className="flex items-center gap-4">
             <p className="text-4xl font-bold text-[#981b1e]">1,2654 reviews</p>
             <p className="text-3xl text-[#981b1e]">★ ★ ★ ★ ☆</p>
@@ -220,7 +218,7 @@ const ProductPage = () => {
         </div>
 
         {/* Product + Delivery Box */}
-        <div className="p-6 bg-[#f9f0e7] rounded-lg space-y-4 text-[#3c2e24] w-full max-w-md">
+        <div className="p-6 rounded-lg space-y-4 text-[#3c2e24] w-full max-w-md">
           <div className="flex justify-between items-center font-semibold text-[#981b1e] text-4xl cursor-pointer">
             <p>Product details</p>
             <p>›</p>
@@ -252,6 +250,7 @@ const ProductPage = () => {
       <MoreFromSeller
         sellerId={product.seller_id}
         sellerName={product.Seller?.business_name}
+        currentProductId={product.id}
       />
       <MoreFromCategory
         categoryId={product.category_id}
