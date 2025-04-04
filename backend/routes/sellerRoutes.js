@@ -27,5 +27,5 @@ router.delete('/:id', authenticateJWT, deleteSeller); // Delete seller account
 // Profile image routes
 router.post('/:id/profile-image', authenticateJWT, uploadSellerImage.single('image'), uploadProfileImage);
 router.delete('/:id/profile-image', authenticateJWT, deleteProfileImage);
-
+tfhf
 export default router;
