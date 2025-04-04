@@ -9,6 +9,7 @@ import MarketSection from "./components/MarketSection";
 import ArtistStories from "./components/ArtistStories";
 import Footer from "./components/Footer.jsx";
 import AccountSideBar from "./components/AccountSideBar";
+import SearchResults from "./components/SearchResults";
 
 import ProductPage from "./pages/ProductPage";
 import ArtistPage from "./pages/ArtistPage";
@@ -24,6 +25,7 @@ import AccountPage from "./pages/account.jsx";
 import SellerPage from "./pages/SellerPage.jsx";
 import CheckoutPage from "./pages/checkoutPage.jsx";
 import CartPage from "./pages/CartPage.jsx";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -32,41 +34,53 @@ function App() {
       <Header onSearch={setSearchQuery} />
 
       <Routes>
-        <Route path="/" element={
-          <>
-            <Slider />
-            <RedBanner />
-            <LocalArtists />
-            <PopularItems />
-            <MarketSection />
-            <ArtistStories />
-
-          </>
-        }
+        <Route
+          path="/"
+          element={
+            <>
+              <Slider />
+              <RedBanner />
+              <LocalArtists />
+              <PopularItems />
+              <MarketSection />
+              <ArtistStories />
+            </>
+          }
         />
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/sellersignup" element={<SellerSignupPage />} />
         <Route path="/settings" element={<SettingsPage />} />
-        <Route path="/addprod1" element={
-          <>
-            <AccountSideBar />
-            <AddItemPage1 />
-          </>} />
+        <Route
+          path="/addprod1"
+          element={
+            <>
+              <AccountSideBar />
+              <AddItemPage1 />
+            </>
+          }
+        />
 
-        <Route path="/addprod2" element={
-          <>
-            <AccountSideBar />
-            <AddItemPage2 />
-          </>} />
+        <Route
+          path="/addprod2"
+          element={
+            <>
+              <AccountSideBar />
+              <AddItemPage2 />
+            </>
+          }
+        />
 
-        <Route path="/dashboard" element={
-          <>
-            <AccountSideBar />
-            <AccountPage />
-          </>} />
-
+        <Route
+          path="/dashboard"
+          element={
+            <>
+              <AccountSideBar />
+              <AccountPage />
+            </>
+          }
+        />
 
         <Route path="/buy" element={<BuyPage />} />
         <Route path="/buy/:cate" element={<BuyPage />} />
@@ -74,8 +88,10 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
 
         <Route path="/seller" element={<SellerPage />} />
-        <Route path="/artist/:seller/product/:productName" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/artist/:seller" element={<ArtistPage />} />
+        <Route path="/search" element={<SearchResults />} />
+        <Route path="/category/:id" element={<CategoryPage />} />
       </Routes>
       <Footer />
     </Router>
@@ -83,4 +99,3 @@ function App() {
 }
 
 export default App;
-

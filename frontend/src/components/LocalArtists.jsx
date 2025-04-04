@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react";
-import "../css/LocalArtists.css";
 import ArtistCard from "./ArtistCard";
 
 const LocalArtists = () => {
   const [sellers, setSellers] = useState([]);
 
-  // Map business names to images + locations
   const artistProfiles = {
     "Taya Sky Creations": {
       name: "Taya Sky",
-      image: "/LocalArtists/Taya.jpg",
       location: "Sherwood Park, AB",
     },
     "Nova Waskah Creations": {
       name: "Nova Waskah",
-      image: "/LocalArtists/Nova.jpg",
       location: "Edmonton, AB",
     },
     "Maya Crowfoot Creations": {
       name: "Maya Crowfoot",
-      image: "/LocalArtists/Maya.jpg",
       location: "Sherwood Park, AB",
     },
   };
@@ -27,7 +22,7 @@ const LocalArtists = () => {
   useEffect(() => {
     const fetchSellers = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/sellers");
+        const res = await fetch("http://localhost:5000/api/seller");
         const data = await res.json();
         setSellers(data);
       } catch (err) {
@@ -39,18 +34,21 @@ const LocalArtists = () => {
   }, []);
 
   return (
-    <section className="artists-section">
-      <div className="artists-header">
-        <h2 className="artists-title">
+    <div className="w-full mt-25 mb-25 flex flex-wrap justify-center items-center text-left">
+      <div className="w-auto h-auto mr-30">
+        <p className="text-[#93151F] text-4xl font-semibold mb-4">
           Explore
           <br />
           local artists
-        </h2>
-        <a href="/artists" className="view-all-button">
+        </p>
+        <a
+          href="/artists"
+          className="inline-block rounded-full border px-7 py-2 text-xl font-medium no-underline text-[#7a271a] border-[#7a271a] transition-colors duration-300 hover:bg-[#7a271a] hover:text-white"
+        >
           View all
         </a>
       </div>
-      <div className="artists-grid">
+      <div className="flex flex-wrap justify-start">
         {sellers.map((seller) => {
           const profile = artistProfiles[seller.business_name] || {};
           return (
@@ -58,13 +56,13 @@ const LocalArtists = () => {
               key={seller.id}
               seller_id={seller.id}
               name={profile.name}
-              image_url={profile.image}
+              image_url={seller.profileImageUrl}
               location={profile.location}
             />
           );
         })}
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -10,16 +10,16 @@ const ArtistPage = () => {
   const artistProfiles = {
     "Taya Sky Creations": {
       image: "/LocalArtists/Taya.jpg",
-      location: "Sherwood Park, AB"
+      location: "Sherwood Park, AB",
     },
     "Nova Waskah Creations": {
       image: "/LocalArtists/Nova.jpg",
-      location: "Edmonton, AB"
+      location: "Edmonton, AB",
     },
     "Maya Crowfoot Creations": {
       image: "/LocalArtists/Maya.jpg",
-      location: "Sherwood Park, AB"
-    }
+      location: "Sherwood Park, AB",
+    },
   };
 
   useEffect(() => {
@@ -44,14 +44,13 @@ const ArtistPage = () => {
   return (
     <div className="artist-page">
       <img
-        src={profile.image || "/LocalArtists/default.jpg"}
-        alt={profile.name}
+        src={profile.image}
+        alt="No image"
         className="artist-profile-image"
       />
-      <h1 className="artist-page-name">{sellerInfo.business_name || sellerInfo.business_name}</h1>
-      <p className="artist-page-location">{profile.location || "Location unknown"}</p>
+      <h1 className="artist-page-name">{sellerInfo.business_name}</h1>
+      <p className="artist-page-location">{profile.location}</p>
       <p className="artist-page-bio">{sellerInfo.about_us_description}</p>
-      <p>Status: {sellerInfo.indigenous_verification_status}</p>
     </div>
   );
 };

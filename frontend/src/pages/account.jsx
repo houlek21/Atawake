@@ -43,15 +43,13 @@ import dash6 from "../assets/dashboard/dash/Ellipse 31.png"
 
 
 const accountPage = () => {
-
   const initialized = useRef(false)
 
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true
-    getlistings();
+      getlistings();
     }
-
   }, []);
 
 

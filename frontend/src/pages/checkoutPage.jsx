@@ -389,8 +389,8 @@ const CheckoutPage = () => {
         
         // If cart is empty, redirect to cart page
         if (!data.cartItems || data.cartItems.length === 0) {
-          //alert('Your cart is empty. Please add items before checkout.');
-          //navigate('/cart');
+          alert('Your cart is empty. Please add items before checkout.');
+          navigate('/cart');
         }
       } catch (err) {
         console.error('Error:', err);

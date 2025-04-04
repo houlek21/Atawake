@@ -1,6 +1,6 @@
 import "../css/SellerPage.css"
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import Slides from "../components/Slider"
 import ReactDOM from "react-dom/client";
@@ -17,11 +17,10 @@ import img7 from "../assets/Artist/instagram.svg"
 
 const sellerPage = () => {
   useEffect(() => {
-    slide();
+    
 
 
-    console.log(document.getElementById("header"))
-    document.getElementById("header").style.backgroundColor = "rgba(0, 0, 0, 0)"
+    //document.getElementById("header").style.backgroundColor = "rgba(0, 0, 0, 0)"
     return;
   }, []);
 
@@ -85,9 +84,18 @@ const sellerPage = () => {
 
 
 
-        <div id="id" ><Slides /></div>
+        <div id="id" >
+      </div>
 
-
+<div class="item-hover">
+  <div class="flowers-hoodie">Native Floral Fab...</div>
+  <img class="mask-group" src="mask-group0.svg" />
+  <div class="_4-7">4.9</div>
+  <div class="_90">(3.1k)</div>
+  <div class="div">􀋃</div>
+  <div class="taya-sky">Taya Sky</div>
+  <div class="ca-45-00">CA$2.75</div>
+</div>
 
 
 
@@ -102,8 +110,6 @@ export default sellerPage;
 
 function slide() {
 
-  console.log(document.getElementById('id').innerHTML)
-  // ReactDOM.createRoot(document.getElementById('id')).render(<Slides />)
-
+  
 
 }

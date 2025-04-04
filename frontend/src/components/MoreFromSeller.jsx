@@ -3,90 +3,85 @@ import ProductCard from "./ProductCard";
 import LeftArrow from "../assets/icons/leftarrow2.svg";
 import RightArrow from "../assets/icons/rightarrow2.svg";
 
-const MoreFromSeller = ({ sellerId, sellerName }) => {
-  const [sellerProducts, setSellerProducts] = useState([]);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
+const MoreFromSeller = ({ sellerId, sellerName, currentProductId }) => {
+  const [products, setProducts] = useState([]);
   const scrollRef = useRef(null);
 
-  // Fetch seller's products
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products`);
+        const res = await fetch(
+          `http://localhost:5000/api/products?seller_id=${sellerId}`
+        );
         const data = await res.json();
-        const filtered = data.filter((p) => p.seller_id === sellerId);
-        setSellerProducts(filtered);
+
+        // Filter out the currently viewed product
+        const filtered = data.filter(
+          (product) => product.id !== currentProductId
+        );
+        setProducts(filtered);
       } catch (err) {
         console.error("Error fetching seller's products:", err);
       }
     };
 
     if (sellerId) fetchProducts();
-  }, [sellerId]);
+  }, [sellerId, currentProductId]);
 
-  // Update scroll button visibility
-  const updateScrollButtons = () => {
-    if (!scrollRef.current) return;
-    setCanScrollLeft(scrollRef.current.scrollLeft > 0);
-  };
-
-  // Scroll action
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -300 : 300,
         behavior: "smooth",
       });
     }
   };
 
-  // Add scroll listener
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", updateScrollButtons);
-      updateScrollButtons();
-      return () => el.removeEventListener("scroll", updateScrollButtons);
-    }
-  }, [sellerProducts]);
-
-  if (!sellerProducts.length) return null;
+  if (!products.length) return null;
 
   return (
-    <section className="popular-items-section">
-      <div className="flex items-center gap-2 mb-2">
-        <h2 className="popular-title text-[#981b1e]">More from {sellerName}</h2>
-        <span className="bg-[#3c2e24] text-white text-xs px-3 py-1 rounded-full">
-          {sellerName}
-        </span>
-      </div>
+    <div className="w-[1400px] h-[500px] mx-auto relative mb-10 mt-10">
+      <p className="text-[#93151F] text-4xl font-semibold mb-4">
+        More from {sellerName}
+      </p>
+      <div className="relative flex items-center">
+        {/* Left Arrow */}
+        <div
+          className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
+          onClick={() => scroll("left")}
+        >
+          <img src={LeftArrow} alt="Left Arrow" className="w-15 h-15" />
+        </div>
 
-      <div className="scroll-wrapper relative">
-        {canScrollLeft && (
-          <button className="scroll-btn left" onClick={() => scroll("left")}>
-            <img src={LeftArrow} alt="Left Arrow" />
-          </button>
-        )}
-        <div className="product-scroll" ref={scrollRef}>
-          {sellerProducts.map((product) => (
+        {/* Product Cards */}
+        <div
+          className="flex overflow-x-auto gap-4 pb-2 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          ref={scrollRef}
+        >
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               id={product.id}
               name={product.name}
               seller={product.Seller?.business_name}
               price={`CA$${parseFloat(product.price).toFixed(2)}`}
-              image_url={product.ProductMedia?.[0]?.media_url}
-              rating={4 + Math.random()} // TEMP
-              reviews={Math.floor(Math.random() * 2000)} // TEMP
+              imageUrl={product.ProductMedia?.[0]?.imageUrl}
+              rating={4 + Math.random()}
+              reviews={Math.floor(Math.random() * 2000)}
+              badge={`From ${sellerName}`}
             />
           ))}
         </div>
-        <button className="scroll-btn right" onClick={() => scroll("right")}>
-          <img src={RightArrow} alt="Right Arrow" />
-        </button>
+
+        {/* Right Arrow */}
+        <div
+          className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
+          onClick={() => scroll("right")}
+        >
+          <img src={RightArrow} alt="Right Arrow" className="w-15 h-15" />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

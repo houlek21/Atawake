@@ -44,15 +44,13 @@ export const updateCartUserId = async (req, res) => {
 };
 
 export const getCart = async (req, res) => {
-  
   try {
     const sessionId = req.cookies.cart_session_id;
-    console.log('cartget',req.cookies)
+    
     if (!sessionId) {
       return res.status(200).json({ cartItems: [], subtotal: "0.00", total: "0.00" });
-      console.log('cartget')
     }
-    console.log('cartget')
+    
     const cartItems = await Cart.findAll({
       where: { session_id: sessionId },
       include: [{ 
@@ -92,7 +90,7 @@ export const getCart = async (req, res) => {
       if (productJson.ProductMedia && productJson.ProductMedia.length > 0) {
         image_url = `${req.protocol}://${req.get('host')}/${productJson.ProductMedia[0].file_path.replace(/\\/g, '/')}`;
       }
-      console.log('cartget1')
+      
       // Add seller name and image
       let seller_name = null;
       let seller_image = null;
@@ -108,7 +106,7 @@ export const getCart = async (req, res) => {
       if (productJson.Category) {
         category_name = productJson.Category.category_name;
       }
-      console.log('cartget2')
+      
       return {
         product_id: product.id,
         product_name: product.name,
@@ -126,7 +124,7 @@ export const getCart = async (req, res) => {
         category_name: category_name
       };
     });
-    console.log('cartget3')
+
     res.status(200).json({ 
       cartItems: cartDetails, 
       subtotal: total.toFixed(2),

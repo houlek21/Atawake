@@ -56,15 +56,17 @@ const CustomerReviews = () => {
         {paginated.map((item, idx) => (
           <div key={idx} className="pb-6 border-b border-gray-300">
             <div className="flex justify-between items-center mb-1">
-              <p className="font-semibold text-[#3c2e24]">{item.name}</p>
-              <p className="text-xs text-[#3c2e24]">{item.date}</p>
+              <p className="font-semibold text-[#3c2e24] text-2xl">
+                {item.name}
+              </p>
+              <p className="text-lg text-[#3c2e24]">{item.date}</p>
             </div>
-            <div className="text-[#981b1e] text-sm mb-1">
+            <div className="text-[#981b1e] text-2xl mb-1">
               {"★".repeat(item.rating)}
               {"☆".repeat(5 - item.rating)}
             </div>
-            <p className="text-sm text-[#3c2e24] mb-1">{item.review}</p>
-            <p className="text-sm text-[#3c2e24]">
+            <p className="text-lg text-[#3c2e24] mb-1">{item.review}</p>
+            <p className="text-lg text-[#3c2e24]">
               <span className="font-semibold">Purchased item:</span>{" "}
               {productName}, Size {item.size}
             </p>
@@ -72,7 +74,7 @@ const CustomerReviews = () => {
         ))}
       </div>
 
-      {/* Pagination controls */}
+      {/* Button Controls */}
       <div className="flex justify-center gap-2 items-center">
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
@@ -90,7 +92,7 @@ const CustomerReviews = () => {
           <button
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            className={`rounded-full w-8 h-8 border border-[#981b1e] text-sm ${
+            className={`rounded-full w-12 h-12 border border-[#981b1e] text-sm ${
               currentPage === i + 1
                 ? "bg-[#981b1e] text-white"
                 : "text-[#981b1e] hover:bg-[#f3e8e8]"

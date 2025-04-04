@@ -4,24 +4,23 @@ import LeftArrow from "../assets/icons/leftarrow2.svg";
 import RightArrow from "../assets/icons/rightarrow2.svg";
 
 const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
-  const [relatedProducts, setRelatedProducts] = useState([]);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [products, setProducts] = useState([]);
   const scrollRef = useRef(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/products`);
+        const res = await fetch("http://localhost:5000/api/products");
         const data = await res.json();
 
         const filtered = data.filter(
-          (p) =>
-            p.category_id === categoryId &&
-            p.id !== currentProductId && // exclude current product
-            p.is_active !== false // optionally skip inactive products
+          (product) =>
+            product.category_id === categoryId &&
+            product.id !== currentProductId &&
+            product.is_active
         );
 
-        setRelatedProducts(filtered);
+        setProducts(filtered);
       } catch (err) {
         console.error("Error fetching related products:", err);
       }
@@ -30,63 +29,61 @@ const MoreFromCategory = ({ categoryId, categoryName, currentProductId }) => {
     if (categoryId) fetchProducts();
   }, [categoryId, currentProductId]);
 
-  const updateScrollButtons = () => {
-    if (!scrollRef.current) return;
-    setCanScrollLeft(scrollRef.current.scrollLeft > 0);
-  };
-
   const scroll = (direction) => {
     if (scrollRef.current) {
-      const scrollAmount = 300;
       scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
+        left: direction === "left" ? -300 : 300,
         behavior: "smooth",
       });
     }
   };
 
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener("scroll", updateScrollButtons);
-      updateScrollButtons();
-      return () => el.removeEventListener("scroll", updateScrollButtons);
-    }
-  }, [relatedProducts]);
-
-  if (!relatedProducts.length) return null;
+  if (!products.length) return null;
 
   return (
-    <section className="popular-items-section">
-      <h2 className="popular-title text-[#981b1e] mb-2">You may also like</h2>
+    <div className="w-[1400px] h-[500px] mx-auto relative mb-10 mt-10">
+      <p className="text-[#93151F] text-4xl font-semibold mb-4">
+        More in {categoryName}
+      </p>
 
-      <div className="scroll-wrapper relative">
-        {canScrollLeft && (
-          <button className="scroll-btn left" onClick={() => scroll("left")}>
-            <img src={LeftArrow} alt="Left Arrow" />
-          </button>
-        )}
+      <div className="relative flex items-center">
+        {/* Left Arrow */}
+        <div
+          className="absolute left-[-20px] top-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
+          onClick={() => scroll("left")}
+        >
+          <img src={LeftArrow} alt="Left Arrow" className="w-15 h-15" />
+        </div>
 
-        <div className="product-scroll" ref={scrollRef}>
-          {relatedProducts.map((product) => (
+        {/* Product Cards */}
+        <div
+          className="flex overflow-x-auto gap-4 pb-2 scroll-smooth snap-x snap-mandatory [&::-webkit-scrollbar]:hidden"
+          ref={scrollRef}
+        >
+          {products.map((product) => (
             <ProductCard
               key={product.id}
               id={product.id}
               name={product.name}
               seller={product.Seller?.business_name}
               price={`CA$${parseFloat(product.price).toFixed(2)}`}
-              image_url={product.ProductMedia?.[0]?.media_url}
-              rating={4 + Math.random()} // TEMP
-              reviews={Math.floor(Math.random() * 2000)} // TEMP
+              imageUrl={product.ProductMedia?.[0]?.imageUrl}
+              rating={4 + Math.random()}
+              reviews={Math.floor(Math.random() * 2000)}
+              badge={`From ${categoryName}`}
             />
           ))}
         </div>
 
-        <button className="scroll-btn right" onClick={() => scroll("right")}>
-          <img src={RightArrow} alt="Right Arrow" />
-        </button>
+        {/* Right Arrow */}
+        <div
+          className="absolute right-[-20px] top-1/2 -translate-y-1/2 w-20 h-20 flex items-center justify-center rounded-full cursor-pointer hover:scale-110 transition z-10"
+          onClick={() => scroll("right")}
+        >
+          <img src={RightArrow} alt="Right Arrow" className="w-15 h-15" />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

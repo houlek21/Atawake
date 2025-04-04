@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 function ListGroup() {
   let items = ["Edmonton", "Calgary", "Vancouver", "Toronto"];
@@ -13,7 +13,9 @@ function ListGroup() {
           <li
             className="list-group-item active"
             key={item}
-            onClick={() => {setSelectedIndex(index);}}
+            onClick={() => {
+              setSelectedIndex(index);
+            }}
           >
             {item}
           </li>
@@ -25,25 +27,24 @@ function ListGroup() {
 
 export default ListGroup;
 
-
 <div className="slider-content">
-<p className="slider-subtitle">MADE WITH HEART</p>
-<h1 className="slider-title">
-  Explore handcrafted goods <br /> made by Indigenous artisans
-</h1>
+  <p className="slider-subtitle">MADE WITH HEART</p>
+  <h1 className="slider-title">
+    Explore handcrafted goods <br /> made by Indigenous artisans
+  </h1>
 
-<button className="slider-button">Shop Handmade Items</button>
+  <button className="slider-button">Shop Handmade Items</button>
 
-{/* Navigation Arrows */}
-<div className="slider-arrows">
-  <span className="arrow left">&#10094;</span>
-  <span className="arrow right">&#10095;</span>
-</div>
+  {/* Navigation Arrows */}
+  <div className="slider-arrows">
+    <span className="arrow left">&#10094;</span>
+    <span className="arrow right">&#10095;</span>
+  </div>
 
-{/* Slider Dots */}
-<div className="slider-dots">
-  <span className="dot active"></span>
-  <span className="dot"></span>
-  <span className="dot"></span>
-</div>
-</div>
+  {/* Slider Dots */}
+  <div className="slider-dots">
+    <span className="dot active"></span>
+    <span className="dot"></span>
+    <span className="dot"></span>
+  </div>
+</div>;

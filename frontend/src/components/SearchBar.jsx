@@ -5,23 +5,24 @@ import SearchIcon from "../assets/icons/search.svg";
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState("");
 
-  const handleInput = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-    onSearch(value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (query.trim()) {
+      onSearch(query.trim());
+    }
   };
 
   return (
-    <div className="search-container">
+    <form className="search-container" onSubmit={handleSubmit}>
       <img src={SearchIcon} alt="Search" className="search-icon" />
       <input
         type="text"
         placeholder="Search"
         value={query}
-        onChange={handleInput}
+        onChange={(e) => setQuery(e.target.value)}
         className="search-input"
       />
-    </div>
+    </form>
   );
 };
 

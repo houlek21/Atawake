@@ -18,10 +18,9 @@
   box-sizing: border-box;
 }
 
-.footseperator{
 
-  
-}
+
+
 ._2-1024-x-683-3sell {
   border-radius: 11px;
   width: 270px;
@@ -272,4 +271,115 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+
+
+
+.item-hover {
+  height: 469px;
+  position: relative;
+}
+.flowers-hoodie {
+  color: var(--black, #000000);
+  text-align: left;
+  font-family: var(--header-3-font-family, "Inter-SemiBold", sans-serif);
+  font-size: var(--header-3-font-size, 25px);
+  font-weight: var(--header-3-font-weight, 600);
+  position: absolute;
+  right: 34.88%;
+  left: 0%;
+  width: 65.12%;
+  bottom: 16.2%;
+  top: 77.4%;
+  height: 6.4%;
+}
+.mask-group {
+  width: 100%;
+  height: 73.35%;
+  position: absolute;
+  right: 0%;
+  left: 0%;
+  bottom: 26.65%;
+  top: 0%;
+  overflow: visible;
+}
+._4-7 {
+  color: #000000;
+  text-align: right;
+  font-family: "Inter-Bold", sans-serif;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 700;
+  position: absolute;
+  right: 19.19%;
+  left: 72.67%;
+  width: 8.14%;
+  bottom: 15.99%;
+  top: 78.25%;
+  height: 5.76%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+._90 {
+  color: #000000;
+  text-align: right;
+  font-family: var(--header-5-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--header-5-font-size, 17px);
+  line-height: var(--header-5-line-height, 27px);
+  font-weight: var(--header-5-font-weight, 400);
+  position: absolute;
+  right: 0%;
+  left: 87.21%;
+  width: 12.79%;
+  bottom: 15.99%;
+  top: 78.25%;
+  height: 5.76%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.div {
+  color: #000000;
+  text-align: left;
+  font-family: "SfCompact-Light", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  position: absolute;
+  right: 12.21%;
+  left: 81.98%;
+  width: 5.81%;
+  bottom: 16.84%;
+  top: 79.1%;
+  height: 4.05%;
+}
+.taya-sky {
+  color: rgba(0, 0, 0, 0.72);
+  text-align: left;
+  font-family: var(--header-4-font-family, "Inter-Regular", sans-serif);
+  font-size: var(--header-4-font-size, 20px);
+  line-height: var(--header-4-line-height, 27px);
+  font-weight: var(--header-4-font-weight, 400);
+  position: absolute;
+  right: 75.29%;
+  left: 0%;
+  width: 24.71%;
+  bottom: 8.74%;
+  top: 85.5%;
+  height: 5.76%;
+}
+.ca-45-00 {
+  color: var(--red, #93151f);
+  text-align: left;
+  font-family: var(--header-2-font-family, "Inter-Medium", sans-serif);
+  font-size: var(--header-2-font-size, 27px);
+  font-weight: var(--header-2-font-weight, 500);
+  position: absolute;
+  right: 67.44%;
+  left: 0%;
+  width: 32.56%;
+  bottom: 0%;
+  top: 92.96%;
+  height: 7.04%;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Header.css";
 
@@ -6,6 +6,7 @@ import logo from "../assets/logo.svg";
 import shopIcon from "../assets/icons/shop.svg";
 import favoriteIcon from "../assets/icons/favorite.svg";
 import cartIcon from "../assets/icons/cart.svg";
+import profile from "../assets/icons/profile.svg";
 import SearchBar from "./SearchBar";
 
 import icc1 from "../assets/Header/1.svg";
@@ -15,7 +16,7 @@ import icc4 from "../assets/Header/4.png";
 
 const Header = () => {
   const navigate = useNavigate();
-  const initialized = useRef(false)//for 1 useeffect from strictmode
+  const [categories, setCategories] = useState([]);
 
   const handleSearch = (query) => {
     if (query.trim()) {
@@ -24,14 +25,50 @@ const Header = () => {
   };
 
   useEffect(() => {
-    if (!initialized.current) {
-      initialized.current = true
-      loggedin()
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/api/categories");
+        const data = await res.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("Failed to fetch categories:", error);
+      }
+    };
+
+    fetchCategories();
+
+
+    //account hover and name
+    let lo = localStorage.getItem('token');
+    
+    if (lo == null) {
+      
     }
-  });
+    else {
+      let to = JSON.parse(atob(lo.split(".")[1]));
+      if (Date.now() / 1000 <= to.exp) {
+      
+      var pop = document.getElementById("accp");
+      pop.style.setProperty('--profileacp-visibility', 'visible');
+      
+      loggedin(to)
+      
+    }
+  }
+      
+
+    //document.getElementById("login").style.visibility = "visible"; 
+    //console.log(pop.classList)
+  }, []);
+
+  const handleCategoryClick = (categoryId, categoryName) => {
+    navigate(`/category/${categoryId}`, {
+      state: { categoryName },
+    });
+  };
 
   return (
-    <nav className="navbar" id="header">
+    <nav id="header" className="navbar">
       <div className="navbar-left">
         <a href="/" className="logo-link">
           <img src={logo} alt="Logo" className="logo" />
@@ -42,46 +79,51 @@ const Header = () => {
           <span className="shop-text">Shop</span>
 
           <div className="dropdown-menu">
-            <a href="/buy/all">All</a>
-            <a href="/buy/popular">Popular Categories</a>
-            <a href="/buy/favorites">Atawake Favorites</a>
-            <a href="/buy/custom">Custom Orders</a>
-            <a href="/buy/ready">Ready for You</a>
-            <a href="/buy/handmade">Handmade Items</a>
-            <a href="/buy/artists">Shop by Artists</a>
+            {categories.map((cat) => (
+              <div
+                key={cat.id}
+                onClick={() => handleCategoryClick(cat.id, cat.category_name)}
+                className="dropdown-link"
+              >
+                {cat.category_name}
+              </div>
+            ))}
           </div>
         </div>
+
         <SearchBar onSearch={handleSearch} />
       </div>
 
       <div className="navbar-right">
+        <div id="log" onClick={accPop} className="login">
 
 
-        <div onClick={accPop} id="log" className="login">
-          <div id="login">login</div>
-          <div className="profileacp" id="accp">
-            <div className="rectangle-155acp"></div>
-            <div className="ellipse-35">
-            <img className="profim" src={icc1}></img>
+        <div className="profileacp" id="accp">
+            <div className="rectangle-155acppop"></div>
+            <div className="ellipse-35pop">
+            <img className="profimpop" src={icc1}></img>
             </div>
-            <div id="popname" className="emily-carter">login</div>
-            <a href="/dashboard" className="view-your-profile">View your profile</a>
-            <div className="group-112">
-              <img className="icons-8-settings-50-1" src={icc3} />
-              <a href="/setting" className="account-setting">Account setting</a>
+            <div id="popname" className="emily-carterpop">User</div>
+            <a href="/dashboard" className="view-your-profilepop">View your profile</a>
+            <div className="group-112pop">
+              <img className="icons-8-settings-50-1pop" src={icc3} />
+              <a href="/setting" className="account-settingpop">Account setting</a>
             </div>
-            <div className="group-111">
-              <img className="image-16" src={icc2} />
-              <div className="sell">Sell</div>
+            <div className="group-111pop">
+              <img className="image-16pop" src={icc2} />
+              <div className="sellpop">Sell</div>
             </div>
-            <div className="line-45"></div>
-            <div className="group-113">
-              <div onClick={signout} className="sign-out">Sign out</div>
-              <img className="image-17" src={icc4} />
+            <div className="line-45pop"></div>
+            <div className="group-113pop">
+              <div onClick={signout} className="sign-outpop">Sign out</div>
+              <img className="image-17pop" src={icc4} />
             </div>
           </div>
 
 
+
+
+          <img src={profile} alt="profile" className="icon" />
         </div>
 
         <a href="/favorites">
@@ -98,8 +140,29 @@ const Header = () => {
 export default Header;
 
 async function accPop() {
-
   let lo = localStorage.getItem('token');
+  if (lo == null) {
+    window.location.href = "http://localhost:5173/login"
+    console.log("no token");
+  }
+  else {
+    let to = JSON.parse(atob(lo.split(".")[1]));
+
+    if (Date.now() / 1000 >= to.exp) {
+      window.location.href = "http://localhost:5173/login"
+    }
+
+    window.location.href = "http://localhost:5173/dashboard"
+  }
+    
+}
+
+
+
+async function accPop1() {
+  let lo = localStorage.getItem('token');
+  var pop = document.getElementById("accp");
+  console.log(pop.classList)
   if (lo == null) {
     window.location.href = "http://localhost:5173/login"
     console.log("no token");
@@ -115,9 +178,10 @@ async function accPop() {
   }
     
   var pop = document.getElementById("accp");
-  console.log(pop)
+  console.log(pop.classList)
   pop.classList.toggle("show");
 }
+
 
 
 async function signout() {
@@ -125,21 +189,8 @@ async function signout() {
 }
 
 
-async function loggedin() {
-  let lo = localStorage.getItem('token');
-  if (lo == null) {
-    
-    console.log("no token");  
-  }
-  else {
-    let to = JSON.parse(atob(lo.split(".")[1]));
-  
-    if (Date.now() / 1000 >= to.exp) {
-      return
-    }
-    else {
-      console.log(to.id)
-
+async function loggedin(to) {
+      
       try {
         var url = "http://localhost:5000/api/users/" + to.id;
         const response = await fetch(url, {
@@ -150,14 +201,14 @@ async function loggedin() {
             'Authorization': localStorage.getItem('token')
           } 
         });
-
+        console.log('sefse')
         const resjson = await response.json();
 
         if (!response.ok) {
 
           throw new Error(`Response status: ${response}`);
         }
-      document.getElementById("login").innerHTML = resjson.first_name
+      //document.getElementById("login").innerHTML = resjson.first_name
       document.getElementById("popname").innerHTML = resjson.first_name
       document.getElementById("login").href = "/dashboard"
         
@@ -167,6 +218,4 @@ async function loggedin() {
       }
 
     }
-  }
-}
-
+  

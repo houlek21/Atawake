@@ -1,23 +1,15 @@
+
+
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 64px;
-  padding: 12px 70px;
+  min-height: 80px;
+  padding: 15px 70px;
   background-color: var(--brown, #392516);
   color: var(--beige, #fff8ef);
   font-family: "Inter", sans-serif;
 }
-
-
-
-
-
-
-
-
-
-
 
 .navbar-left {
   display: flex;
@@ -51,35 +43,42 @@
 }
 
 .dropdown-menu {
-  width: 200px;
-  height: 300px;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: var(--brown, #3b2a1a);
   border-radius: 12px;
-  padding: 24px 28px;
+  padding: 16px 20px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   display: none;
   flex-direction: column;
   z-index: 999;
+  white-space: nowrap; /* prevents line wrapping */
+  min-width: 160px; /* ensure it's not too narrow */
+  width: max-content; /* adjusts to longest item */
 }
 
 .shop-button:hover .dropdown-menu {
   display: flex;
 }
 
-.dropdown-menu a {
+.dropdown-menu a,
+.dropdown-link {
   color: var(--beige, #fff8ef);
   font-size: 16px;
   font-weight: 400;
-  padding: 8px 0;
+  padding: 10px 0;
   text-decoration: none;
-  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  transform-origin: left;
 }
 
-.dropdown-menu a:hover {
-  opacity: 0.75;
+.dropdown-menu a:hover,
+.dropdown-link:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+  color: #ffd9b3; /* optional: subtle warm highlight */
 }
 
 .navbar-right {
@@ -88,86 +87,65 @@
   gap: 18px;
 }
 
+.login {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--beige);
+  text-decoration: none;
+
+  display: inline-block;
+  cursor: pointer;
+}
 
 .icon {
-  height: 40px;
-  width: 40px;
+  height: 40px !important;
+  width: 40px !important;
+  display: block;
   object-fit: contain;
 }
 
 
 
 
-/* Popup container */
-.login {
+
+
+
+
+
+
+
+
+
+
+/* Tooltip container */
+.profileacp {
   position: relative;
   display: inline-block;
-  cursor: pointer;
- font-size: 16px;
-  font-weight: 400;
-  line-height: 18px;
-  color: var(--beige);
-  text-decoration: none;
-
-
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
-/* The actual popup (appears on top) */
+/* Tooltip text */
 .login .profileacp {
   visibility: hidden;
-  
-  
+  width: 210px;
+  background-color: black;
   color: #fff;
   text-align: center;
+  padding: 5px 0;
   border-radius: 6px;
-  padding: 8px 0;
+ 
+  /* Position the tooltip text - see examples below! */
   position: absolute;
-  z-index: 199;
-  
-  margin-left: -80px;
+  z-index: 999;
 }
 
-/* Popup arrow */
-.login .profileacp::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
+/* Show the tooltip text when you mouse over the tooltip container */
+.login:hover .profileacp {
+  --profileacp-visibility: hidden;
+  visibility: hidden;
+  visibility: var(--profileacp-visibility);
 }
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.login .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 0.5s;
-  animation: fadeIn 0.5s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -179,11 +157,11 @@
   height: 260px;
   position: relative;
 }
-.group-110 {
+.group-110pop {
   position: absolute;
   inset: 0;
 }
-.rectangle-155acp {
+.rectangle-155acppop {
   background: var(--brown, #392516);
   border-radius: 16px;
   width: 100%;
@@ -195,7 +173,7 @@
   top: 0%;
   box-shadow: 0px -2px 4px 0px rgba(0, 0, 0, 0.21);
 }
-.ellipse-35 {
+.ellipse-35pop {
   background: var(--light-grey, #6d6d6d);
   border-radius: 50%;
   width: 40px;
@@ -204,7 +182,7 @@
   left: 19px;
   top: 23px;
 }
-.profim {
+.profimpop {
   color: var(--color, #faf5ee);
   text-align: center;
   font-family: "SfCompact-Light", sans-serif;
@@ -215,7 +193,7 @@
   left: 25%;
   top: 22%;
 }
-.emily-carter {
+.emily-carterpop {
   color: #ffffff;
   text-align: left;
   font-family: var(--icon-label-font-family, "Inter-Bold", sans-serif);
@@ -227,7 +205,7 @@
   left: 71px;
   top: 22px;
 }
-.view-your-profile {
+.view-your-profilepop {
   color: #ffffff;
   text-align: left;
   font-family: "Inter-Regular", sans-serif;
@@ -239,12 +217,12 @@
   left: 71px;
   top: 43px;
 }
-.group-112 {
+.group-112pop {
   width: 152px;
   height: 27px;
   position: static;
 }
-.icons-8-settings-50-1 {
+.icons-8-settings-50-1pop {
   width: 27px;
   height: 27px;
   position: absolute;
@@ -253,7 +231,7 @@
   object-fit: cover;
   aspect-ratio: 1;
 }
-.account-setting {
+.account-settingpop {
   color: #ffffff;
   text-align: left;
   font-family: "Inter-Regular", sans-serif;
@@ -265,12 +243,12 @@
   left: 71px;
   top: 155px;
 }
-.group-111 {
+.group-111pop {
   width: 71px;
   height: 27px;
   position: static;
 }
-.image-16 {
+.image-16pop {
   width: 27px;
   height: 27px;
   position: absolute;
@@ -279,7 +257,7 @@
   object-fit: cover;
   aspect-ratio: 1;
 }
-.sell {
+.sellpop {
   color: #ffffff;
   text-align: left;
   font-family: "Inter-Regular", sans-serif;
@@ -294,7 +272,7 @@
   align-items: center;
   justify-content: flex-start;
 }
-.line-45 {
+.line-45pop {
   margin-top: -1px;
   border-style: solid;
   border-color: rgba(250, 245, 238, 0.55);
@@ -305,12 +283,12 @@
   left: 0px;
   top: 85px;
 }
-.group-113 {
+.group-113pop {
   width: 102px;
   height: 27px;
   position: static;
 }
-.sign-out {
+.sign-outpop {
   color: #ffffff;
   text-align: left;
   font-family: "Inter-Regular", sans-serif;
@@ -322,7 +300,7 @@
   left: 71px;
   top: 207px;
 }
-.image-17 {
+.image-17pop {
   width: 27px;
   height: 27px;
   position: absolute;
@@ -331,4 +309,3 @@
   object-fit: cover;
   aspect-ratio: 1;
 }
-
