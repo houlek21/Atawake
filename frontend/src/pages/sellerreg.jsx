@@ -20,7 +20,7 @@ export function sellerregPage() {
               <div className="frame-273s">
                 <div className="frame-1s">
                   <div className="names">Business Name</div>
-                  <input id="name" placeholder='Namet' className="email-input-boxs" />
+                  <input id="name" placeholder='Name' className="email-input-boxs" />
 
 
                   <div className="names">Contact Person</div>
