@@ -90,7 +90,7 @@ const CustomerReviews = () => {
           <button
             key={i}
             onClick={() => setCurrentPage(i + 1)}
-            className={`rounded-full w-12 h-12 border border-[#981b1e] text-sm ${
+            className={`rounded-full w-8 h-8 border border-[#981b1e] text-sm ${
               currentPage === i + 1
                 ? "bg-[#981b1e] text-white"
                 : "text-[#981b1e] hover:bg-[#f3e8e8]"

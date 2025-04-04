@@ -29,6 +29,7 @@ services:
     volumes:
       - ./backend:/app  # Sync backend files with container
       - /app/node_modules  # Prevents overwriting dependencies
+      - uploads_data:/app/uploads # persistent uploads
     depends_on:
       mysql:
         condition: service_healthy
@@ -48,3 +49,4 @@ services:
 
 volumes:
   mysql-data:
+  uploads_data:

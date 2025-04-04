@@ -33,6 +33,16 @@ const Seller = sequelize.define(
     about_us_description: {
       type: DataTypes.TEXT,
     },
+    profile_image: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      comment: "File path for the seller's profile image"
+    },
+    profile_image_original_name: {
+      type: DataTypes.STRING(255),
+      allowNull: true,
+      comment: "Original filename of the profile image"
+    },
     indigenous_verification_status: {
       type: DataTypes.ENUM("pending", "verified", "rejected"),
       defaultValue: "pending",
