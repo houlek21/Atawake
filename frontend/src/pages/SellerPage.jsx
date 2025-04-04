@@ -14,6 +14,12 @@ import img5 from "../assets/Artist/X.svg"
 import img6 from "../assets/icons/facebook.svg"
 import img7 from "../assets/Artist/instagram.svg"
 
+import ProductCard from "../components/ProductCard";
+
+import prod1 from "../assets/SellerP/il1.png"
+import prod2 from "../assets/SellerP/il2.png"
+
+
 
 const sellerPage = () => {
   useEffect(() => {
@@ -81,12 +87,57 @@ const sellerPage = () => {
             and she actively mentors young Indigenous artists, fostering the next
             generation of storytellers.
           </div>
+          </div>
 
 
 
-          <div id="id" >
+          <div id="id"  className="artprodconta">
+
+            <div className="all-itemsa">Artists Products</div>
+            <div className="artprodcardsa">
+            <ProductCard
+              key={"product.id"}
+              id={"product.id"}
+              name={"Native Floral Fab..."}
+              seller={""}
+              price={`CA$${parseFloat(123).toFixed(2)}`}
+              imageUrl={prod1}
+              rating={4 + Math.random()}
+              reviews={Math.floor(Math.random() * 2000)}
+              
+            />
+            <ProductCard
+              key={"product.id"}
+              id={"product.id"}
+              name={"Métis Beadwork..."}
+              seller={""}
+              price={`CA$${parseFloat(123).toFixed(2)}`}
+              imageUrl={prod2}
+              rating={4 + Math.random()}
+              reviews={Math.floor(Math.random() * 2000)}
+              
+            />
+            </div>
+        </div>
+
+            
+          
+      </div>
+    </div>
+  )
+};
+export default sellerPage;
 
 
+
+function slide() {
+
+
+
+}
+
+
+/*
             <div class="item-hover">
               <div class="flowers-hoodie">Native Floral Fab...</div>
               <img class="mask-group" src="mask-group0.svg" />
@@ -106,19 +157,7 @@ const sellerPage = () => {
               <div class="ca-45-00">CA$2.75</div>
             </div>
           </div>
-
-
-        </div>
-      </div>
-    </div>
-  )
-};
-export default sellerPage;
-
-
-
-function slide() {
-
-
-
-}
+  
+ 
+ 
+ */

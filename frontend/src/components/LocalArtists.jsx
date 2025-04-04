@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import ArtistCard from "./ArtistCard";
 
+import img2 from "../assets/Artist/profile1.jpg"
+import img3 from "../assets/Artist/profile2.jpg"
+
+
 const LocalArtists = () => {
   const [sellers, setSellers] = useState([]);
 
@@ -49,6 +53,15 @@ const LocalArtists = () => {
         </a>
       </div>
       <div className="flex flex-wrap justify-start">
+      
+      <a href="/sellers"><ArtistCard
+              key={""}
+              seller_id={"taya"}
+              name={"Taya Sky"}
+              image_url={img3}
+              location={"Sherwood Park, AB"}
+            />
+            </a>
         {sellers.map((seller) => {
           const profile = artistProfiles[seller.business_name] || {};
           return (

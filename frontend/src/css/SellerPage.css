@@ -5,7 +5,7 @@
   height: 100%;
   
   
-  width: 1410px;
+  width: 1210px;
   
   z-index: -99;
 
@@ -74,7 +74,7 @@
         box-shadow: 0px 2px 3.9px 0px rgba(0, 0, 0, 0.25);
         margin: auto;
         display: flex;
-        left: 11%;
+        left: 8%;
       
 }
 
@@ -382,4 +382,37 @@
   bottom: 0%;
   top: 92.96%;
   height: 7.04%;
+}
+
+
+
+.artprodconta{
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  
+  display:flex;
+    flex-direction: column;
+    width:90%;
+    margin: auto;
+    padding-top: 3%;
+}
+
+.artprodcardsa{
+  display: flex;
+  flex-direction: lrow;
+  
+}
+
+
+.all-itemsa {
+  color: var(--red, #93151f);
+  text-align: left;
+  font-family: var(--header-1-font-family, "Inter-SemiBold", sans-serif);
+  font-size: var(--header-1-font-size, 38px);
+  font-weight: var(--header-1-font-weight, 600);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
