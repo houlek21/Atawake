@@ -40,8 +40,8 @@ async function catcreate() {
   }
 }
 catcreate()
-*/
-//________________________
+/*
+
 
 // Get all categories (public)
 export const getAllCategories = async (req, res) => {
