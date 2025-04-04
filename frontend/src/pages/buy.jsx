@@ -25,7 +25,7 @@ const buyPage = () => {
 
 
       <div class={styles["itemCont"]} id="grid">
-        <div class={styles["item-cards"]} id='c0'>
+        <a class={styles["item-cards"]} id='c0'>
           <div class={styles["flowers-hoodie"]} id='title' >Full tiered ribbon...</div>
           <img class={styles["mask-group"]} id='img0' src="mask-group0.svg" />
           <div class={styles["_4-7"]}></div>
@@ -33,9 +33,9 @@ const buyPage = () => {
           <div class={styles["div"]}>􀋃</div>
           <div class={styles["taya-sky"]} id='account'>Taya Sky</div>
           <div class={styles["ca-45-00"]} id='price'>CA$280.00</div>
-        </div>
+        </a>
 
-        <span class={styles["item-cards"]} id='c1'>
+        <a class={styles["item-cards"]} id='c1'>
           <div class={styles["flowers-hoodie"]} id='title' >Full tiered ribbon...</div>
           <img class={styles["mask-group"]} id='img0' src="mask-group0.svg" />
           <div class={styles["_4-7"]}></div>
@@ -43,9 +43,9 @@ const buyPage = () => {
           <div class={styles["div"]}>􀋃</div>
           <div class={styles["taya-sky"]} id='account'>Taya Sky</div>
           <div class={styles["ca-45-00"]} id='price'>CA$280.00</div>
-        </span>
+        </a>
 
-        <div class={styles["item-cards"]} id='c2'>
+        <a class={styles["item-cards"]} id='c2'>
           <div class={styles["flowers-hoodie"]} id='title' >Full tiered ribbon...</div>
           <img class={styles["mask-group"]} id='img0' src="mask-group0.svg" />
           <div class={styles["_4-7"]}></div>
@@ -53,7 +53,7 @@ const buyPage = () => {
           <div class={styles["div"]}>􀋃</div>
           <div class={styles["taya-sky"]} id='account'>Taya Sky</div>
           <div class={styles["ca-45-00"]} id='price'>CA$280.00</div>
-        </div>
+        </a>
 
         <div class={styles["item-cards"]} id='c3'>
           <div class={styles["flowers-hoodie"]} id='title' >Full tiered ribbon...</div>
@@ -207,6 +207,7 @@ async function getRecent(category = 0) {
       console.log('lop' + i + " c" + String(i), id, a[i])
       document.getElementById("c" + String(i)).style.opacity = "1";
       document.getElementById("c" + String(i)).childNodes[0].innerHTML = a[i].name//title
+      document.getElementById("c" + String(i)).href  = "http://localhost:5173/artist/"+ a[i].seller_id + "/product/"+a[i].id //link to prod
       document.getElementById("c" + String(i)).childNodes[1].src = a[i].ProductMedia[0].imageUrl//pic
       document.getElementById("c" + String(i)).childNodes[5].innerHTML = a[i].Seller.business_name//acc
       document.getElementById("c" + String(i)).childNodes[6].innerHTML = '$' + a[i].price // price
