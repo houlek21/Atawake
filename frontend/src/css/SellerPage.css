@@ -3,23 +3,21 @@
 .sellercont{
   position: relative;
   height: 100%;
-  
-  
+   
   width: 1210px;
-  
-  z-index: -99;
+  z-index: 59;
 
   align-items: center;
-  
-  
-  
-  
-  margin: -8% auto 0px auto;
+  margin: 0% auto 0px auto;
   box-sizing: border-box;
 }
 
 
 
+.footseperator{
+  z-index: -99;
+ 
+}
 
 ._2-1024-x-683-3sell {
   border-radius: 11px;
