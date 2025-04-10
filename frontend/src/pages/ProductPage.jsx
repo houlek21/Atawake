@@ -12,6 +12,24 @@ const ProductPage = () => {
   const [seller, setSeller] = useState(null);
   const [cartOpen, setCartOpen] = useState(false); // for drawer
   const [cartItems, setCartItems] = useState([]); // cart contents
+  const [cartSubtotal, setCartSubtotal] = useState(0);
+
+  // Add this function to fetch cart data
+  const fetchCartData = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/cart', {
+        credentials: 'include'
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setCartItems(data.cartItems);
+        setCartSubtotal(parseFloat(data.subtotal));
+      }
+    } catch (err) {
+      console.error("Error fetching cart:", err);
+    }
+  };
 
   // Fetch product
   useEffect(() => {
@@ -46,18 +64,42 @@ const ProductPage = () => {
     }
   }, [product]);
 
-  const handleAddToCart = () => {
+  // Fetch cart when drawer opens
+  useEffect(() => {
+    if (cartOpen) {
+      fetchCartData();
+    }
+  }, [cartOpen]);
+
+  const handleAddToCart = async () => {
     if (!product) return;
-
-    const newItem = {
-      name: product.name,
-      image: product.ProductMedia?.[0]?.imageUrl,
-      quantity: 1,
-      price: parseFloat(product.price),
-    };
-
-    setCartItems([newItem]);
-    setCartOpen(true);
+    
+    try {
+      // Make API call to the backend
+      const response = await fetch('http://localhost:5000/api/cart/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          product_id: product.id, 
+          quantity: 1
+        })
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error("Error adding to cart:", errorData.message);
+        return;
+      }
+      
+      // After successful API call, get the updated cart
+      await fetchCartData();
+      setCartOpen(true);
+    } catch (err) {
+      console.error("Error adding to cart:", err);
+    }
   };
 
   if (!product) {
@@ -261,7 +303,7 @@ const ProductPage = () => {
         isOpen={cartOpen}
         onClose={() => setCartOpen(false)}
         items={cartItems}
-        subtotal={cartItems.reduce((sum, i) => sum + i.price * i.quantity, 0)}
+        subtotal={cartSubtotal}
       />
     </div>
   );
