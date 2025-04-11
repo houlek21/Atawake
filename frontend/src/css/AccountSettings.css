@@ -26,6 +26,8 @@
   justify-content: flex-start;
   flex-shrink: 0;
   width: 558px;
+  margin:  auto 0px auto auto;
+  left: -2%;
   position: relative;
 }
 .profile-setting {
@@ -433,7 +435,8 @@
   flex-shrink: 0;
   width: 190px;
   height: 253px;
-  position: static;
+  position: relative;
+  margin: 55px auto auto 0px;
 }
 .profile-photo2 {
   color: #000000;
@@ -442,23 +445,21 @@
   font-size: var(--header-3-font-size, 25px);
   font-weight: var(--header-3-font-weight, 600);
   position: absolute;
-  left: 814px;
-  top: 0px;
+  
 }
 .image {
   border-radius: 20px;
   width: 189px;
   height: 214px;
   position: absolute;
-  left: 815px;
-  top: 39px;
+  top: 40px;
   object-fit: cover;
 }
 .edit {
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 955px;
-  top: 184px;
+  left: 135px;
+  top: 194px;
   overflow: visible;
 }

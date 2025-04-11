@@ -2,18 +2,14 @@
 
 
 
-.log-in,
-.log-in * {
-  box-sizing: border-box;
-}
-.log-in {
+.log-inlogin {
   
   background: #ffffff;
-  height: 1020px;
+  height: 1220px;
   position: relative;
   overflow: show;
 }
-.rectangle-177 {
+.rectangle-177login {
   width: 100%;
   
   position: absolute;
@@ -30,18 +26,7 @@
 
 
 
-
-
-
-
-
-
-
-.frame-272,
-.frame-272 * {
-  box-sizing: border-box;
-}
-.frame-272 {
+.frame-272login  {
   background: #ffffff;
   border-radius: 20px;
   padding: 64px;
@@ -55,7 +40,7 @@
   justify-content: flex-start;
   position: relative;
 }
-.frame-271 {
+.frame-271login {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -65,7 +50,7 @@
   width: 606px;
   position: relative;
 }
-.frame-275 {
+.frame-275login  {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -75,7 +60,7 @@
   flex-shrink: 0;
   position: relative;
 }
-.input-boxes {
+.input-boxeslogin {
   display: flex;
   flex-direction: column;
   gap: 16px;

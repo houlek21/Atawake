@@ -12,14 +12,14 @@ const loginPage = () => {
 
     return (
 
-        <div className="log-in">
-            <img className="rectangle-177" src="http://localhost:5173/src/assets/loginbg.jpg" />
+        <div className="log-inlogin">
+            <img className="rectangle-177login" src="http://localhost:5173/src/assets/loginbg.jpg" />
 
 
-            <div className="frame-272">
-  <div className="frame-271">
-    <div className="frame-275">
-      <div className="input-boxes">
+            <div className="frame-272login">
+  <div className="frame-271login">
+    <div className="frame-275login">
+      <div className="input-boxeslogin">
         <div className="log-in-as-a-seller">Log in</div>
         <div className="frame-278">
           <div className="emaillog">Email</div>

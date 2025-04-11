@@ -2,7 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import '../css/AccountSettings.css';
 
-
+import img1 from '../assets/dashboard/settings/editpen.svg';
+import img2 from '../assets/dashboard/settings/image.png';
+import img3 from '../assets/dashboard/settings/accimg.jpg'
+import img4 from '../assets/dashboard/settings/add.jpg'
 const setting = () => {
 
 
@@ -43,7 +46,7 @@ const setting = () => {
               <div class="general-information">
                 <div class="social-media">Social Media</div>
                 <div class="frame-221">
-                  <img class="ep-warning-filled" src="ep-warning-filled0.svg" />
+                  <img class="ep-warning-filled" src={img1} />
                   <div
                     class="by-entering-your-social-media-links-potential-customers-will-be-go-to-your-social-media-accounts"
                   >
@@ -87,7 +90,7 @@ const setting = () => {
               </div>
             </div>
             <div class="frame-309">
-              <img class="add" src="add0.svg" />
+              <img class="add" src={img4} />
             </div>
             <div class="shop-button">
               <div class="shop">Save</div>
@@ -96,8 +99,8 @@ const setting = () => {
         </div>
         <div class="profile-photo">
           <div class="profile-photo2">Profile Photo</div>
-          <img class="image" src="image0.png" />
-          <img class="edit" src="edit0.svg" />
+          <img class="image" src={img3} />
+          <img class="edit" src={img1} />
         </div>
       </div>
       )

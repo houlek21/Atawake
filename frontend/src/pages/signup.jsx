@@ -104,6 +104,7 @@ async function newUser() {
 
     window.location.href = "http://localhost:5173/login"
 
+    
   } catch (error) {
     console.error(error.message);
   }

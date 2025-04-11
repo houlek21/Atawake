@@ -18,14 +18,14 @@ const AccountSideBar = () => {
       <img className="dashboard-24-dp-1-f-1-f-1-f-fill-0-wght-400-grad-0-opsz-24-1sb" src={dash}/>
       <div className="dashboard2sb">Dashboard</div>
     </a>
-    <div className="messagessb">
+    <a href="http://localhost:5173/messages" className="messagessb">
       <img className="vectorsb" src={mess} />
       <div className="messages2sb">Messages</div>
-    </div>
-    <div className="settingsb">
+    </a>
+    <a href="http://localhost:5173/settings" className="settingsb">
       <img className="vector2sb" src={sett} />
       <div className="setting2sb">Setting</div>
-    </div>
+    </a>
   </div>
   <div onClick={logout} className="log-offsb">
     <img className="vector3sb" src={logoff} />

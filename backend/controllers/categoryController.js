@@ -1,6 +1,5 @@
 import Category from '../models/category.js';
 
-/*
 //category create for ease - del when not needed
 async function catcreate() {
   console.log("create");
@@ -40,7 +39,7 @@ async function catcreate() {
   }
 }
 catcreate()
-*/
+
 
 
 // Get all categories (public)

@@ -14,7 +14,9 @@ import SearchResults from "./components/SearchResults";
 import ProductPage from "./pages/ProductPage";
 import ArtistPage from "./pages/ArtistPage";
 
-import SettingsPage from "./pages/AccountSettingsSETUP.jsx";
+import MessagesPage from "./pages/AccountMessagesPage.jsx";
+import SettingsMenuPage from "./pages/SettingMenuPage.jsx";
+import SettingsPage from "./pages/AccountSettingsPage.jsx";
 import LoginPage from "./pages/Login.jsx";
 import SignupPage from "./pages/signup.jsx";
 import SellerSignupPage from "./pages/sellerreg.jsx";
@@ -51,7 +53,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/sellersignup" element={<SellerSignupPage />} />
-        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/accountsettings" element={<SettingsPage />} />
+        <Route path="/settings" element={<SettingsMenuPage />} />
+        <Route path="/messages" element={<MessagesPage />} />
         <Route
           path="/addprod1"
           element={
